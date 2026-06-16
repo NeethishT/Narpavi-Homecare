@@ -1,0 +1,151 @@
+import type { LucideIcon } from 'lucide-react';
+import { createElement } from 'react';
+import {
+  Accessibility,
+  Activity,
+  ArrowRight,
+  Baby,
+  BadgeCheck,
+  Bandage,
+  Bath,
+  BedDouble,
+  Bird,
+  Brain,
+  BriefcaseMedical,
+  CalendarClock,
+  ChartNoAxesColumnIncreasing,
+  Check,
+  ChevronRight,
+  CircleCheck,
+  ClipboardList,
+  Clock3,
+  FlaskConical,
+  Footprints,
+  Globe2,
+  HandHeart,
+  Heart,
+  HeartPulse,
+  Hospital,
+  House,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Milk,
+  Minus,
+  Monitor,
+  Moon,
+  PersonStanding,
+  Phone,
+  Pill,
+  Plus,
+  RefreshCw,
+  Search,
+  ShieldAlert,
+  ShieldCheck,
+  Siren,
+  Smartphone,
+  Sparkles,
+  SprayCan,
+  Star,
+  Stethoscope,
+  Sun,
+  Syringe,
+  Trophy,
+  UserRoundCheck,
+  Users,
+  UtensilsCrossed,
+  Wind,
+  X,
+  Zap,
+} from 'lucide-react';
+
+const rules: Array<[RegExp, LucideIcon]> = [
+  [/phone|call/i, Phone],
+  [/whatsapp|message|chat/i, MessageCircle],
+  [/location|area|map/i, MapPin],
+  [/email|mail/i, Mail],
+  [/close/i, X],
+  [/expand|plus/i, Plus],
+  [/collapse|minus/i, Minus],
+  [/arrow|view|learn|more|option/i, ArrowRight],
+  [/star|rating|#1/i, Star],
+  [/verified|background|check|onboarding/i, BadgeCheck],
+  [/emergency|critical|alert|escalation|icu/i, Siren],
+  [/infection|safety|secure|shield|prevention/i, ShieldCheck],
+  [/doctor|nurse|nursing|clinical|professional|healthcare/i, Stethoscope],
+  [/injection|infusion|advance/i, Syringe],
+  [/brain|neuro|dementia|parkinson|cognitive|specialty/i, Brain],
+  [/baby|newborn|mother|postnatal/i, Baby],
+  [/milk|feeding/i, Milk],
+  [/elder|senior|geriatric/i, PersonStanding],
+  [/palliative|end of life|dignity|comfort|emotional|wellbeing/i, HandHeart],
+  [/companion|support|assistant/i, Heart],
+  [/family|people|involvement/i, Users],
+  [/nri|global|abroad/i, Globe2],
+  [/home|familiar|environment/i, House],
+  [/hospital|post-surgery|recovery/i, Hospital],
+  [/medication|medicine|pill|chronic/i, Pill],
+  [/vital|pulse|health monitoring/i, HeartPulse],
+  [/report|log|update|transparent/i, ClipboardList],
+  [/mobile|smartphone|real-time/i, Smartphone],
+  [/replace|readmission|refresh/i, RefreshCw],
+  [/mobility equipment|wheelchair|accessibility/i, Accessibility],
+  [/mobility|walk|transfer|exercise/i, Footprints],
+  [/bath|hygiene|grooming|personal care|daily living/i, Bath],
+  [/nutrition|meal|food|hydration/i, UtensilsCrossed],
+  [/wound|dressing/i, Bandage],
+  [/search|monitoring/i, Search],
+  [/respiratory|suction|airway|bipap|cpap/i, Wind],
+  [/patient monitor|screen/i, Monitor],
+  [/oxygen|cylinder/i, FlaskConical],
+  [/mattress|cot|bed/i, BedDouble],
+  [/pump|dvt|circulation/i, Activity],
+  [/equipment|catalog/i, BriefcaseMedical],
+  [/day shift|sun/i, Sun],
+  [/night shift|moon/i, Moon],
+  [/schedule|timing|clock|shift/i, Clock3],
+  [/calendar/i, CalendarClock],
+  [/outcome|award|better/i, Trophy],
+  [/healing|fast|delivery|benefit|lightning/i, Zap],
+  [/chart|personalized/i, ChartNoAxesColumnIncreasing],
+  [/caregiver|user|person/i, UserRoundCheck],
+  [/clean|sanit|hygiene protocol/i, SprayCan],
+  [/peace|dove/i, Bird],
+  [/risk|warning/i, ShieldAlert],
+  [/success|done|tick/i, CircleCheck],
+];
+
+type SiteIconProps = {
+  name: string;
+  size?: number;
+  strokeWidth?: number;
+  className?: string;
+};
+
+export function resolveSiteIcon(name: string): LucideIcon {
+  for (const [pattern, Icon] of rules) {
+    if (pattern.test(name)) return Icon;
+  }
+  return Sparkles;
+}
+
+export default function SiteIcon({ name, size = 22, strokeWidth = 2, className }: SiteIconProps) {
+  return createElement(resolveSiteIcon(name), {
+    'aria-hidden': true,
+    className,
+    size,
+    strokeWidth,
+  });
+}
+
+export {
+  ArrowRight,
+  Check,
+  ChevronRight,
+  MessageCircle,
+  Phone,
+  Plus,
+  Minus,
+  Star,
+  X,
+};

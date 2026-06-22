@@ -114,7 +114,7 @@ export default function GatedDownloadResources({
             <form onSubmit={handleSubmit} className="download-modal__form">
               <input name="name" type="text" placeholder="Name" aria-label="Name" required />
               <input name="mobile" type="tel" placeholder="Mobile Number" aria-label="Mobile number" required />
-              <input name="location" type="text" placeholder="Location" aria-label="Location" required />
+              <input name="profession" type="text" placeholder="Profession" aria-label="Profession" required />
               <button type="submit" className="btn btn--primary">
                 Submit & Download <Download size={16} />
               </button>

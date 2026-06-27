@@ -1,0 +1,197 @@
+[browser] Encountered two children with the same key, ``. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+    at <unknown> (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:4104:33)
+    at runWithFiberInDEV (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:965:74)
+    at warnOnInvalidKey (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:4103:21)
+    at reconcileChildrenArray (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:4129:160)
+    at reconcileChildFibersImpl (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:4236:51)
+    at <unknown> (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:4261:39)
+    at reconcileChildren (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:5898:51)
+    at beginWork (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:6758:1573)
+    at runWithFiberInDEV (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:965:74)
+    at performUnitOfWork (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9555:97)
+    at workLoopConcurrentByScheduler (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9551:58)
+    at renderRootConcurrent (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9534:71)
+    at performWorkOnRoot (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_1amofcm._.js:2647:64) (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:4104:33)
+[browser] Encountered two children with the same key, ``. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+    at <unknown> (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:4104:33)
+    at runWithFiberInDEV (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:965:74)
+    at warnOnInvalidKey (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:4103:21)
+    at reconcileChildrenArray (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:4129:160)
+    at reconcileChildFibersImpl (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:4236:51)
+    at <unknown> (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:4261:39)
+    at reconcileChildren (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:5898:51)
+    at beginWork (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:6758:1573)
+    at runWithFiberInDEV (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:965:74)
+    at performUnitOfWork (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9555:97)
+    at workLoopConcurrentByScheduler (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9551:58)
+    at renderRootConcurrent (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9534:71)
+    at performWorkOnRoot (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_1amofcm._.js:2647:64) (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:4104:33)
+[browser] Encountered two children with the same key, ``. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+    at <unknown> (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:4104:33)
+    at runWithFiberInDEV (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:965:74)
+    at warnOnInvalidKey (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:4103:21)
+    at warnOnInvalidKey (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:4108:49)
+    at reconcileChildrenArray (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:4129:160)
+    at reconcileChildFibersImpl (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:4236:51)
+    at <unknown> (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:4261:39)
+    at reconcileChildren (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:5898:51)
+    at beginWork (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:6758:1573)
+    at runWithFiberInDEV (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:965:74)
+    at performUnitOfWork (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9555:97)
+    at workLoopConcurrentByScheduler (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9551:58)
+    at renderRootConcurrent (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9534:71)
+    at performWorkOnRoot (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_1amofcm._.js:2647:64) (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:4104:33)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en">
+                          <head>
+                          <body
+-                           data-new-gr-c-s-check-loaded="14.1305.0"
+-                           data-gr-ext-installed=""
+                          >
+                  ...
+ 
+    at <unknown> (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:3439:25)
+    at runWithFiberInDEV (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:965:74)
+    at emitPendingHydrationWarnings (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:3438:13)
+    at completeWork (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:6885:102)
+    at runWithFiberInDEV (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:965:131)
+    at completeUnitOfWork (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9622:23)
+    at performUnitOfWork (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9557:28)
+    at workLoopConcurrentByScheduler (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9551:58)
+    at renderRootConcurrent (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9534:71)
+    at performWorkOnRoot (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_1amofcm._.js:2647:64) (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:3439:25)
+[browser] Image with src "/images/homepage/pik-24.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477:13)
+[browser] Image with src "/images/homepage/pik-02.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477:13)
+[browser] Image with src "/images/logo-header.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477:13)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477:13)
+⨯ ./src/app/page.tsx:116:13
+Unterminated string constant
+  [90m114 |[0m     alt: [32m'A clinical team preparing for a home health visit'[0m,
+  [90m115 |[0m     href: [32m'/contact'[0m,
+[31m[1m>[0m [90m116 |[0m     action: [32m',[0m
+  [90m    |[0m             [31m[1m^^[0m
+  [90m117 |[0m [32m  },[0m
+  [90m118 |[0m [32m  {[0m
+  [90m119 |[0m [32m    title: '[0m[33mRehabilitation[0m[32m',[0m
+
+Parsing ecmascript source code failed
+
+
+[browser] ./src/app/page.tsx:116:13
+Unterminated string constant
+  114 |     alt: 'A clinical team preparing for a home health visit',
+  115 |     href: '/contact',
+> 116 |     action: ',
+      |             ^^
+  117 |   },
+  118 |   {
+  119 |     title: 'Rehabilitation',
+
+Parsing ecmascript source code failed 
+    at handleErrors (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_client_0r5nbpw._.js:13951:21)
+    at processMessage (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_client_0r5nbpw._.js:14014:21)
+    at WebSocket.handleMessage (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_client_0r5nbpw._.js:13458:52) (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_client_0r5nbpw._.js:13951:21)
+[browser] ./src/app/page.tsx:116:13
+Unterminated string constant
+  114 |     alt: 'A clinical team preparing for a home health visit',
+  115 |     href: '/contact',
+> 116 |     action: "',
+      |             ^^^
+  117 |   },
+  118 |   {
+  119 |     title: 'Rehabilitation',
+
+Parsing ecmascript source code failed 
+    at handleErrors (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_client_0r5nbpw._.js:13951:21)
+    at processMessage (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_client_0r5nbpw._.js:14014:21)
+    at WebSocket.handleMessage (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_client_0r5nbpw._.js:13458:52) (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_client_0r5nbpw._.js:13951:21)
+[browser] ./src/app/page.tsx:116:13
+Unterminated string constant
+  114 |     alt: 'A clinical team preparing for a home health visit',
+  115 |     href: '/contact',
+> 116 |     action: ',
+      |             ^^
+  117 |   },
+  118 |   {
+  119 |     title: 'Rehabilitation',
+
+Parsing ecmascript source code failed 
+    at handleErrors (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_client_0r5nbpw._.js:13951:21)
+    at processMessage (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_client_0r5nbpw._.js:14014:21)
+    at WebSocket.handleMessage (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_client_0r5nbpw._.js:13458:52) (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_client_0r5nbpw._.js:13951:21)
+[browser] ./src/app/page.tsx:116:13
+Unterminated string constant
+  114 |     alt: 'A clinical team preparing for a home health visit',
+  115 |     href: '/contact',
+> 116 |     action: ',
+      |             ^^
+  117 |   },
+  118 |   {
+  119 |     title: 'Rehabilitation',
+
+Parsing ecmascript source code failed 
+    at handleErrors (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_client_0r5nbpw._.js:13951:21)
+    at processMessage (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_client_0r5nbpw._.js:14014:21)
+    at WebSocket.handleMessage (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_client_0r5nbpw._.js:13458:52) (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_client_0r5nbpw._.js:13951:21)
+[browser] ./src/app/page.tsx:116:13
+Unterminated string constant
+  114 |     alt: 'A clinical team preparing for a home health visit',
+  115 |     href: '/contact',
+> 116 |     action: ',
+      |             ^^
+  117 |   },
+  118 |   {
+  119 |     title: 'Rehabilitation',
+
+Parsing ecmascript source code failed 
+    at handleErrors (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_client_0r5nbpw._.js:13951:21)
+    at processMessage (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_client_0r5nbpw._.js:14014:21)
+    at WebSocket.handleMessage (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_client_0r5nbpw._.js:13458:52) (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_client_0r5nbpw._.js:13951:21)
+[browser] Image with src "/images/homepage/pik-01.png" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative. (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477:13)
+[browser] Image with src "/images/homepage/pik-13.png" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative. (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477:13)
+[browser] Image with src "/images/homepage/pik-14.png" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative. (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477:13)
+[browser] Image with src "/images/homepage/pik-15.png" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative. (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477:13)
+[browser] Image with src "/images/homepage/pik-16.png" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative. (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477:13)
+[browser] Image with src "/images/homepage/pik-17.png" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative. (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477:13)
+[browser] Image with src "/images/homepage/pik-18.png" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative. (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477:13)
+[browser] Image with src "/images/homepage/pik-19.png" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative. (file://C:/Users/dell/Documents/Basic Nursing Care Finals/narpavi-homecare/.next/dev/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477:13)

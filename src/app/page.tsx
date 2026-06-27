@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import type { CSSProperties } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -32,60 +33,57 @@ type ImageCard = {
   href?: string;
   action?: string;
   status?: string;
+  launchLabel?: string;
 };
 
 const SOLUTIONS: ImageCard[] = [
   {
-    title: 'Home Nursing Care',
+    title: '',
     description: 'Skilled nursing and caregiver support from basic daily assistance to advanced and ICU-level care.',
     image: '/images/homepage/pik-02.png',
     alt: 'A home nurse supporting a patient and family',
     href: '/home-nursing-care',
-    action: 'Explore Home Nursing',
+    action: 'Home Nursing Care',
   },
   {
-    title: 'Medical Equipment',
+    title: '',
     description: 'Hospital-grade equipment for rental or purchase, delivered, installed and supported at home.',
     image: '/images/homepage/pik-03.png',
     alt: 'Hospital-grade medical equipment in a clean care room',
     href: '/medical-equipment',
-    action: 'View Equipment',
+    action: 'Medical Equipment',
   },
   {
-    title: 'Health Visits',
+    title: '',
     description: 'Doctor consultations, nursing procedures, treatment support and vaccinations at home.',
     image: '/images/homepage/pik-04.png',
     alt: 'A nurse providing a health visit to an elderly patient',
-    href: '/contact',
-    action: 'Register Interest',
-    status: 'Coming soon',
+    action: 'Health Visits',
+    launchLabel: 'Launching Soon',
   },
   {
-    title: 'Rehabilitation',
+    title: '',
     description: 'Cardiac, pulmonary, neurological and orthopedic recovery programmes led by experienced professionals.',
     image: '/images/homepage/pik-05.png',
     alt: 'A rehabilitation professional helping a patient',
-    href: '/contact',
-    action: 'Register Interest',
-    status: 'Coming soon',
+    action: 'Rehabilitation',
+    launchLabel: 'Launching Soon',
   },
   {
-    title: 'Wellness & Preventive Care',
+    title: '',
     description: 'Yoga, nutrition, lifestyle coaching, screenings, stress management and corporate wellness.',
-    image: '/images/homepage/pik-06.png',
+    image: '/images/homepage/pik-06-clean.png',
     alt: 'Wellness and meditation illustration',
-    href: '/contact',
-    action: 'Register Interest',
-    status: 'Coming soon',
+    action: 'Wellness & Preventive Care',
+    launchLabel: 'Launching Soon',
   },
   {
-    title: 'Assisted Living',
+    title: '',
     description: 'Coordinated support for people who need ongoing safety, supervision, companionship and daily assistance.',
     image: '/images/homepage/pik-24.png',
     alt: 'A family supporting a loved one at home',
-    href: '/contact',
-    action: 'Register Interest',
-    status: 'Coming soon',
+    action: 'Assisted Living',
+    launchLabel: 'Launching Soon',
   },
 ];
 
@@ -106,7 +104,7 @@ const SERVICE_DETAILS: ImageCard[] = [
     image: '/images/homepage/pik-08.png',
     alt: 'Medical equipment ready for a home care setup',
     href: '/medical-equipment',
-    action: 'Browse Medical Equipment',
+    action: 'Explore Medical Equipment',
   },
   {
     title: 'Health Visits',
@@ -115,8 +113,7 @@ const SERVICE_DETAILS: ImageCard[] = [
     image: '/images/homepage/pik-09.png',
     alt: 'A clinical team preparing for a home health visit',
     href: '/contact',
-    action: 'Talk to Our Care Team',
-    status: 'Coming soon',
+    action: '',
   },
   {
     title: 'Rehabilitation',
@@ -125,8 +122,7 @@ const SERVICE_DETAILS: ImageCard[] = [
     image: '/images/homepage/pik-10.png',
     alt: 'A physiotherapist guiding a patient through rehabilitation',
     href: '/contact',
-    action: 'Talk to Our Care Team',
-    status: 'Coming soon',
+    action: '',
   },
   {
     title: 'Wellness & Preventive Care',
@@ -135,8 +131,7 @@ const SERVICE_DETAILS: ImageCard[] = [
     image: '/images/homepage/pik-11.png',
     alt: 'A wellness emblem surrounded by natural health symbols',
     href: '/contact',
-    action: 'Talk to Our Care Team',
-    status: 'Coming soon',
+    action: '',
   },
 ];
 
@@ -445,10 +440,47 @@ const STATS = [
   { number: '24–48 hrs', label: 'Typical rapid setup window', icon: Clock3 },
 ];
 
-const HERO_PROOFS = [
-  { label: 'Nurse-led care plans', icon: Stethoscope },
-  { label: 'Safety-first protocols', icon: ShieldCheck },
-  { label: 'Clear cost guidance', icon: IndianRupee },
+const HERO_BANNERS = [
+  {
+    heading: 'Home Nursing Care',
+    copy:
+      'Skilled nurses and caregivers support recovery, daily routines and clinical needs at home. Care is coordinated around the patient, family and doctor guidance.',
+    image: '/images/homepage/banner-home-nursing-care-illustration.png',
+    alt: 'A home nurse supporting a patient and family',
+    usps: ['Verified Professionals', 'Hospital-Grade Protocols', 'Customised Care Plans'],
+  },
+  {
+    heading: 'Medical Equipment',
+    copy:
+      'Hospital-grade equipment is delivered, installed and supported for safe care at home. Families get practical guidance before starting rental or purchase.',
+    image: '/images/homepage/banner-medical-equipment-illustration.png',
+    alt: 'Hospital-grade medical equipment for home care',
+    usps: ['Hospital-Grade Protocols', 'Rapid Setup', 'Transparent Pricing'],
+  },
+  {
+    heading: 'Health Visits',
+    copy:
+      'Doctor and nurse visits bring professional checks, procedures and treatment support to your home. Care is planned for comfort, hygiene and family confidence.',
+    image: '/images/homepage/banner-health-visits-illustration.png',
+    alt: 'A healthcare professional visiting an elderly patient at home',
+    usps: ['Verified Professionals', 'Safety First', 'Rapid Setup'],
+  },
+  {
+    heading: 'Rehabilitation',
+    copy:
+      'Recovery support for stroke, surgery, orthopedic, cardiac, pulmonary or neurological needs. Professionals guide mobility, strength and independence at home.',
+    image: '/images/homepage/banner-rehabilitation-illustration.png',
+    alt: 'A rehabilitation professional helping a patient at home',
+    usps: ['Customised Care Plans', 'Safety First', 'Verified Professionals'],
+  },
+  {
+    heading: 'Wellness & Preventive Care',
+    copy:
+      'Preventive care supports healthier routines through wellness guidance, lifestyle support and simple home checks. Plans are shaped around each family need.',
+    image: '/images/homepage/banner-wellness-preventive-care-illustration.png',
+    alt: 'Wellness and preventive care support at home',
+    usps: ['Customised Care Plans', 'Safety First', 'Transparent Pricing'],
+  },
 ];
 
 export const metadata: Metadata = {
@@ -480,17 +512,19 @@ function SectionHeading({
   title,
   copy,
   align = 'center',
+  className = '',
 }: {
   index?: string;
   eyebrow?: string;
   title: string;
   copy: string;
   align?: 'center' | 'left';
+  className?: string;
 }) {
   return (
-    <div className={`${styles.sectionHeading} ${align === 'left' ? styles.sectionHeadingLeft : ''}`}>
+    <div className={`${styles.sectionHeading} ${align === 'left' ? styles.sectionHeadingLeft : ''} ${className}`}>
       <h2>{title}</h2>
-      <p>{copy}</p>
+      {copy && <p>{copy}</p>}
     </div>
   );
 }
@@ -516,64 +550,75 @@ export default function HomePage() {
       <div className={styles.home}>
         <section className={styles.hero} id="hero">
           <div className={styles.heroGlow} aria-hidden="true" />
-          <div className={`container ${styles.heroGrid}`}>
-            <div className={styles.heroContent}>
-              <h1>
-                Trusted Home Healthcare
-                <span>in Chennai</span>
-              </h1>
-              <p className={styles.heroLead}>
-                Nursing, ICU support, medical equipment, recovery and wellness care — coordinated around your family,
-                in the comfort of home.
-              </p>
-              <div className={styles.heroActions}>
-                <Link href="/contact" className={styles.primaryButton}>
-                  Book a Home Assessment <ArrowRight size={18} />
-                </Link>
-                <a href={BRAND.phoneHref} className={styles.secondaryButton}>
-                  <Phone size={18} /> Call {BRAND.phoneFormatted}
-                </a>
-              </div>
-              <div className={styles.heroProofs} aria-label="Narpavi care strengths">
-                {HERO_PROOFS.map((proof) => {
-                  const Icon = proof.icon;
-                  return (
-                    <span key={proof.label}>
-                      <Icon size={16} />
-                      {proof.label}
-                    </span>
-                  );
-                })}
-              </div>
-            </div>
+          <div className={`container ${styles.heroCarousel}`} aria-label="Main page service banners">
+            {HERO_BANNERS.map((banner, index) => (
+              <article
+                className={styles.heroSlide}
+                key={banner.heading}
+                style={{ '--slide-delay': `${(index - HERO_BANNERS.length) * 5}s` } as CSSProperties}
+              >
+                <div className={styles.heroContent}>
+                  <h1>{banner.heading}</h1>
+                  <p className={styles.heroLead}>{banner.copy}</p>
+                  <ul className={styles.heroUsps} aria-label={`${banner.heading} USPs`}>
+                    {banner.usps.map((usp) => (
+                      <li key={usp}>
+                        <span className={styles.heroUspIcon}>
+                          <CheckCircle2 size={18} />
+                        </span>
+                        <span>{usp}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-            <div className={styles.heroVisual}>
-              <div className={styles.heroImage}>
-                <Image
-                  src="/images/homepage/pik-01.png"
-                  alt="Narpavi home nurse caring for a patient with family support"
-                  fill
-                  priority
-                  sizes="(max-width: 900px) 100vw, 50vw"
-                />
-              </div>
-              <div className={`${styles.floatingCard} ${styles.floatingCardTop}`}>
-                <ShieldCheck size={24} />
-                <div>
-                  <strong>Safety first</strong>
-                  <span>Structured care protocols</span>
+                <div className={styles.heroVisual}>
+                  <div className={styles.heroImage}>
+                    <Image
+                      src={banner.image}
+                      alt={banner.alt}
+                      fill
+                      priority={index === 0}
+                      sizes="(max-width: 900px) 100vw, 50vw"
+                    />
+                  </div>
                 </div>
-              </div>
-              <div className={`${styles.floatingCard} ${styles.floatingCardBottom}`}>
-                <Clock3 size={24} />
-                <div>
-                  <strong>Rapid coordination</strong>
-                  <span>Often within 24–48 hours</span>
-                </div>
-              </div>
-            </div>
+              </article>
+            ))}
           </div>
 
+        </section>
+
+        <section className={`${styles.section} ${styles.homeIntroSection}`} id="home-health-care">
+          <div className="container">
+            <ScrollAnimator>
+              <div className={styles.homeIntroShell}>
+                <div className={styles.homeIntroGrid}>
+                  <div className={styles.homeIntroCopy}>
+                    <h2>Passionate Home Healthcare at Your Door-Step</h2>
+                    <p>
+                      <strong>Home Health Care</strong> by <strong>Narpavi</strong> is a <em>comprehensive range of
+                      professional healthcare services provided at the patient&apos;s home in Chennai and surrounding
+                      areas.</em> Our services are designed to support <strong>recovery after illness or surgery</strong>,
+                      deliver <strong>skilled nursing and rehabilitation therapies</strong>, address{' '}
+                      <strong>daily health needs</strong> and enhance <strong>overall wellbeing</strong>, all with the
+                      goal of promoting <strong>healing, independence, comfort and quality of life.</strong>
+                    </p>
+                  </div>
+                  <div className={styles.homeIntroVisual}>
+                    <div className={styles.homeIntroImageCard}>
+                      <Image
+                        src="/images/homepage/home-health-care-intro.png"
+                        alt="Narpavi nurse supporting a patient and family with home healthcare"
+                        fill
+                        sizes="(max-width: 900px) 100vw, 48vw"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ScrollAnimator>
+          </div>
         </section>
 
         <section className={`${styles.section} ${styles.sectionTint}`} id="solutions">
@@ -583,25 +628,52 @@ export default function HomePage() {
                 index="01"
                 eyebrow="Complete care ecosystem"
                 title="Explore Our Home Healthcare Solutions"
-                copy="Access essential nursing, equipment, recovery and wellbeing support through one trusted care partner."
+                copy=""
+                className={styles.solutionsHeading}
               />
             </ScrollAnimator>
             <div className={styles.solutionGrid}>
-              {SOLUTIONS.map((solution) => (
-                <Link href={solution.href ?? '/contact'} className={styles.solutionCard} key={solution.title}>
-                  <div className={styles.solutionMedia}>
-                    <Image src={solution.image} alt={solution.alt} fill sizes="(max-width: 700px) 100vw, 33vw" />
-                    {solution.status && <span className={styles.statusBadge}>{solution.status}</span>}
-                  </div>
-                  <div className={styles.solutionBody}>
-                    <h3>{solution.title}</h3>
-                    <p>{solution.description}</p>
-                    <span>
-                      {solution.action} <ArrowRight size={16} />
-                    </span>
-                  </div>
-                </Link>
-              ))}
+              {SOLUTIONS.map((solution) => {
+                const cardClassName = `${styles.solutionCard} ${
+                  solution.launchLabel ? styles.solutionCardUpcoming : ''
+                }`;
+                const cardKey = `${solution.action ?? solution.title}-${solution.image}`;
+                const cardContent = (
+                  <>
+                    <div className={styles.solutionMedia}>
+                      <Image src={solution.image} alt={solution.alt} fill sizes="(max-width: 700px) 100vw, 33vw" />
+                      {solution.launchLabel && (
+                        <span className={`${styles.statusBadge} ${styles.launchBadge}`}>
+                          {solution.launchLabel}
+                        </span>
+                      )}
+                      {solution.status && <span className={styles.statusBadge}>{solution.status}</span>}
+                    </div>
+                    <div className={styles.solutionBody}>
+                      <h3>{solution.title}</h3>
+                      {solution.action && (
+                        <span>
+                          {solution.action} {solution.href && <ArrowRight size={16} />}
+                        </span>
+                      )}
+                    </div>
+                  </>
+                );
+
+                if (!solution.href || !solution.action) {
+                  return (
+                    <article className={`${cardClassName} ${styles.solutionCardStatic}`} key={cardKey}>
+                      {cardContent}
+                    </article>
+                  );
+                }
+
+                return (
+                  <Link href={solution.href} className={cardClassName} key={cardKey}>
+                    {cardContent}
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -613,28 +685,26 @@ export default function HomePage() {
                 index="02"
                 eyebrow="Care pathways"
                 title="One team for the care your family needs next"
-                copy="Choose the right starting point, then let Narpavi coordinate people, equipment and follow-through."
+                copy="With transparent pricing, fast setup often within 24–48 hours, and real-time digital reporting, Narpavi Homecare is the trusted choice for families across Chennai and NRIs seeking reliable, compassionate, hospital-grade healthcare at home."
                 align="left"
               />
-              <Link href="/contact" className={styles.serviceDetailsHeaderLink}>
-                Get care guidance <ArrowRight size={17} />
-              </Link>
+
             </div>
             <div className={styles.serviceOrbit}>
               <div className={styles.serviceDetailGrid}>
-                {SERVICE_DETAILS.map((service, index) => (
+                {SERVICE_DETAILS.map((service) => (
                   <article className={styles.serviceDetailCard} key={service.title}>
                     <div className={styles.serviceDetailMedia}>
                       <Image src={service.image} alt={service.alt} fill sizes="(max-width: 760px) 100vw, 28vw" />
-                      {service.status && <span className={styles.statusBadge}>{service.status}</span>}
                     </div>
                     <div className={styles.serviceDetailBody}>
-                      <span className={styles.serviceDetailNumber}>{String(index + 1).padStart(2, '0')}</span>
                       <h3>{service.title}</h3>
                       <p>{service.description}</p>
-                      <Link href={service.href ?? '/contact'}>
-                        {service.action} <ArrowRight size={16} />
-                      </Link>
+                      {service.action && (
+                        <Link href={service.href ?? '/contact'}>
+                          {service.action} <ArrowRight size={16} />
+                        </Link>
+                      )}
                     </div>
                   </article>
                 ))}
@@ -647,76 +717,39 @@ export default function HomePage() {
         <section className={`${styles.section} ${styles.benefitsSection}`} id="benefits">
           <div className="container">
             <ScrollAnimator>
-            <div className={styles.benefitsHeader}>
-              <div>
-                <h2>Better recovery feels closer to home.</h2>
-              </div>
-              <div className={styles.benefitsHeaderCopy}>
+            <div className={styles.benefitsFlowHeader}>
+              <h2>How Home Healthcare Benefits Families</h2>
+              <div className={styles.benefitsFlowIntro}>
                 <p>
-                  Hospital-grade coordination meets the emotional comfort, dignity and practical advantages of
-                  familiar surroundings.
+                  Home healthcare provides comfort, safety, and cost efficiency while allowing patients to recover
+                  surrounded by their loved ones. <strong>Narpavi Homecare</strong> delivers hospital-grade care and
+                  outcomes in the warmth and comfort of your home.
                 </p>
-                <span>
-                  <Sparkles size={17} /> 8 family-first advantages
-                </span>
               </div>
             </div>
             </ScrollAnimator>
 
             <ScrollAnimator animation="fadeUp" delay={200}>
-            <div className={styles.benefitsShowcase}>
-              <article className={styles.featuredBenefit}>
-                <div className={styles.featuredBenefitImage}>
-                  <Image
-                    src={BENEFITS[0].image}
-                    alt={BENEFITS[0].alt}
-                    fill
-                    sizes="(max-width: 900px) 100vw, 42vw"
-                  />
-                </div>
-                <div className={styles.featuredBenefitShade} />
-                <span className={styles.featuredBenefitBadge}>
-                  <HeartHandshake size={17} /> Featured advantage
-                </span>
-                <span className={styles.featuredBenefitNumber}>01</span>
-                <div className={styles.featuredBenefitContent}>
-                  <h3>{BENEFITS[0].title}</h3>
-                  <p>{BENEFITS[0].description}</p>
-                  <div>
-                    <span>
-                      <CheckCircle2 size={15} /> Familiar environment
-                    </span>
-                    <span>
-                      <CheckCircle2 size={15} /> Family presence
-                    </span>
-                  </div>
-                </div>
-              </article>
-
-              <div className={styles.benefitTileGrid}>
-                {BENEFITS.slice(1).map((benefit, index) => {
-                  const Icon = BENEFIT_ICONS[index + 1];
+            <div className={styles.benefitsFlowGrid}>
+                {BENEFITS.map((benefit, index) => {
+                  const Icon = BENEFIT_ICONS[index];
                   return (
-                    <article className={styles.benefitTile} key={benefit.title}>
-                      <div className={styles.benefitTileTop}>
-                        <span className={styles.benefitTileIcon}>
-                          <Icon size={20} />
+                    <article className={styles.benefitFlowItem} key={benefit.title}>
+                      <div className={styles.benefitFlowCard}>
+                        <span className={styles.benefitFlowIcon}>
+                          <Icon size={18} />
                         </span>
-                        <span className={styles.benefitTileNumber}>{String(index + 2).padStart(2, '0')}</span>
-                      </div>
-                      <div className={styles.benefitTileBody}>
-                        <div className={styles.benefitTileImage}>
-                          <Image src={benefit.image} alt={benefit.alt} fill sizes="(max-width: 640px) 30vw, 10vw" />
-                        </div>
                         <div>
                           <h3>{benefit.title}</h3>
                           <p>{benefit.description}</p>
                         </div>
                       </div>
+                      <div className={styles.benefitFlowImage}>
+                        <Image src={benefit.image} alt={benefit.alt} fill sizes="(max-width: 760px) 34vw, 9vw" />
+                      </div>
                     </article>
                   );
                 })}
-              </div>
             </div>
             </ScrollAnimator>
 
@@ -725,12 +758,12 @@ export default function HomePage() {
               <div>
                 <ShieldCheck size={22} />
                 <span>
-                  <strong>Care designed around real life</strong>
+                  <strong>Solutions designed around real life</strong>
                   Every plan balances clinical needs with family routines, safety and independence.
                 </span>
               </div>
-              <Link href="/contact">
-                Find the right care plan <ArrowRight size={17} />
+              <Link href="#solutions">
+                Find the right solution <ArrowRight size={17} />
               </Link>
             </div>
             </ScrollAnimator>
@@ -743,8 +776,9 @@ export default function HomePage() {
             <SectionHeading
               index="04"
               eyebrow="Care for every life stage"
-              title="Who We Care For"
-              copy="From newborns to seniors, short-term recovery to long-term support — our care starts with understanding the person."
+              title="Comprehensive Home Healthcare for Every Stage of Life"
+              className={styles.lifeStageHeading}
+              copy="Who We Care For – Narpavi Homecare supports patients and families across every stage of life, from newborns to seniors, and from post-recovery support to long-term chronic care. For safe, professional home healthcare in Chennai, we’re here for you"
             />
             </ScrollAnimator>
             <ScrollAnimator animation="fadeUp" delay={150}>
@@ -756,15 +790,14 @@ export default function HomePage() {
                   </div>
                   <div className={styles.audienceOverlay}>
                     <h3>{audience.title}</h3>
-                    <p>{audience.description}</p>
                   </div>
                 </article>
               ))}
             </div>
             </ScrollAnimator>
             <div className={styles.centerAction}>
-              <Link href="/contact" className={styles.primaryButton}>
-                Tell Us About Your Care Need <ArrowRight size={18} />
+              <Link href="#solutions" className={styles.primaryButton}>
+                Find the right solution <ArrowRight size={18} />
               </Link>
             </div>
           </div>
@@ -776,8 +809,9 @@ export default function HomePage() {
             <SectionHeading
               index="05"
               eyebrow="Why choose Narpavi"
-              title="Care Built on Trust, Safety and Compassion"
-              copy="Families need more than a service provider. They need a responsive care partner who communicates clearly."
+              title=" Why Choose Us-Care Built on Trust, Safety and Compassion"
+              className={styles.whyChooseHeading}
+              copy="Choosing the right home care provider is a serious decision. That’s why families and NRIs trust Narpavi Homecare for compassionate, transparent, and clinically excellent care delivered in the comfort of home."
             />
             </ScrollAnimator>
             <ScrollAnimator animation="fadeUp" delay={150}>
@@ -789,7 +823,6 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h3>{pillar.title}</h3>
-                    <p>{pillar.description}</p>
                   </div>
                 </article>
               ))}
@@ -832,7 +865,8 @@ export default function HomePage() {
                 );
               })}
             </div>
-            </ScrollAnimator>
+            </ScrollAnimator>
+
           </div>
         </section>
 
@@ -885,32 +919,11 @@ export default function HomePage() {
               index="08"
               eyebrow="Frequently asked questions"
               title="Answers Before You Begin Care"
+              className={styles.faqHeading}
               copy="Practical information about services, safety, staffing, pricing, monitoring and getting started."
             />
             </ScrollAnimator>
             <div className={styles.faqShowcase}>
-              <aside className={styles.faqAssistCard}>
-                <span className={styles.faqAssistKicker}>Need clarity?</span>
-                <h3>Quick answers, then a real care expert.</h3>
-                <p>
-                  Start with these common questions. If your family situation is specific, our team can guide you
-                  through the safest next step.
-                </p>
-                <div className={styles.faqAssistList}>
-                  <span>
-                    <ShieldCheck size={17} /> Safety & supervision
-                  </span>
-                  <span>
-                    <Clock3 size={17} /> Setup timelines
-                  </span>
-                  <span>
-                    <IndianRupee size={17} /> Transparent estimates
-                  </span>
-                </div>
-                <a href={BRAND.phoneHref} className={styles.faqAssistCall}>
-                  <Phone size={18} /> Call {BRAND.phoneFormatted}
-                </a>
-              </aside>
               <div className={styles.faqListPanel}>
                 <HomeFAQAccordion faqs={HOME_FAQS} />
               </div>

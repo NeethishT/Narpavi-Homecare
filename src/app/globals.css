@@ -4929,8 +4929,8 @@ main {
   .equipment-panel { padding: 1.35rem; }
 }
 
-/* ====== APOLLO-STYLE HERO SLIDER ====== */
-.apollo-hero {
+/* ====== narpavi-STYLE HERO SLIDER ====== */
+.narpavi-hero {
   position: relative;
   width: 100%;
   height: calc(100vh - var(--header-height));
@@ -4941,67 +4941,67 @@ main {
     radial-gradient(ellipse at 80% 70%, rgba(255, 107, 53, 0.06), transparent 45%),
     linear-gradient(165deg, #edf9f9 0%, #f4fbfb 35%, #ffffff 65%, #fff8f4 100%);
 }
-.apollo-hero__decor {
+.narpavi-hero__decor {
   position: absolute;
   pointer-events: none;
   z-index: 1;
 }
-.apollo-hero__decor--ellipse {
+.narpavi-hero__decor--ellipse {
   width: clamp(320px, 40vw, 580px);
   height: clamp(320px, 40vw, 580px);
   bottom: -10%;
   right: -5%;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(10, 143, 143, 0.08) 0%, transparent 70%);
-  animation: apolloPulse 8s ease-in-out infinite;
+  animation: narpaviPulse 8s ease-in-out infinite;
 }
-.apollo-hero__decor--dots {
+.narpavi-hero__decor--dots {
   top: 8%;
   right: 3%;
   display: grid;
   grid-template-columns: repeat(3, 7px);
   gap: 8px;
   opacity: 0;
-  animation: apolloFadeIn 1.2s ease 0.5s forwards;
+  animation: narpaviFadeIn 1.2s ease 0.5s forwards;
 }
-.apollo-hero__decor--dots span {
+.narpavi-hero__decor--dots span {
   width: 7px;
   height: 7px;
   border-radius: 50%;
   background: rgba(10, 143, 143, 0.22);
 }
-.apollo-hero__decor--ring {
+.narpavi-hero__decor--ring {
   width: 280px;
   height: 280px;
   top: -90px;
   right: -90px;
   border: 1.5px solid rgba(10, 143, 143, 0.12);
   border-radius: 50%;
-  animation: apolloOrbit 12s ease-in-out infinite;
+  animation: narpaviOrbit 12s ease-in-out infinite;
 }
-.apollo-hero__decor--ring2 {
+.narpavi-hero__decor--ring2 {
   width: 180px;
   height: 180px;
   bottom: 12%;
   left: -60px;
   border: 1.5px dashed rgba(255, 107, 53, 0.12);
   border-radius: 50%;
-  animation: apolloOrbit 10s ease-in-out infinite reverse;
+  animation: narpaviOrbit 10s ease-in-out infinite reverse;
 }
-.apollo-hero__decor--spiral {
+.narpavi-hero__decor--spiral {
   top: 45%;
   right: 42%;
   width: 50px;
   height: 50px;
   opacity: 0;
-  animation: apolloFloat 6s ease-in-out 1s infinite;
+  animation: narpaviFloat 6s ease-in-out 1s infinite;
 }
-.apollo-hero__decor--spiral svg {
+.narpavi-hero__decor--spiral svg {
   width: 100%;
   height: 100%;
   color: rgba(10, 143, 143, 0.14);
 }
-.apollo-hero__decor--glow {
+.narpavi-hero__decor--glow {
   width: 500px;
   height: 500px;
   top: 20%;
@@ -5010,12 +5010,12 @@ main {
   background: radial-gradient(circle, rgba(10, 143, 143, 0.05) 0%, transparent 65%);
   filter: blur(40px);
 }
-.apollo-hero__slides {
+.narpavi-hero__slides {
   position: relative;
   width: 100%;
   height: 100%;
 }
-.apollo-hero__slide {
+.narpavi-hero__slide {
   position: absolute;
   inset: 0;
   display: grid;
@@ -5028,20 +5028,20 @@ main {
   z-index: 0;
   transition: opacity 0.9s ease;
 }
-.apollo-hero__slide--active {
+.narpavi-hero__slide--active {
   opacity: 1;
   pointer-events: auto;
   z-index: 2;
 }
-.apollo-hero__text {
+.narpavi-hero__text {
   position: relative;
   z-index: 3;
   max-width: 600px;
 }
-.apollo-hero__slide--active .apollo-hero__text {
-  animation: apolloTextIn 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+.narpavi-hero__slide--active .narpavi-hero__text {
+  animation: narpaviTextIn 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
-.apollo-hero__kicker {
+.narpavi-hero__kicker {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
@@ -5054,10 +5054,10 @@ main {
   font-size: 0.82rem;
   font-weight: 700;
 }
-.apollo-hero__kicker svg {
+.narpavi-hero__kicker svg {
   color: var(--accent);
 }
-.apollo-hero__heading {
+.narpavi-hero__heading {
   font-family: var(--font-display);
   font-size: clamp(2rem, 4.2vw, 3.25rem);
   font-weight: 800;
@@ -5065,22 +5065,22 @@ main {
   margin-bottom: 1rem;
   color: var(--text-primary);
 }
-.apollo-hero__heading span {
+.narpavi-hero__heading span {
   color: var(--primary);
 }
-.apollo-hero__copy {
+.narpavi-hero__copy {
   font-size: clamp(0.95rem, 1.2vw, 1.12rem);
   color: var(--text-secondary);
   line-height: 1.75;
   margin-bottom: 2rem;
   max-width: 480px;
 }
-.apollo-hero__actions {
+.narpavi-hero__actions {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
 }
-.apollo-hero__media {
+.narpavi-hero__media {
   position: relative;
   display: flex;
   justify-content: center;
@@ -5088,7 +5088,7 @@ main {
   height: 80%;
   z-index: 2;
 }
-.apollo-hero__img-wrapper {
+.narpavi-hero__img-wrapper {
   position: relative;
   width: 100%;
   height: 100%;
@@ -5099,16 +5099,16 @@ main {
     0 4px 16px rgba(0, 0, 0, 0.08);
   border: 6px solid rgba(255, 255, 255, 0.85);
 }
-.apollo-hero__slide--active .apollo-hero__img-wrapper {
-  animation: apolloImageIn 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+.narpavi-hero__slide--active .narpavi-hero__img-wrapper {
+  animation: narpaviImageIn 1s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
-.apollo-hero__img-wrapper img {
+.narpavi-hero__img-wrapper img {
   object-fit: cover;
 }
-.apollo-hero__slide--active .apollo-hero__img-wrapper img {
-  animation: apolloImageZoom 6s ease-out forwards;
+.narpavi-hero__slide--active .narpavi-hero__img-wrapper img {
+  animation: narpaviImageZoom 6s ease-out forwards;
 }
-.apollo-hero__float {
+.narpavi-hero__float {
   position: absolute;
   background: white;
   border-radius: var(--radius-md);
@@ -5121,19 +5121,19 @@ main {
   animation: float 3s ease-in-out infinite;
   border: 1px solid rgba(10, 143, 143, 0.08);
 }
-.apollo-hero__float svg { color: var(--primary); flex-shrink: 0; }
-.apollo-hero__float strong { display: block; font-size: 0.88rem; line-height: 1.2; }
-.apollo-hero__float small { display: block; color: var(--text-light); font-size: 0.74rem; }
-.apollo-hero__float--tl {
+.narpavi-hero__float svg { color: var(--primary); flex-shrink: 0; }
+.narpavi-hero__float strong { display: block; font-size: 0.88rem; line-height: 1.2; }
+.narpavi-hero__float small { display: block; color: var(--text-light); font-size: 0.74rem; }
+.narpavi-hero__float--tl {
   top: 8%;
   right: -1rem;
 }
-.apollo-hero__float--bl {
+.narpavi-hero__float--bl {
   bottom: 12%;
   left: -1rem;
   animation-delay: 1.5s;
 }
-.apollo-hero__nav {
+.narpavi-hero__nav {
   position: absolute;
   bottom: 1.5rem;
   left: 50%;
@@ -5148,7 +5148,7 @@ main {
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
 }
-.apollo-hero__dot {
+.narpavi-hero__dot {
   width: 10px;
   height: 10px;
   border-radius: 999px;
@@ -5158,66 +5158,66 @@ main {
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.apollo-hero__dot--active {
+.narpavi-hero__dot--active {
   width: 32px;
   background: var(--accent);
   box-shadow: 0 0 12px rgba(255, 107, 53, 0.45);
 }
-.apollo-hero__dot:hover:not(.apollo-hero__dot--active) {
+.narpavi-hero__dot:hover:not(.narpavi-hero__dot--active) {
   background: rgba(255, 255, 255, 0.75);
   transform: scale(1.15);
 }
-@keyframes apolloTextIn {
+@keyframes narpaviTextIn {
   from { opacity: 0; transform: translateY(35px); }
   to { opacity: 1; transform: translateY(0); }
 }
-@keyframes apolloImageIn {
+@keyframes narpaviImageIn {
   from { opacity: 0; transform: scale(0.92) translateX(30px); }
   to { opacity: 1; transform: scale(1) translateX(0); }
 }
-@keyframes apolloImageZoom {
+@keyframes narpaviImageZoom {
   from { transform: scale(1); }
   to { transform: scale(1.06); }
 }
-@keyframes apolloPulse {
+@keyframes narpaviPulse {
   0%, 100% { transform: scale(1); opacity: 0.7; }
   50% { transform: scale(1.06); opacity: 0.4; }
 }
-@keyframes apolloOrbit {
+@keyframes narpaviOrbit {
   0%, 100% { transform: scale(1) rotate(0deg); }
   50% { transform: scale(1.05) rotate(8deg); }
 }
-@keyframes apolloFloat {
+@keyframes narpaviFloat {
   0% { opacity: 0; transform: translateY(10px); }
   20% { opacity: 0.6; }
   50% { transform: translateY(-8px); opacity: 0.6; }
   80% { opacity: 0.6; }
   100% { opacity: 0; transform: translateY(10px); }
 }
-@keyframes apolloFadeIn {
+@keyframes narpaviFadeIn {
   from { opacity: 0; transform: translateY(-8px); }
   to { opacity: 1; transform: translateY(0); }
 }
 @media (max-width: 1024px) {
-  .apollo-hero {
+  .narpavi-hero {
     height: auto;
     min-height: calc(100vh - var(--header-height));
   }
-  .apollo-hero__slide {
+  .narpavi-hero__slide {
     gap: 2rem;
     padding: 0 2rem;
   }
-  .apollo-hero__heading {
+  .narpavi-hero__heading {
     font-size: clamp(1.75rem, 3.5vw, 2.5rem);
   }
-  .apollo-hero__float { display: none; }
+  .narpavi-hero__float { display: none; }
 }
 @media (max-width: 768px) {
-  .apollo-hero {
+  .narpavi-hero {
     height: auto;
     min-height: auto;
   }
-  .apollo-hero__slide {
+  .narpavi-hero__slide {
     position: relative;
     grid-template-columns: 1fr;
     text-align: center;
@@ -5225,64 +5225,64 @@ main {
     opacity: 0;
     display: none;
   }
-  .apollo-hero__slide--active {
+  .narpavi-hero__slide--active {
     display: grid;
     opacity: 1;
   }
-  .apollo-hero__text {
+  .narpavi-hero__text {
     max-width: 100%;
   }
-  .apollo-hero__heading {
+  .narpavi-hero__heading {
     font-size: clamp(1.5rem, 7vw, 2rem);
   }
-  .apollo-hero__copy {
+  .narpavi-hero__copy {
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
   }
-  .apollo-hero__actions {
+  .narpavi-hero__actions {
     justify-content: center;
   }
-  .apollo-hero__media {
+  .narpavi-hero__media {
     height: 300px;
     margin: 0 auto;
     max-width: 400px;
     width: 100%;
   }
-  .apollo-hero__kicker {
+  .narpavi-hero__kicker {
     margin-left: auto;
     margin-right: auto;
   }
-  .apollo-hero__decor--ring,
-  .apollo-hero__decor--ring2,
-  .apollo-hero__decor--spiral,
-  .apollo-hero__decor--dots {
+  .narpavi-hero__decor--ring,
+  .narpavi-hero__decor--ring2,
+  .narpavi-hero__decor--spiral,
+  .narpavi-hero__decor--dots {
     display: none;
   }
-  .apollo-hero__nav {
+  .narpavi-hero__nav {
     bottom: 1rem;
   }
 }
 @media (max-width: 480px) {
-  .apollo-hero__slide {
+  .narpavi-hero__slide {
     padding: 2rem 1rem 4.5rem;
   }
-  .apollo-hero__heading {
+  .narpavi-hero__heading {
     font-size: 1.4rem;
   }
-  .apollo-hero__copy {
+  .narpavi-hero__copy {
     font-size: 0.88rem;
   }
-  .apollo-hero__actions {
+  .narpavi-hero__actions {
     display: grid;
     grid-template-columns: 1fr;
     width: 100%;
   }
-  .apollo-hero__actions .btn {
+  .narpavi-hero__actions .btn {
     width: 100%;
     justify-content: center;
   }
-  .apollo-hero__media {
+  .narpavi-hero__media {
     height: 240px;
   }
 }

@@ -3,7 +3,6 @@ import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import SiteIcon from '@/components/ui/SiteIcon';
-import { BRAND } from '@/lib/constants';
 
 interface HeroSlide {
   image: string;
@@ -34,15 +33,7 @@ const SLIDES: HeroSlide[] = [
     ctaLabel: 'Explore Elder Care',
     ctaHref: '/elder-care',
   },
-  {
-    image: '/images/pik-9.png',
-    kicker: 'Critical Care at Your Doorstep',
-    heading: 'Advanced ',
-    headingHighlight: 'ICU Setup at Home',
-    copy: 'High-dependency nursing with ventilator support, monitoring equipment and 24/7 clinical oversight — hospital-grade care in familiar surroundings.',
-    ctaLabel: 'Get ICU at Home',
-    ctaHref: '/home-nursing-care/icu-at-home',
-  },
+
   {
     image: '/images/pik-6.jpeg',
     kicker: 'Postnatal & Newborn Support',
@@ -123,9 +114,9 @@ export default function HeroSlider() {
                 <Link href={slide.ctaHref} className="btn btn--primary btn--lg" id={`hero-cta-${i}`}>
                   {slide.ctaLabel} <SiteIcon name="Arrow" size={18} />
                 </Link>
-                <a href={BRAND.phoneHref} className="btn btn--outline btn--lg" id={`hero-phone-${i}`}>
-                  <SiteIcon name="Phone" size={18} /> Call {BRAND.phone}
-                </a>
+                <Link href="/contact" className="btn btn--outline btn--lg" id={`hero-contact-${i}`}>
+                  Request Assessment <SiteIcon name="Arrow" size={18} />
+                </Link>
               </div>
             </div>
 

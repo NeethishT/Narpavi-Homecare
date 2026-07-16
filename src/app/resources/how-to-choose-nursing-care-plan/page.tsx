@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { BRAND } from '@/lib/constants';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 
 export const metadata: Metadata = {
@@ -75,7 +74,7 @@ export default function HowToChoosePage() {
             <p style={{ color: 'var(--text-secondary)', marginBottom: '1.75rem' }}>Book a professional nursing assessment to get a personalized home care design.</p>
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link href="/contact" className="btn btn--primary">Book Care Assessment</Link>
-              <a href={BRAND.phoneHref} className="btn btn--outline">Call Us</a>
+              <Link href="/contact" className="btn btn--outline">Send Enquiry</Link>
             </div>
           </div>
         </div>

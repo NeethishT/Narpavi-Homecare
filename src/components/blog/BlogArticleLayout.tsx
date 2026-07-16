@@ -3,7 +3,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { BLOG_POSTS } from '@/lib/blogs';
-import { BRAND } from '@/lib/constants';
 
 interface TocItem {
   id: string;
@@ -102,7 +101,7 @@ export default function BlogArticleLayout({
               <p>Get the right home care plan, package advice, and fast onboarding support for your family.</p>
               <div className="blog-sidebar__actions">
                 <Link href="/contact" className="btn btn--primary btn--sm">Book Care Assessment</Link>
-                <a href={BRAND.phoneHref} className="btn btn--outline btn--sm">Call {BRAND.phone}</a>
+                <Link href="/faq" className="btn btn--outline btn--sm">View FAQs</Link>
               </div>
             </div>
           </div>

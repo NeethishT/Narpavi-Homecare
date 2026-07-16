@@ -5,28 +5,12 @@ import { BRAND } from '@/lib/constants';
 import SiteIcon from '@/components/ui/SiteIcon';
 
 export const metadata: Metadata = {
-  title: 'Contact Us — Book Care Assessment',
-  description: `Book a professional nursing care assessment. Get professional home healthcare started within 24–48 hours. Call ${BRAND.phone}.`,
+  title: 'Contact Us - Book Care Assessment',
+  description: 'Book a professional nursing care assessment. Get professional home healthcare started within 24-48 hours.',
   alternates: { canonical: 'https://www.narpavihomecare.com/contact' },
 };
 
 const contactOptions = [
-  {
-    icon: 'Phone',
-    label: 'Call our care desk',
-    value: BRAND.phoneFormatted,
-    detail: 'Talk to a care coordinator for immediate guidance.',
-    href: BRAND.phoneHref,
-    external: false,
-  },
-  {
-    icon: 'WhatsApp',
-    label: 'Message on WhatsApp',
-    value: 'Start a quick conversation',
-    detail: 'Share your care requirement whenever it is convenient.',
-    href: BRAND.whatsapp,
-    external: true,
-  },
   {
     icon: 'Email',
     label: 'Write to our team',
@@ -40,9 +24,9 @@ const contactOptions = [
 const careJourney = [
   {
     number: '01',
-    icon: 'Phone',
+    icon: 'Message',
     title: 'Tell us what you need',
-    copy: 'Share the patient’s needs, preferred timing, location and the kind of support you are exploring.',
+    copy: 'Share the patient needs, preferred timing, location and the kind of support you are exploring.',
   },
   {
     number: '02',
@@ -74,14 +58,14 @@ const faqs = [
   },
   {
     question: 'What should I share when I contact you?',
-    answer: 'A short note on the patient’s need, location, preferred start date and expected shift is enough to begin. Our care coordinator will ask for any further details respectfully.',
+    answer: 'A short note on the patient need, location, preferred start date and expected shift is enough to begin. Our care coordinator will ask for any further details respectfully.',
   },
   {
     question: 'Can I enquire for medical equipment too?',
-    answer: 'Yes. You can call, WhatsApp or use the assessment form to tell us the equipment you need. We will guide you on availability and the next steps.',
+    answer: 'Yes. You can use email or the assessment form to tell us the equipment you need. We will guide you on availability and the next steps.',
   },
   {
-    question: 'Is this number for medical emergencies?',
+    question: 'Is this channel for medical emergencies?',
     answer: 'No. For a medical emergency, please contact your local emergency service or go to the nearest hospital. Our team can help with planned home-care enquiries and coordination.',
   },
 ] as const;
@@ -99,7 +83,7 @@ export default function ContactPage() {
                 <span className="contact-hero__eyebrow-icon"><SiteIcon name="Companion" size={16} /></span>
                 Care starts with a conversation
               </div>
-              <h1>Let’s find the right care for your family.</h1>
+              <h1>Let us find the right care for your family.</h1>
               <p className="contact-hero__lead">
                 Whether you are planning recovery support, looking after an elder, or arranging advanced care at home,
                 our care coordinators are here to listen and guide you.
@@ -155,7 +139,7 @@ export default function ContactPage() {
             <div className="contact-section-heading">
               <span className="section-kicker">Simple, supportive process</span>
               <h2>What happens after you reach out</h2>
-              <p>There is no maze of forms or guesswork. We begin by understanding your family’s situation.</p>
+              <p>There is no maze of forms or guesswork. We begin by understanding your family situation.</p>
             </div>
             <div className="contact-journey-grid">
               {careJourney.map((step) => (
@@ -179,8 +163,8 @@ export default function ContactPage() {
                 You do not need to know the exact service before getting in touch. Describe what is happening, and
                 we will help you explore an appropriate care option.
               </p>
-              <a href={BRAND.whatsapp} target="_blank" rel="noopener noreferrer" className="btn btn--secondary">
-                <SiteIcon name="WhatsApp" size={18} /> Chat on WhatsApp
+              <a href={`mailto:${BRAND.email}`} className="btn btn--secondary">
+                <SiteIcon name="Email" size={18} /> Email Care Team
               </a>
             </div>
             <div className="contact-support-grid">
@@ -200,10 +184,12 @@ export default function ContactPage() {
         <section className="contact-section contact-faq">
           <div className="container contact-faq__grid">
             <div className="contact-faq__intro">
-              <span className="section-kicker">Helpful before you call</span>
+              <span className="section-kicker">Helpful before you message</span>
               <h2>Frequently asked questions</h2>
               <p>Still deciding? These quick answers make it easier to take the first step.</p>
-              <a href={BRAND.phoneHref} className="contact-faq__call-link"><SiteIcon name="Phone" size={18} /> {BRAND.phoneFormatted}</a>
+              <a href={`mailto:${BRAND.email}`} className="contact-faq__call-link">
+                <SiteIcon name="Email" size={18} /> Email Care Team
+              </a>
             </div>
             <div className="contact-faq__list">
               {faqs.map((faq) => (
@@ -219,15 +205,12 @@ export default function ContactPage() {
         <section className="contact-final-cta">
           <div className="container contact-final-cta__inner">
             <div>
-              <span className="section-kicker">We’re ready when you are</span>
+              <span className="section-kicker">We are ready when you are</span>
               <h2>A little clarity can make care feel lighter.</h2>
-              <p>Call or message Narpavi Homecare to discuss the support your family needs.</p>
+              <p>Message Narpavi Homecare to discuss the support your family needs.</p>
             </div>
             <div className="contact-final-cta__actions">
-              <a href={BRAND.phoneHref} className="btn btn--white"><SiteIcon name="Phone" size={18} /> Call now</a>
-              <a href={BRAND.whatsapp} target="_blank" rel="noopener noreferrer" className="contact-final-cta__whatsapp">
-                <SiteIcon name="WhatsApp" size={19} /> WhatsApp us
-              </a>
+              <a href={`mailto:${BRAND.email}`} className="btn btn--white"><SiteIcon name="Email" size={18} /> Email us</a>
             </div>
           </div>
         </section>

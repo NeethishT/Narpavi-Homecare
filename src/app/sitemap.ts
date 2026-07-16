@@ -1,7 +1,9 @@
 import type { MetadataRoute } from 'next';
 import { BABY_CARE_PACKAGES } from '@/lib/babyCareData';
+import { BLOG_POSTS } from '@/lib/blogs';
 import { ELDER_CARE_PACKAGES } from '@/lib/elderCareData';
 import { CARE_PACKAGES } from '@/lib/packages';
+import { ADVANCE_NURSING_PACKAGES } from '@/lib/advanceNursingCareData';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.narpavihomecare.com';
@@ -29,12 +31,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.75,
     })),
     { url: baseUrl + '/home-nursing-care', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: baseUrl + '/home-nursing-care/advance-nursing-care', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    ...ADVANCE_NURSING_PACKAGES.map((pkg) => ({
+      url: baseUrl + '/home-nursing-care/advance-nursing-care/' + pkg.id,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.75,
+    })),
+    { url: baseUrl + '/home-nursing-care/specialty-nursing-care', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: baseUrl + '/home-nursing-care/icu-at-home', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: baseUrl + '/faq', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: baseUrl + '/blog', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
-    { url: baseUrl + '/blog/palliative-care-at-home', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
-    { url: baseUrl + '/blog/post-hospital-recovery-at-home', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
-    { url: baseUrl + '/blog/post-surgery-recovery-at-home', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
-    { url: baseUrl + '/blog/what-does-a-basic-nursing-care-caregiver-do', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
+    ...BLOG_POSTS.map((post) => ({
+      url: baseUrl + '/blog/' + post.slug,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    })),
     { url: baseUrl + '/about', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
     { url: baseUrl + '/contact', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
   ];

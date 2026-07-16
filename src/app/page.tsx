@@ -8,14 +8,11 @@ import {
   BadgeCheck,
   Check,
   CheckCircle2,
-  ClipboardCheck,
   Clock3,
   HeartHandshake,
   IndianRupee,
-  Phone,
   ShieldCheck,
   Sparkles,
-  Stethoscope,
   UsersRound,
 } from 'lucide-react';
 import HomeFAQAccordion from '@/components/sections/HomeFAQAccordion';
@@ -287,39 +284,6 @@ const TRUST_PILLARS: ImageCard[] = [
   },
 ];
 
-const PROCESS = [
-  {
-    title: 'Connect with Narpavi',
-    description: `Call ${BRAND.phoneFormatted} or request a home care assessment.`,
-    icon: Phone,
-  },
-  {
-    title: 'Clinical Needs Assessment',
-    description: 'We review the patient’s condition, daily needs, home environment and family priorities.',
-    icon: Stethoscope,
-  },
-  {
-    title: 'Custom Care Plan & Estimate',
-    description: 'Receive clear deliverables, recommended support, expected duration and transparent pricing.',
-    icon: ClipboardCheck,
-  },
-  {
-    title: 'Rapid Setup',
-    description: 'Professionals, equipment and care protocols are coordinated — often within 24–48 hours.',
-    icon: Clock3,
-  },
-  {
-    title: 'Care Begins at Home',
-    description: 'The assigned team delivers care according to the agreed plan and clinical instructions.',
-    icon: HeartHandshake,
-  },
-  {
-    title: 'Monitoring & Progress Reviews',
-    description: 'Vitals, procedures, progress notes and family updates are documented and reviewed regularly.',
-    icon: Activity,
-  },
-];
-
 const HOME_FAQS = [
   {
     id: 1,
@@ -429,7 +393,7 @@ const HOME_FAQS = [
   {
     id: 21,
     question: 'How do I start services with Narpavi Homecare?',
-    answer: `Call ${BRAND.phoneFormatted}, book an assessment, receive a custom care plan and confirm the start of care at home.`,
+    answer: 'Book an assessment, receive a custom care plan and confirm the start of care at home.',
   },
 ];
 
@@ -442,44 +406,74 @@ const STATS = [
 
 const HERO_BANNERS = [
   {
-    heading: 'Home Nursing Care',
+    kicker: 'Nurse-led care at home',
+    heading: 'Home Nursing',
+    highlight: 'Care',
     copy:
-      'Skilled nurses and caregivers support recovery, daily routines and clinical needs at home. Care is coordinated around the patient, family and doctor guidance.',
+      'Skilled nurses and caregivers support recovery, daily routines and clinical needs at home with calm, family-first coordination.',
     image: '/images/homepage/banner-home-nursing-care-illustration.png',
     alt: 'A home nurse supporting a patient and family',
     usps: ['Verified Professionals', 'Hospital-Grade Protocols', 'Customised Care Plans'],
+    metric: 'Care plan matched to every patient',
+    accent: '#009A9F',
+    accentRgb: '0, 154, 159',
+    accentSoft: '#E6F8F8',
   },
   {
+    kicker: 'Hospital equipment for home',
     heading: 'Medical Equipment',
+    highlight: 'Setup',
     copy:
-      'Hospital-grade equipment is delivered, installed and supported for safe care at home. Families get practical guidance before starting rental or purchase.',
+      'Hospital-grade equipment is delivered, installed and supported so families can begin safe home care with practical guidance.',
     image: '/images/homepage/banner-medical-equipment-illustration.png',
     alt: 'Hospital-grade medical equipment for home care',
     usps: ['Hospital-Grade Protocols', 'Rapid Setup', 'Transparent Pricing'],
+    metric: 'Rental and purchase support',
+    accent: '#FF784B',
+    accentRgb: '255, 120, 75',
+    accentSoft: '#FFF1EA',
   },
   {
-    heading: 'Health Visits',
+    kicker: 'Clinical checks at home',
+    heading: 'Health',
+    highlight: 'Visits',
     copy:
-      'Doctor and nurse visits bring professional checks, procedures and treatment support to your home. Care is planned for comfort, hygiene and family confidence.',
+      'Doctor and nurse visits bring professional checks, procedures and treatment support home with hygiene, comfort and clarity.',
     image: '/images/homepage/banner-health-visits-illustration.png',
     alt: 'A healthcare professional visiting an elderly patient at home',
     usps: ['Verified Professionals', 'Safety First', 'Rapid Setup'],
+    metric: 'Home procedures planned safely',
+    accent: '#3A8E55',
+    accentRgb: '58, 142, 85',
+    accentSoft: '#EDF8EF',
   },
   {
+    kicker: 'Recovery beyond hospital',
     heading: 'Rehabilitation',
+    highlight: 'Support',
     copy:
-      'Recovery support for stroke, surgery, orthopedic, cardiac, pulmonary or neurological needs. Professionals guide mobility, strength and independence at home.',
+      'Recovery support for stroke, surgery, orthopedic, cardiac, pulmonary or neurological needs, guided toward strength and independence.',
     image: '/images/homepage/banner-rehabilitation-illustration.png',
     alt: 'A rehabilitation professional helping a patient at home',
     usps: ['Customised Care Plans', 'Safety First', 'Verified Professionals'],
+    metric: 'Mobility, strength and confidence',
+    accent: '#4763B8',
+    accentRgb: '71, 99, 184',
+    accentSoft: '#EEF2FF',
   },
   {
-    heading: 'Wellness & Preventive Care',
+    kicker: 'Everyday health guidance',
+    heading: 'Wellness &',
+    highlight: 'Preventive Care',
     copy:
-      'Preventive care supports healthier routines through wellness guidance, lifestyle support and simple home checks. Plans are shaped around each family need.',
+      'Preventive care supports healthier routines through wellness guidance, lifestyle support and simple checks shaped around each family.',
     image: '/images/homepage/banner-wellness-preventive-care-illustration.png',
     alt: 'Wellness and preventive care support at home',
     usps: ['Customised Care Plans', 'Safety First', 'Transparent Pricing'],
+    metric: 'Better routines for long-term health',
+    accent: '#8F5AAE',
+    accentRgb: '143, 90, 174',
+    accentSoft: '#F6EFFB',
   },
 ];
 
@@ -555,10 +549,23 @@ export default function HomePage() {
               <article
                 className={styles.heroSlide}
                 key={banner.heading}
-                style={{ '--slide-delay': `${(index - HERO_BANNERS.length) * 5}s` } as CSSProperties}
+                style={
+                  {
+                    '--slide-delay': `${(index - HERO_BANNERS.length) * 5}s`,
+                    '--banner-accent': banner.accent,
+                    '--banner-accent-rgb': banner.accentRgb,
+                    '--banner-soft': banner.accentSoft,
+                  } as CSSProperties
+                }
               >
                 <div className={styles.heroContent}>
-                  <h1>{banner.heading}</h1>
+                  <span className={styles.heroEyebrow}>
+                    <Sparkles size={16} />
+                    {banner.kicker}
+                  </span>
+                  <h1>
+                    {banner.heading} <span>{banner.highlight}</span>
+                  </h1>
                   <p className={styles.heroLead}>{banner.copy}</p>
                   <ul className={styles.heroUsps} aria-label={`${banner.heading} USPs`}>
                     {banner.usps.map((usp) => (
@@ -581,6 +588,10 @@ export default function HomePage() {
                       priority={index === 0}
                       sizes="(max-width: 900px) 100vw, 50vw"
                     />
+                    <div className={styles.heroImageBadge}>
+                      <BadgeCheck size={18} />
+                      <span>{banner.metric}</span>
+                    </div>
                   </div>
                 </div>
               </article>
@@ -674,21 +685,6 @@ export default function HomePage() {
                   </Link>
                 );
               })}
-            </div>
-          </div>
-        </section>
-
-        <section className={`${styles.section} ${styles.serviceDetailsSection}`} id="service-details">
-          <div className="container">
-            <div className={styles.serviceDetailsHeader}>
-              <SectionHeading
-                index="02"
-                eyebrow="Care pathways"
-                title="One team for the care your family needs next"
-                copy="With transparent pricing, fast setup often within 24–48 hours, and real-time digital reporting, Narpavi Homecare is the trusted choice for families across Chennai and NRIs seeking reliable, compassionate, hospital-grade healthcare at home."
-                align="left"
-              />
-
             </div>
             <div className={styles.serviceOrbit}>
               <div className={styles.serviceDetailGrid}>
@@ -828,45 +824,6 @@ export default function HomePage() {
               ))}
             </div>
             </ScrollAnimator>
-            <div className={styles.trustNote}>
-              <Check size={18} />
-              Real-time family updates
-              <Check size={18} />
-              24/7 escalation support
-              <Check size={18} />
-              Patient dignity at every step
-            </div>
-          </div>
-        </section>
-
-        <section className={`${styles.section} ${styles.processSection}`} id="process">
-          <div className="container">
-            <ScrollAnimator>
-            <SectionHeading
-              index="06"
-              eyebrow="Simple care journey"
-              title="Our Comprehensive Home Healthcare Process"
-              copy="A transparent path from your first conversation to monitored, coordinated care at home."
-            />
-            </ScrollAnimator>
-            <ScrollAnimator animation="fadeUp" delay={150}>
-            <div className={styles.processGrid}>
-              {PROCESS.map((step, index) => {
-                const Icon = step.icon;
-                return (
-                  <article className={styles.processCard} key={step.title}>
-                    <span className={styles.processNumber}>{String(index + 1).padStart(2, '0')}</span>
-                    <div className={styles.processIcon}>
-                      <Icon size={24} />
-                    </div>
-                    <h3>{step.title}</h3>
-                    <p>{step.description}</p>
-                  </article>
-                );
-              })}
-            </div>
-            </ScrollAnimator>
-
           </div>
         </section>
 
@@ -874,7 +831,7 @@ export default function HomePage() {
           <div className="container">
             <ScrollAnimator>
             <SectionHeading
-              index="07"
+              index="06"
               eyebrow="Confidence through accountability"
               title="Trusted by Families Across Chennai"
               copy="Clear care plans, responsive coordination and measurable progress help families feel informed and supported."
@@ -904,9 +861,6 @@ export default function HomePage() {
                   planned, monitored and communicated for families in Chennai and abroad.
                 </p>
               </div>
-              <Link href="/contact" className={styles.secondaryButton}>
-                Speak to a Care Expert <ArrowRight size={18} />
-              </Link>
             </div>
             </ScrollAnimator>
           </div>
@@ -916,7 +870,7 @@ export default function HomePage() {
           <div className="container">
             <ScrollAnimator>
             <SectionHeading
-              index="08"
+              index="07"
               eyebrow="Frequently asked questions"
               title="Answers Before You Begin Care"
               className={styles.faqHeading}
@@ -931,36 +885,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className={styles.finalCta} id="contact">
-          <div className="container">
-            <div className={styles.finalCtaInner}>
-              <div>
-                <span>Start with a conversation</span>
-                <h2>Need trusted healthcare support at home?</h2>
-                <p>Tell us what your family needs. We will help you understand the right care path and next steps.</p>
-              </div>
-              <div className={styles.finalActions}>
-                <Link href="/contact" className={styles.lightButton}>
-                  Book a Home Assessment <ArrowRight size={18} />
-                </Link>
-                <a href={BRAND.phoneHref} className={styles.darkButton}>
-                  <Phone size={18} /> {BRAND.phoneFormatted}
-                </a>
-              </div>
-              <div className={styles.finalBadges}>
-                <span>
-                  <ShieldCheck size={16} /> Safety-led care
-                </span>
-                <span>
-                  <IndianRupee size={16} /> Transparent estimates
-                </span>
-                <span>
-                  <UsersRound size={16} /> Family involvement
-                </span>
-              </div>
-            </div>
-          </div>
-        </section>
       </div>
     </>
   );

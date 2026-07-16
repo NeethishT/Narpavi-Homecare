@@ -3,8 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ArrowRight, Phone } from 'lucide-react';
-import { BRAND } from '@/lib/constants';
+import { ArrowRight } from 'lucide-react';
 
 type VisualConfig = {
   image: string;
@@ -78,15 +77,7 @@ const visualRoutes: Array<{ match: (path: string) => boolean; config: VisualConf
       copy: 'Structured nursing and rehabilitation support for neurological and complex recovery needs.',
     },
   },
-  {
-    match: (path) => path.includes('icu-at-home'),
-    config: {
-      image: '/images/pik-12.png',
-      eyebrow: 'Critical care coordination at home',
-      title: 'Continuous support for high-dependency patients',
-      copy: 'Critical nursing, equipment coordination and rapid escalation under clinical supervision.',
-    },
-  },
+
   {
     match: (path) => path.includes('end-of-life-care') || path.includes('/services/comfort-plus'),
     config: {
@@ -150,6 +141,7 @@ export default function RouteVisualBanner() {
     || pathname.startsWith('/baby-care/')
     || pathname.startsWith('/blog/')
     || pathname.startsWith('/medical-equipment/')
+    || pathname.startsWith('/home-nursing-care/specialty-nursing-care')
   ) return null;
 
   const visual = visualRoutes.find((entry) => entry.match(pathname))?.config;
@@ -167,7 +159,7 @@ export default function RouteVisualBanner() {
           <p>{visual.copy}</p>
           <div className="route-visual__actions">
             <Link href="/contact" className="btn btn--primary btn--sm">Book Care Assessment <ArrowRight size={16} /></Link>
-            <a href={BRAND.phoneHref} className="route-visual__phone"><Phone size={16} /> Call {BRAND.phoneFormatted}</a>
+            <Link href="/faq" className="route-visual__phone">View Care FAQs</Link>
           </div>
         </div>
       </div>

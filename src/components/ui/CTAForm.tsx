@@ -1,8 +1,8 @@
 'use client';
 
-import { type FormEvent, useId, useMemo, useState } from 'react';
+import { type FormEvent, useEffect, useId, useMemo, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, CalendarClock } from 'lucide-react';
 
 const COUNTRY_CODES = [
   { country: 'India', code: '+91' },
@@ -291,6 +291,41 @@ function pathToEnquiryLabel(pathname: string | null) {
     .join(' ');
 }
 
+function toDateValue(date: Date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+function parseDateValue(value: string) {
+  if (!value) return null;
+  const [year, month, day] = value.split('-').map(Number);
+  if (!year || !month || !day) return null;
+  return new Date(year, month - 1, day);
+}
+
+function formatDateDisplay(value: string) {
+  const date = parseDateValue(value);
+  if (!date) return '';
+  return date.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+}
+
+function monthLabel(date: Date) {
+  return date.toLocaleDateString('en-IN', { month: 'long', year: 'numeric' });
+}
+
+function getMonthDays(date: Date) {
+  const year = date.getFullYear();
+  const month = date.getMonth();
+  const firstDay = new Date(year, month, 1).getDay();
+  const totalDays = new Date(year, month + 1, 0).getDate();
+  return [
+    ...Array.from({ length: firstDay }, () => null),
+    ...Array.from({ length: totalDays }, (_, index) => new Date(year, month, index + 1)),
+  ];
+}
+
 export default function CTAForm({
   title = 'Book Your Care Assessment',
   packageName,
@@ -299,14 +334,24 @@ export default function CTAForm({
 }: CTAFormProps) {
   const formId = useId().replace(/:/g, '');
   const pathname = usePathname();
+  const datePickerRef = useRef<HTMLDivElement>(null);
   const [selectedPackage, setSelectedPackage] = useState(packageName ?? '');
+  const [serviceStartDate, setServiceStartDate] = useState('');
+  const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
+  const [datePickerPlacement, setDatePickerPlacement] = useState<'bottom' | 'top'>('bottom');
+  const [visibleMonth, setVisibleMonth] = useState(() => {
+    const today = new Date();
+    return new Date(today.getFullYear(), today.getMonth(), 1);
+  });
   const [submittedEnquiry, setSubmittedEnquiry] = useState<string | null>(null);
   const [submitError, setSubmitError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const customizeOption = 'Customize';
-  const packageSelectOptions = packageOptions?.some((option) => option.toLowerCase() === customizeOption.toLowerCase())
-    ? packageOptions
-    : [...(packageOptions ?? []), customizeOption];
+  const packageSelectOptions = useMemo(() => (
+    packageOptions?.some((option) => option.toLowerCase() === customizeOption.toLowerCase())
+      ? packageOptions
+      : [...(packageOptions ?? []), customizeOption]
+  ), [packageOptions]);
   const showPackageSelect = Boolean(packageOptions?.length);
   const baseEnquiryLabel = useMemo(() => {
     const titleLabel = titleToEnquiryLabel(title);
@@ -316,6 +361,53 @@ export default function CTAForm({
     ? `${baseEnquiryLabel} - ${customizeOption}`
     : selectedPackage;
   const activeEnquiryLabel = selectedEnquiryLabel || baseEnquiryLabel;
+
+  useEffect(() => {
+    const handlePackageSelect = (event: Event) => {
+      if (!showPackageSelect) return;
+
+      const packageNameFromEvent = (event as CustomEvent<{ packageName?: string }>).detail?.packageName;
+      if (!packageNameFromEvent) return;
+
+      const matchingPackage = packageSelectOptions.find((option) => option.toLowerCase() === packageNameFromEvent.toLowerCase());
+      setSelectedPackage(matchingPackage ?? packageNameFromEvent);
+    };
+
+    window.addEventListener('narpavi:select-package', handlePackageSelect);
+    return () => window.removeEventListener('narpavi:select-package', handlePackageSelect);
+  }, [packageSelectOptions, showPackageSelect]);
+
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (!datePickerRef.current?.contains(event.target as Node)) {
+        setIsDatePickerOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => document.removeEventListener('mousedown', handleOutsideClick);
+  }, []);
+
+  const calendarDays = useMemo(() => getMonthDays(visibleMonth), [visibleMonth]);
+  const selectedDateLabel = serviceStartDate ? formatDateDisplay(serviceStartDate) : 'Select Service Start Date';
+
+  const toggleDatePicker = () => {
+    const rect = datePickerRef.current?.getBoundingClientRect();
+    if (rect) {
+      const spaceBelow = window.innerHeight - rect.bottom;
+      setDatePickerPlacement(spaceBelow < 390 && rect.top > spaceBelow ? 'top' : 'bottom');
+    }
+    setIsDatePickerOpen((isOpen) => !isOpen);
+  };
+
+  const changeMonth = (direction: number) => {
+    setVisibleMonth((current) => new Date(current.getFullYear(), current.getMonth() + direction, 1));
+  };
+
+  const selectServiceDate = (date: Date) => {
+    setServiceStartDate(toDateValue(date));
+    setIsDatePickerOpen(false);
+  };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -331,6 +423,7 @@ export default function CTAForm({
       phone,
       phoneFull: `${countryCode} ${phone}`.trim(),
       city: String(formData.get('city') ?? '').trim(),
+      serviceStartDate: String(formData.get('serviceStartDate') ?? '').trim(),
       packageName: String(formData.get('packageName') ?? '').trim(),
       enquiryFor: activeEnquiryLabel,
       sourcePath: pathname ?? '',
@@ -355,8 +448,9 @@ export default function CTAForm({
       setSubmittedEnquiry(activeEnquiryLabel);
       form.reset();
       setSelectedPackage(packageName ?? '');
+      setServiceStartDate('');
     } catch {
-      setSubmitError('Unable to submit right now. Please call us or try again shortly.');
+      setSubmitError('Unable to submit right now. Please try again shortly.');
     } finally {
       setIsSubmitting(false);
     }
@@ -365,9 +459,6 @@ export default function CTAForm({
   return (
     <form className="cta-form" id={`cta-form-${formId}`} onSubmit={handleSubmit}>
       <h3>{title}</h3>
-      <div className="elder-package-badge cta-form__enquiry-badge" aria-label={`Enquiring about ${activeEnquiryLabel}`}>
-        Enquiring about: <strong>{activeEnquiryLabel}</strong>
-      </div>
       <input type="hidden" name="enquiryFor" value={activeEnquiryLabel} />
       <input type="hidden" name="sourcePath" value={pathname ?? ''} />
       <div className="cta-form__field">
@@ -390,7 +481,7 @@ export default function CTAForm({
           </select>
           <input
             type="tel"
-            placeholder="Phone Number"
+            placeholder="Mobile Number"
             id={`form-phone-${formId}`}
             name="phone"
             aria-label="Phone number"
@@ -402,6 +493,54 @@ export default function CTAForm({
       </div>
       <div className="cta-form__field">
         <input type="text" placeholder="City / Location" id={`form-city-${formId}`} name="city" aria-label="City" required />
+      </div>
+      <div className="cta-form__field">
+        <label className="cta-form__date-label" htmlFor={`form-service-start-date-${formId}`}>Service Start Date</label>
+        <input type="hidden" id={`form-service-start-date-${formId}`} name="serviceStartDate" value={serviceStartDate} />
+        <div className="cta-form__date-picker" ref={datePickerRef}>
+          <button
+            type="button"
+            className={`cta-form__date-trigger${serviceStartDate ? '' : ' is-placeholder'}`}
+            aria-haspopup="dialog"
+            aria-expanded={isDatePickerOpen}
+            onClick={toggleDatePicker}
+          >
+            <span>{selectedDateLabel}</span>
+            <CalendarClock size={18} />
+          </button>
+          {isDatePickerOpen && (
+            <div className={`cta-form__date-popover${datePickerPlacement === 'top' ? ' is-above' : ''}`} role="dialog" aria-label="Choose service start date">
+              <div className="cta-form__date-nav">
+                <button type="button" onClick={() => changeMonth(-1)}>Prev</button>
+                <strong>{monthLabel(visibleMonth)}</strong>
+                <button type="button" onClick={() => changeMonth(1)}>Next</button>
+              </div>
+              <div className="cta-form__date-weekdays" aria-hidden="true">
+                {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => <span key={day}>{day}</span>)}
+              </div>
+              <div className="cta-form__date-grid">
+                {calendarDays.map((date, index) => {
+                  const dateValue = date ? toDateValue(date) : `blank-${index}`;
+                  const isSelected = Boolean(date && dateValue === serviceStartDate);
+
+                  return date ? (
+                    <button
+                      type="button"
+                      className={`cta-form__date-day${isSelected ? ' is-selected' : ''}`}
+                      key={dateValue}
+                      aria-pressed={isSelected}
+                      onClick={() => selectServiceDate(date)}
+                    >
+                      {date.getDate()}
+                    </button>
+                  ) : (
+                    <span className="cta-form__date-empty" key={dateValue} />
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </div>
       </div>
       {showPackageSelect ? (
         <div className="cta-form__field">
@@ -423,7 +562,7 @@ export default function CTAForm({
         packageName && <input type="hidden" name="packageName" value={packageName} />
       )}
       <button type="submit" className="btn btn--primary" id={`form-submit-${formId}`} disabled={isSubmitting}>
-        {isSubmitting ? 'Submitting...' : 'Book Care Assessment'} <ArrowRight size={17} />
+        {isSubmitting ? 'Submitting...' : 'Book Now'} <ArrowRight size={17} />
       </button>
       {submittedEnquiry && (
         <p className="cta-form__status" role="status" aria-live="polite">

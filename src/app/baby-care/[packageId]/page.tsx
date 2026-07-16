@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { BRAND } from '@/lib/constants';
 import {
   BABY_CARE_PACKAGE_NAMES,
   BABY_CARE_PACKAGES,
@@ -88,18 +87,18 @@ export default async function BabyCarePackagePage({ params }: PageProps) {
             <h1>{pkg.name}</h1>
             <p>{pkg.tagline}. {pkg.summary}</p>
             <div className="elder-package-hero__actions">
-              <a href={BRAND.phoneHref} className="btn btn--white btn--lg">
-                <SiteIcon name="Phone" size={18} /> Call {BRAND.phone}
-              </a>
-              <a href="#baby-package-form" className="btn btn--outline btn--lg">
+              <a href="#baby-package-form" className="btn btn--white btn--lg">
                 Book This Package <SiteIcon name="Arrow" size={18} />
               </a>
+              {/* <Link href="/contact" className="btn btn--outline btn--lg">
+                Request Assessment
+              </Link> */}
             </div>
-            <div className="elder-package-hero__facts">
+            {/* <div className="elder-package-hero__facts">
               {pkg.facts.map((fact) => (
                 <span key={fact}><SiteIcon name="Check" size={16} /> {fact}</span>
               ))}
-            </div>
+            </div> */}
           </div>
           <div className="elder-package-hero__media">
             <Image src={pkg.image} alt={`${pkg.name} baby care support`} fill sizes="(max-width: 992px) 100vw, 40vw" priority />
@@ -111,7 +110,7 @@ export default async function BabyCarePackagePage({ params }: PageProps) {
         <div className="container elder-detail-grid">
           <div>
             <span className="section-kicker">Highlights</span>
-            <h2>Why Families Choose {pkg.name}</h2>
+            <h2>{pkg.name} Deliverables</h2>
             <div className="elder-highlight-list elder-highlight-list--large">
               {pkg.highlights.map((item) => (
                 <div className="elder-highlight-point" key={item.title} style={packageStyle(pkg)}>
@@ -143,7 +142,7 @@ export default async function BabyCarePackagePage({ params }: PageProps) {
           <div className="elder-best-for-grid">
             {pkg.idealFor.map((item) => (
               <div className="elder-best-for-card" key={item} style={packageStyle(pkg)}>
-                <SiteIcon name={pkg.icon} size={25} />
+                {/* <SiteIcon name={pkg.icon} size={25} /> */}
                 <p>{item}</p>
               </div>
             ))}
@@ -222,9 +221,9 @@ export default async function BabyCarePackagePage({ params }: PageProps) {
           <p>Share your baby&apos;s age, mother recovery needs, location, and preferred shift. Our team will confirm the right care plan and next steps.</p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="#baby-package-form" className="btn btn--white btn--lg">Book This Package</a>
-            <a href={BRAND.phoneHref} className="btn btn--outline btn--lg" style={{ color: 'white', borderColor: 'white' }}>
-              <SiteIcon name="Phone" size={18} /> {BRAND.phone}
-            </a>
+            <Link href="/contact" className="btn btn--outline btn--lg" style={{ color: 'white', borderColor: 'white' }}>
+              Request Assessment
+            </Link>
           </div>
         </div>
       </section>

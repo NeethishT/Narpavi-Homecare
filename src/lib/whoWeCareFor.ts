@@ -12,6 +12,6 @@ export const WHO_WE_CARE_FOR: PatientCategory[] = [
   { icon: 'ðŸ¡', title: 'Limited Mobility (Homebound)', description: "Complete assistance for adults who can't manage daily routines alone without invasive nursing procedures." },
   { icon: '🛁ï¸', title: 'Bedridden (Non-clinical)', description: 'Total daily assistance for long recovery or progressive illness, when no invasive medical procedures are required.' },
   { icon: '🕊️', title: 'Palliative Presence', description: 'Support focused on dignity and quality of life without clinical interventions.' },
-  { icon: '🤝’', title: 'Short-Term Weakness / Post-Viral', description: 'Temporary daily living help after fever, viral infections or fatigue, until adults return to normal energy levels.' },
-  { icon: '🌍', title: 'NRI Families Arranging Care', description: 'Trusted daily support for loved ones while you live abroad. Real-time WhatsApp updates for peace of mind.' },
+  { icon: '🤝’', title: 'Short-Term Weakness / Post-Viral', description: 'Temporary daily living help after fever, viral infections or fatigue, until adults are back to normal energy levels.' },
+  { icon: '🌍', title: 'NRI Families Arranging Care', description: 'Trusted daily support for loved ones while you live abroad.' },
 ];

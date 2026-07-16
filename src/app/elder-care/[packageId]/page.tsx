@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { BRAND } from '@/lib/constants';
 import {
   ELDER_CARE_PACKAGES,
   getElderCarePackage,
@@ -89,12 +88,12 @@ export default async function ElderCarePackagePage({ params }: PageProps) {
             <h1>{pkg.name}</h1>
             <p>{pkg.tagline}</p>
             <div className="elder-package-hero__actions">
-              <a href={BRAND.phoneHref} className="btn btn--white btn--lg">
-                <SiteIcon name="Phone" size={18} /> Call {BRAND.phone}
-              </a>
-              <a href="#elder-package-form" className="btn btn--outline btn--lg">
+              <a href="#elder-package-form" className="btn btn--white btn--lg">
                 Book This Package <SiteIcon name="Arrow" size={18} />
               </a>
+              {/* <Link href="/contact" className="btn btn--outline btn--lg">
+                Request Assessment
+              </Link> */}
             </div>
             <div className="elder-package-hero__facts">
               <span><SiteIcon name="Check" size={16} /> Verified caregiver</span>
@@ -111,15 +110,15 @@ export default async function ElderCarePackagePage({ params }: PageProps) {
       <section className="section">
         <div className="container elder-detail-grid">
           <div>
-            <span className="section-kicker">Highlights</span>
-            <h2>Why Families Choose {pkg.name}</h2>
+            <span className="section-kicker">Who We Care For</span>
+            <h2>Ideal for Seniors</h2>
             <div className="elder-highlight-list elder-highlight-list--large">
               {pkg.highlights.map((item) => (
                 <div className="elder-highlight-point" key={item.title} style={packageStyle(pkg)}>
                   <SiteIcon name="Check" size={19} />
                   <div>
                     <strong>{item.title}</strong>
-                    <p>{item.description}</p>
+                    {/* <p>{item.description}</p> */}
                   </div>
                 </div>
               ))}
@@ -135,15 +134,15 @@ export default async function ElderCarePackagePage({ params }: PageProps) {
         </div>
       </section>
 
-      <section className="section section--alt">
+      <section className="section section--alt elder-service-scope-section">
         <div className="container">
           <div className="section__header">
-            <span className="section-kicker">Best for</span>
-            <h2>Who This Package Helps Most</h2>
+            <span className="section-kicker">What We Do</span>
+            <h2>Scope of Services</h2>
           </div>
-          <div className="elder-best-for-grid">
+          <div className="elder-service-scope-grid">
             {pkg.bestFor.map((item) => (
-              <div className="elder-best-for-card" key={item} style={packageStyle(pkg)}>
+              <div className="elder-service-scope-card" key={item} style={packageStyle(pkg)}>
                 <SiteIcon name={pkg.icon} size={25} />
                 <p>{item}</p>
               </div>
@@ -156,7 +155,7 @@ export default async function ElderCarePackagePage({ params }: PageProps) {
         <div className="container">
           <div className="section__header">
             <span className="section-kicker">Scope of service</span>
-            <h2>What {pkg.name} Covers</h2>
+            <h2>Add-On Options</h2>
             <p>The package can be adapted after assessment, but this scope shows the core support families can expect.</p>
           </div>
           <div className="elder-scope-grid" style={packageStyle(pkg)}>
@@ -223,9 +222,9 @@ export default async function ElderCarePackagePage({ params }: PageProps) {
           <p>Share your senior&apos;s condition, location, and preferred shift. Our team will confirm the right care plan and next steps.</p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="#elder-package-form" className="btn btn--white btn--lg">Book This Package</a>
-            <a href={BRAND.phoneHref} className="btn btn--outline btn--lg" style={{ color: 'white', borderColor: 'white' }}>
-              <SiteIcon name="Phone" size={18} /> {BRAND.phone}
-            </a>
+            <Link href="/contact" className="btn btn--outline btn--lg" style={{ color: 'white', borderColor: 'white' }}>
+              Request Assessment
+            </Link>
           </div>
         </div>
       </section>

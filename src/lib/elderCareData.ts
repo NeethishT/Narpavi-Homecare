@@ -25,6 +25,7 @@ export interface ElderCareCardItem {
   title: string;
   description: string;
   icon: string;
+  points?: string[];
 }
 
 export interface ElderCareStep {
@@ -56,21 +57,21 @@ export const ELDER_CARE_PACKAGES: ElderCarePackage[] = [
     gradient: 'linear-gradient(135deg, #E55A2B 0%, #FF6B35 52%, #FFF3ED 100%)',
     image: '/images/elder-care/pik-7.png',
     bestFor: [
-      'Seniors who live alone and need daily reassurance',
-      'Mostly independent elders who need light ADL help',
-      'Families who want reliable companionship and daily updates',
+      'Daily Living Support (Light ADL)',
+      'Companionship & Social Engagement',
+      'Safety & Routine Monitoring',
     ],
     highlights: [
       {
-        title: 'Warm daily presence',
+        title: 'Who are emotionally lonely or socially isolated',
         description: 'Conversation, supervised routines, reading, walks, and gentle engagement to reduce loneliness.',
       },
       {
-        title: 'Respectful personal support',
+        title: 'Living alone, or whose families stay far away or are busy with work. ',
         description: 'Bathing reminders, dressing support, grooming help, toileting safety, and meal-time assistance.',
       },
       {
-        title: 'Family peace of mind',
+        title: 'Who are mostly independent but need companionship, light help, and a reassuring presence every day.',
         description: 'Daily WhatsApp updates and quick escalation if mood, appetite, mobility, or vitals change.',
       },
     ],
@@ -100,9 +101,8 @@ export const ELDER_CARE_PACKAGES: ElderCarePackage[] = [
     gradient: 'linear-gradient(135deg, #065E5E 0%, #0A8F8F 52%, #0CB3B3 100%)',
     image: '/images/elder-care/pik-8.png',
     bestFor: [
-      'Elders returning home after hospitalization',
-      'Post-surgery recovery with mobility or wound observation needs',
-      'Families trying to avoid readmission through structured home routines',
+      'With mobility limitations such as post-stroke weakness, advanced arthritis, or frailty who need hands-on help for safe transfers and full daily living support.',
+      'Returning from hospital or surgery — including hip/knee replacement, fracture, cardiac, stroke recovery — needing skilled follow-up and safe rehab.',
     ],
     highlights: [
       {
@@ -144,9 +144,8 @@ export const ELDER_CARE_PACKAGES: ElderCarePackage[] = [
     gradient: 'linear-gradient(135deg, #0A8F8F 0%, #0CB3B3 52%, #0CB3B3 100%)',
     image: '/images/elder-care/pik-9.png',
     bestFor: [
-      'Seniors with diabetes, hypertension, Parkinsons, stroke history, or cardiac concerns',
-      'Families supporting early dementia, Alzheimer related confusion, or memory decline',
-      'Elders who need routine monitoring plus meaningful mental engagement',
+      'With long-term health conditions such as diabetes, hypertension, COPD, heart failure, or kidney disease needing consistent monitoring and lifestyle support.',
+      'With early dementia, Alzheimer’s, or mild cognitive decline needing structured routines, safety, and gentle mental engagement',
     ],
     highlights: [
       {
@@ -188,9 +187,7 @@ export const ELDER_CARE_PACKAGES: ElderCarePackage[] = [
     gradient: 'linear-gradient(135deg, #065E5E 0%, #0A8F8F 54%, #0CB3B3 100%)',
     image: '/images/elder-care/pik-10.png',
     bestFor: [
-      'Bedridden seniors who need total ADL and bedside support',
-      'Palliative comfort, frailty, cancer care, or advanced neurological illness',
-      'Families needing 12-hour or 24-hour caregiver presence with escalation support',
+      'In advanced illness or end-of-life stage, requiring round-the-clock comfort care and family support.',
     ],
     highlights: [
       {
@@ -234,23 +231,65 @@ export const ELDER_CARE_SAFETY_POINTS: ElderCareCardItem[] = [
 ];
 
 export const ELDER_CARE_WHO_NEEDS: ElderCareCardItem[] = [
-  { title: 'Seniors living alone', description: 'Daily support, companionship, safety checks, and emotional reassurance.', icon: 'Senior Living Alone' },
-  { title: 'NRI families', description: 'Reliable local care with routine reporting and quick escalation.', icon: 'NRI Family Updates' },
-  { title: 'Post-hospital elders', description: 'Discharge routines, mobility help, vitals tracking, and recovery observation.', icon: 'Hospital Recovery' },
-  { title: 'Dementia or confusion', description: 'Calm companionship, memory-friendly activities, and safe routine anchoring.', icon: 'Dementia Cognitive Support' },
-  { title: 'Chronic illness', description: 'Medication reminders, diet prompts, vitals logs, and symptom observation.', icon: 'Chronic Medication' },
-  { title: 'Fall-risk seniors', description: 'Transfer support, walking supervision, home safety checks, and repositioning.', icon: 'Fall Prevention Mobility' },
+  { title: 'Seniors Independent / Full Mobility', description: 'Companionship, wellness routines, reminders, and respectful support for independent seniors.', icon: 'Elder Companion' },
+  { title: 'Seniors Living Alone (NRI / Busy Family)', description: 'Reliable local care with routine reporting, companionship, and quick escalation.', icon: 'NRI Family Updates' },
+  { title: 'Seniors with Mobility Challenges', description: 'Transfer support, supervised walking, fall-prevention prompts, and repositioning.', icon: 'Mobility Fall Prevention' },
+  { title: 'Seniors with Chronic Illnesses', description: 'Medication reminders, diet prompts, vitals logs, and symptom observation.', icon: 'Chronic Medication' },
+  { title: 'Seniors in Post-Hospitalization Recovery', description: 'Discharge routines, mobility help, vitals tracking, and recovery observation.', icon: 'Hospital Recovery' },
+  { title: 'Seniors with Cognitive Disorders & Dementia', description: 'Calm companionship, memory-friendly activities, and safe routine anchoring.', icon: 'Dementia Cognitive Support' },
+  { title: 'Seniors in Palliative / End-of-Life Care', description: 'Comfort-focused presence, gentle handling, bedside care, and family support.', icon: 'Comfort Palliative' },
+  { title: 'Seniors admitted in Hospitals, Clinics, Care homes / Communities', description: 'Attender support, care coordination, and family updates across care settings.', icon: 'Hospital Recovery' },
 ];
 
 export const ELDER_CARE_DELIVERABLES: ElderCareCardItem[] = [
-  { title: 'Personal care support', description: 'Bathing, dressing, grooming, toileting, oral care, and respectful hygiene assistance.', icon: 'Personal Care Bath' },
-  { title: 'Mobility assistance', description: 'Safe transfers, supervised walking, fall-prevention prompts, and repositioning support.', icon: 'Mobility Transfer' },
-  { title: 'Nutrition and hydration', description: 'Meal support, feeding assistance, appetite notes, hydration reminders, and diet coordination.', icon: 'Nutrition Hydration' },
-  { title: 'Medication reminders', description: 'Dose-time prompts, missed-dose alerts, medicine stock visibility, and daily logs.', icon: 'Medication Pill' },
-  { title: 'Vital monitoring', description: 'BP, temperature, pulse, SpO2, glucose, and symptom observation when required.', icon: 'Vital Sign Monitoring' },
-  { title: 'Companionship', description: 'Conversation, activities, reassurance, anxiety reduction, and meaningful daily engagement.', icon: 'Companionship Emotional Support' },
-  { title: 'Family updates', description: 'WhatsApp updates, NRI reporting, supervisor notes, and incident escalation.', icon: 'Family Updates Report' },
-  { title: 'Safety checks', description: 'Fall-risk checks, hygiene discipline, bed safety, and home environment observation.', icon: 'Safety Shield' },
+  {
+    title: 'Daily Living Assistance (ADL Support)',
+    description: 'Personal hygiene, mobility support, feeding support, toileting, and incontinence care.',
+    icon: 'Personal Care Bath',
+    points: ['Personal hygiene', 'Mobility support', 'Feeding support', 'Toileting & incontinence care'],
+  },
+  {
+    title: 'Medical & Health Monitoring',
+    description: 'Medication management, vitals monitoring, doctor coordination, chronic disease support, and post-hospital care.',
+    icon: 'Vital Sign Monitoring',
+    points: ['Medication Management', 'Vitals Monitoring', 'Doctor Visits & Coordination', 'Chronic Disease Management', 'Post-Hospitalization Care'],
+  },
+  {
+    title: 'Nutrition, Wellness & Lifestyle',
+    description: 'Personalized diet plans, hydration reminders, special diet support, exercise, and physiotherapy.',
+    icon: 'Nutrition Hydration',
+    points: ['Personalized diet plans', 'Hydration reminders', 'Special diet support', 'Exercise & physiotherapy'],
+  },
+  {
+    title: 'Safety & Risk Management',
+    description: 'Fall prevention, emergency preparedness, wandering monitoring, and incident reporting.',
+    icon: 'Safety Shield',
+    points: ['Fall Prevention', 'Emergency preparedness', 'Monitoring wandering behavior', 'Regular incident reporting'],
+  },
+  {
+    title: 'Emotional & Social Wellbeing',
+    description: 'Companionship, hobbies, family connection, counseling, emotional support, and post-hospital care.',
+    icon: 'Companionship Emotional Support',
+    points: ['Companionship', 'Support for hobbies', 'Family connection', 'Counseling / Emotional support', 'Post-Hospitalization Care'],
+  },
+  {
+    title: 'Specialized Care',
+    description: 'Dementia, Parkinsons, stroke rehabilitation, palliative care, bed sore prevention, and wound care.',
+    icon: 'Comfort Palliative',
+    points: ['Dementia / Alzheimer\'s care', 'Parkinson\'s care', 'Stroke rehabilitation support', 'Palliative & end-of-life care', 'Bed sore prevention & wound care'],
+  },
+  {
+    title: 'Technology & Transparency',
+    description: 'Remote health monitoring, 24x7 emergency helpline, family updates, and fall detection alerts.',
+    icon: 'Transparent Reporting',
+    points: ['Remote health monitoring', '24x7 helpline for emergency support', 'Family app/portal for updates', 'AI-enabled fall detection & alerts'],
+  },
+  {
+    title: 'Family Support Services',
+    description: 'Caregiver training, counseling, respite care, and legal or financial advisory guidance.',
+    icon: 'Family Updates Report',
+    points: ['Caregiver training for family members', 'Counseling for caregiver burnout', 'Respite care', 'Legal & financial advisory guidance'],
+  },
 ];
 
 export const ELDER_CARE_ONBOARDING_STEPS: ElderCareStep[] = [

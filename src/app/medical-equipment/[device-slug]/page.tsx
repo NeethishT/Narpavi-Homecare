@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { BRAND } from '@/lib/constants';
 import { EQUIPMENT_ITEMS, getEquipmentItem, getRelatedEquipment } from '@/lib/equipment';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import CTAForm from '@/components/ui/CTAForm';
@@ -16,7 +15,7 @@ const TRUST_ITEMS = [
 ];
 
 const PROCESS = [
-  { title: 'Call or Enquire', copy: 'Share patient need, prescription details if any, and location.' },
+  { title: 'Send Enquiry', copy: 'Share patient need, prescription details if any, and location.' },
   { title: 'Match the Device', copy: 'We suggest available model options and required accessories.' },
   { title: 'Deliver Home', copy: 'Device is dispatched after cleaning and basic checks.' },
   { title: 'Support After Setup', copy: 'Reach us for refill, replacement, accessory or usage help.' },
@@ -67,11 +66,11 @@ export default async function DeviceDetailPage({ params }: PageProps) {
             </h1>
             <p className="equipment-hero__copy">{data.desc}</p>
             <div className="equipment-hero__actions">
-              <a href={BRAND.phoneHref} className="btn btn--secondary btn--lg">
-                <SiteIcon name="Phone" size={18} /> Call {BRAND.phone}
-              </a>
               <Link href="/contact" className="btn btn--primary btn--lg">
                 Check Availability <SiteIcon name="Arrow" size={18} />
+              </Link>
+              <Link href="/medical-equipment" className="btn btn--secondary btn--lg">
+                View Equipment
               </Link>
             </div>
             <div className="equipment-hero__facts">

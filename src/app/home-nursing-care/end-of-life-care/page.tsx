@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { BRAND } from '@/lib/constants';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import CTAForm from '@/components/ui/CTAForm';
 import SiteIcon from '@/components/ui/SiteIcon';
@@ -28,8 +27,8 @@ export default function EndOfLifeCarePage() {
                 Dedicated non-clinical comfort care and hospice presence to ensure peace, respect, and dignity for your loved ones at home.
               </p>
               <div className="hero__cta-group">
-                <a href={BRAND.phoneHref} className="btn btn--secondary btn--lg"><SiteIcon name="Phone" size={18} /> Call {BRAND.phone}</a>
-                <Link href="/contact" className="btn btn--primary btn--lg">Book Assessment</Link>
+                <Link href="/contact" className="btn btn--secondary btn--lg">Book Assessment</Link>
+                <Link href="/home-nursing-care" className="btn btn--primary btn--lg">Explore Services</Link>
               </div>
             </div>
             <CTAForm title="Book Comfort Assessment" />

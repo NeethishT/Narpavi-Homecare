@@ -1,11 +1,9 @@
-import { MessageCircle, Phone } from 'lucide-react';
-import { BRAND } from '@/lib/constants';
+import { MessageCircle } from 'lucide-react';
 
 export default function FloatingActions() {
   return (
     <div className="floating-actions" aria-label="Quick contact options">
-      <a href={BRAND.phoneHref} className="floating-actions__call"><Phone size={17} /> Call Now</a>
-      <a href={BRAND.whatsapp} target="_blank" rel="noopener" className="floating-actions__whatsapp"><MessageCircle size={17} /> WhatsApp</a>
+      <a href="/contact" className="floating-actions__whatsapp"><MessageCircle size={17} /> Enquire</a>
     </div>
   );
 }

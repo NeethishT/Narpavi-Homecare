@@ -6,6 +6,7 @@ type CareAssessmentPayload = {
   phone?: string;
   phoneFull?: string;
   city?: string;
+  serviceStartDate?: string;
   packageName?: string;
   enquiryFor?: string;
   sourcePath?: string;
@@ -24,6 +25,7 @@ function normalizePayload(payload: CareAssessmentPayload) {
     phone,
     phoneFull: String(payload.phoneFull ?? `${countryCode} ${phone}`).trim(),
     city: String(payload.city ?? '').trim(),
+    serviceStartDate: String(payload.serviceStartDate ?? '').trim(),
     packageName: String(payload.packageName ?? '').trim(),
     enquiryFor: String(payload.enquiryFor ?? '').trim(),
     sourcePath: String(payload.sourcePath ?? '').trim(),

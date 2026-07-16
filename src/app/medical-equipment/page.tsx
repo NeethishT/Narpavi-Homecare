@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { BRAND } from '@/lib/constants';
 import { EQUIPMENT_ITEMS } from '@/lib/equipment';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import CTAForm from '@/components/ui/CTAForm';
@@ -45,11 +44,11 @@ export default function MedicalEquipmentHub() {
               Rent or buy hospital-grade devices for safe home recovery. We help families arrange respiratory support, patient monitoring, hospital cots, mobility aids and bedside care equipment with clean delivery and setup guidance.
             </p>
             <div className="equipment-hero__actions">
-              <a href={BRAND.phoneHref} className="btn btn--secondary btn--lg">
-                <SiteIcon name="Phone" size={18} /> Call {BRAND.phone}
-              </a>
               <Link href="/contact" className="btn btn--primary btn--lg">
                 Request Equipment <SiteIcon name="Arrow" size={18} />
+              </Link>
+              <Link href="#equipment-catalog" className="btn btn--secondary btn--lg">
+                View Catalogue
               </Link>
             </div>
             <div className="equipment-hero__facts">
@@ -121,11 +120,9 @@ export default function MedicalEquipmentHub() {
       <section className="cta-strip">
         <div className="container">
           <h2>Need Equipment Today?</h2>
-          <p>Call Narpavi Homecare and our team will help you pick the correct device, rental duration and delivery plan.</p>
+          <p>Send your requirement and our team will help you pick the correct device, rental duration and delivery plan.</p>
           <div className="equipment-hero__actions equipment-hero__actions--center">
-            <a href={BRAND.phoneHref} className="btn btn--white btn--lg">
-              <SiteIcon name="Phone" size={18} /> {BRAND.phone}
-            </a>
+            <Link href="/contact" className="btn btn--white btn--lg">Request Equipment</Link>
             <Link href="/contact" className="btn btn--outline btn--lg equipment-cta-outline">
               Send Enquiry <SiteIcon name="Arrow" size={18} />
             </Link>

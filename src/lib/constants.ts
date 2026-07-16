@@ -1,11 +1,6 @@
 export const BRAND = {
   name: 'Narpavi Homecare',
   tagline: 'Professional Home Healthcare',
-  phone: '9600002303',
-  phoneFormatted: '+91 96000 02303',
-  phoneHref: 'tel:+919600002303',
-  whatsapp: 'https://wa.me/919600002303',
-  whatsappNumber: '919600002303',
   email: 'info@narpavihomecare.com',
   address: 'Chennai, Tamil Nadu, India',
   url: 'https://www.narpavihomecare.com',

@@ -3,7 +3,6 @@ import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import FloatingActions from '@/components/layout/FloatingActions';
-import WhatsAppChatbot from '@/components/layout/WhatsAppChatbot';
 import PageLoader from '@/components/layout/PageLoader';
 import ScrollEnhancements from '@/components/layout/ScrollEnhancements';
 import StructuredDataScript from '@/components/seo/StructuredDataScript';
@@ -16,7 +15,7 @@ export const metadata: Metadata = {
     default: 'Narpavi Homecare | Professional Home Healthcare Services',
     template: '%s | Narpavi Homecare',
   },
-  description: `Trusted home healthcare. Nurse-supervised basic nursing care, post-surgery recovery, palliative care & caregiver services. Call ${BRAND.phone}.`,
+  description: 'Trusted home healthcare. Nurse-supervised basic nursing care, post-surgery recovery, palliative care & caregiver services.',
   keywords: ['home healthcare chennai', 'nursing care at home', 'basic nursing care', 'home caregiver chennai', 'post surgery care at home'],
   authors: [{ name: 'Narpavi Homecare' }],
   openGraph: {
@@ -48,18 +47,17 @@ const GLOBAL_SCHEMAS = [
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <StructuredDataScript data={GLOBAL_SCHEMAS} />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <Header />
         <main>
           <PageLoader />
           {children}
         </main>
         <Footer />
-        <WhatsAppChatbot />
         <ScrollEnhancements />
         <FloatingActions />
       </body>

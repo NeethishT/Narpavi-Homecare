@@ -4,7 +4,6 @@ import Link from 'next/link';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import BlogArticleLayout from '@/components/blog/BlogArticleLayout';
 import SiteIcon from '@/components/ui/SiteIcon';
-import { BRAND } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Palliative Care at Home â€” Comfort & Dignity for Loved Ones',
@@ -105,10 +104,10 @@ export default function PalliativeCareAtHome() {
 
         <div className="cta-strip" style={{ borderRadius: 'var(--radius-lg)', marginTop: '2rem' }}>
           <h3 style={{ color: 'white', marginBottom: '1rem' }}>Need Palliative Care at Home?</h3>
-          <p style={{ opacity: 0.9 }}>Call {BRAND.phone} or request a palliative care assessment to create a personalised home care plan.</p>
+          <p style={{ opacity: 0.9 }}>Request a palliative care assessment to create a personalised home care plan.</p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', marginTop: '1.5rem' }}>
             <Link href="/contact" className="btn btn--white">Book Care Assessment</Link>
-            <a href={BRAND.phoneHref} className="btn btn--outline" style={{ color: 'white', borderColor: 'white' }}>Call {BRAND.phone}</a>
+            <Link href="/contact" className="btn btn--outline" style={{ color: 'white', borderColor: 'white' }}>Send Enquiry</Link>
           </div>
         </div>
       </BlogArticleLayout>

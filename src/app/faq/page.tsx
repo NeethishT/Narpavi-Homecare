@@ -3,7 +3,6 @@ import { FAQS } from '@/lib/faqs';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import FAQAccordion from '@/components/sections/FAQAccordion';
 import Link from 'next/link';
-import { BRAND } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'FAQs — Basic Nursing Care at Home',
@@ -26,7 +25,7 @@ export default function FAQPage() {
             <p style={{ color: 'var(--text-secondary)', marginBottom: '1rem' }}>Still have questions? We are happy to help.</p>
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link href="/contact" className="btn btn--primary">Book Care Assessment</Link>
-              <a href={BRAND.phoneHref} className="btn btn--outline">Call {BRAND.phone}</a>
+              <Link href="/contact" className="btn btn--outline">Send Enquiry</Link>
             </div>
           </div>
         </div>

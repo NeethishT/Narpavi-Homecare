@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { BRAND } from '@/lib/constants';
 import {
   ADVANCE_NURSING_FRAMEWORK,
   ADVANCE_NURSING_PACKAGE_NAMES,
@@ -64,8 +63,8 @@ export default async function AdvanceNursingPackagePage({ params }: PageProps) {
             <h1>{pkg.name}</h1>
             <p>{pkg.tagline}</p>
             <div className="elder-package-hero__actions">
-              <a href={BRAND.phoneHref} className="btn btn--white btn--lg"><SiteIcon name="Phone" size={18} /> Call {BRAND.phone}</a>
-              <a href="#advance-package-form" className="btn btn--outline btn--lg">Book This Package <SiteIcon name="Arrow" size={18} /></a>
+              <a href="#advance-package-form" className="btn btn--white btn--lg">Book This Package <SiteIcon name="Arrow" size={18} /></a>
+              <Link href="/contact" className="btn btn--outline btn--lg">Request Assessment</Link>
             </div>
           </div>
           <div className="elder-package-hero__media"><Image src={pkg.image} alt={`${pkg.name} Advanced Nursing Care`} fill sizes="(max-width: 992px) 100vw, 40vw" priority /></div>
@@ -77,9 +76,37 @@ export default async function AdvanceNursingPackagePage({ params }: PageProps) {
           <div>
             <span className="section-kicker">Scope of Service</span>
             <h2>What {pkg.name} Includes</h2>
-            <div className="elder-highlight-list elder-highlight-list--large">
+            <div className="elder-highlight-list elder-highlight-list--large" style={{ marginBottom: '2rem' }}>
               {pkg.scope.map((item) => <div className="elder-highlight-point" key={item} style={packageStyle(pkg)}><SiteIcon name="Check" size={19} /><div><strong>{item}</strong></div></div>)}
             </div>
+
+            {pkg.equipment && pkg.equipment.length > 0 && (
+              <div style={{ marginTop: '2rem', borderTop: '1px solid var(--border-color)', paddingTop: '1.5rem' }}>
+                <h3 style={{ fontSize: '1.15rem', marginBottom: '1rem', color: 'var(--package-color)', fontWeight: 600 }}>Equipment Covered</h3>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '0.75rem' }}>
+                  {pkg.equipment.map((item) => (
+                    <div key={item} style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+                      <span style={{ color: 'var(--package-color)', flexShrink: 0, marginTop: '0.15rem' }}><SiteIcon name="Check" size={15} /></span>
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {pkg.upgrades && pkg.upgrades.length > 0 && (
+              <div style={{ marginTop: '2rem', borderTop: '1px solid var(--border-color)', paddingTop: '1.5rem' }}>
+                <h3 style={{ fontSize: '1.15rem', marginBottom: '1rem', color: 'var(--package-color)', fontWeight: 600 }}>Add-ons / Optional Upgrades</h3>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '0.75rem' }}>
+                  {pkg.upgrades.map((item) => (
+                    <div key={item} style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+                      <span style={{ color: 'var(--package-color)', flexShrink: 0, marginTop: '0.15rem' }}><SiteIcon name="Check" size={15} /></span>
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
           <aside className="elder-detail-cta" id="advance-package-form" style={packageStyle(pkg)}><CTAForm title={`Book ${pkg.name}`} packageName={pkg.name} packageOptions={ADVANCE_NURSING_PACKAGE_NAMES} /></aside>
         </div>

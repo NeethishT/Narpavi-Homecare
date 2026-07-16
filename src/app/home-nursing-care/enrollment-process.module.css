@@ -1,0 +1,67 @@
+.scope {
+  position: relative; overflow: hidden;
+  background: radial-gradient(circle at 8% 15%, rgba(0,154,159,.09), transparent 24rem), radial-gradient(circle at 92% 82%, rgba(71,99,184,.08), transparent 25rem), linear-gradient(180deg,#fbffff,#f4fbfb);
+}
+.scope::before {
+  position: absolute; inset: 0; opacity: .42;
+  background-image: radial-gradient(rgba(0,154,159,.16) 1px, transparent 1px);
+  background-size: 28px 28px; content: ''; pointer-events: none;
+}
+.scope > :global(.container) { position: relative; z-index: 1; }
+.scope :global(.section__header) {
+  width: min(100%,960px); margin-inline: auto; padding: clamp(1.4rem,3vw,2rem);
+  border: 1px solid rgba(0,154,159,.14); border-radius: 24px;
+  background: rgba(255,255,255,.86); box-shadow: 0 20px 55px rgba(14,55,75,.08);
+  backdrop-filter: blur(10px);
+}
+.scope :global(.hnc-v2__process-flow) {
+  padding: clamp(1.5rem,3vw,2.25rem); border: 1px solid rgba(0,154,159,.13);
+  border-radius: 30px; background: rgba(255,255,255,.82);
+  box-shadow: 0 24px 70px rgba(15,55,75,.1); backdrop-filter: blur(10px);
+}
+.scope :global(.hnc-v2__process-item) {
+  min-height: 104px; padding: 1.25rem 1.05rem; overflow: hidden;
+  border: 1px solid rgba(0,154,159,.17); border-radius: 20px;
+  box-shadow: 0 14px 32px rgba(20,55,80,.1);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.scope :global(.hnc-v2__process-item)::before {
+  position: absolute; inset: 0 0 auto; height: 5px;
+  background: var(--process-accent,#009a9f); content: '';
+}
+.scope :global(.hnc-v2__process-item)::after {
+  position: absolute; right: -30px; bottom: -38px; width: 100px; height: 100px;
+  border-radius: 50%; background: color-mix(in srgb,var(--process-accent,#009a9f) 12%,transparent); content: '';
+}
+.scope :global(.hnc-v2__process-item):hover {
+  border-color: color-mix(in srgb,var(--process-accent,#009a9f) 42%,transparent);
+  box-shadow: 0 20px 40px rgba(20,55,80,.15); transform: translateY(-4px);
+}
+.scope :global(.hnc-v2__process-item--blue) { --process-accent: #4763b8; background: linear-gradient(145deg,#fff,#eef2ff); }
+.scope :global(.hnc-v2__process-item--yellow) { --process-accent: #ff784b; background: linear-gradient(145deg,#fff,#fff3ea); }
+.scope :global(.hnc-v2__process-item--green) { --process-accent: #3a8e55; background: linear-gradient(145deg,#fff,#edf8ef); }
+.scope :global(.hnc-v2__process-item h4) {
+  position: relative; z-index: 1; color: #0b2638; font-family: inherit;
+  font-size: clamp(.95rem,1.15vw,1.08rem); font-weight: 800; line-height: 1.42;
+}
+.scope :global(.hnc-v2__process-arrow), .scope :global(.hnc-v2__process-down) {
+  background: linear-gradient(90deg,#4763b8,#009a9f);
+  box-shadow: 0 5px 12px rgba(0,120,145,.24);
+}
+.scope :global(.hnc-v2__process-arrow--right)::after { border-left-color: #009a9f; }
+.scope :global(.hnc-v2__process-arrow--left)::after { border-right-color: #4763b8; }
+.scope :global(.hnc-v2__process-down)::after { border-top-color: #009a9f; }
+.scope :global(.hnc-v2__process-footer) {
+  border: 1px solid rgba(0,154,159,.16); border-left: 5px solid #009a9f;
+  border-radius: 18px; background: #fff; box-shadow: 0 14px 34px rgba(15,55,75,.08);
+  font-family: inherit; font-size: .98rem; line-height: 1.7;
+}
+@media (max-width: 900px) {
+  .scope :global(.hnc-v2__process-flow) { padding: 1.25rem; border-radius: 24px; }
+}
+@media (max-width: 560px) {
+  .scope :global(.section__header) { padding: 1.2rem; border-radius: 20px; }
+  .scope :global(.hnc-v2__process-flow) { padding: 1rem; }
+  .scope :global(.hnc-v2__process-item) { min-height: 88px; border-radius: 17px; }
+  .scope :global(.hnc-v2__process-footer), .scope :global(.hnc-v2__process-cta) { width: 100%; }
+}

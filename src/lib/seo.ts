@@ -26,7 +26,6 @@ export function getOrganizationSchema() {
     '@id': `${BRAND.url}#organization`,
     name: BRAND.name,
     url: BRAND.url,
-    telephone: BRAND.phoneHref.replace('tel:', ''),
     email: BRAND.email,
     foundingDate: `${BRAND.foundedYear}`,
     description: 'Professional home healthcare services including basic nursing care, elder care, ICU at home, baby care, and medical equipment support.',
@@ -40,7 +39,6 @@ export function getOrganizationSchema() {
       {
         '@type': 'ContactPoint',
         contactType: 'customer support',
-        telephone: BRAND.phoneHref.replace('tel:', ''),
         email: BRAND.email,
         areaServed: 'Chennai',
         availableLanguage: ['English', 'Tamil'],
@@ -56,7 +54,6 @@ export function getLocalBusinessSchema() {
     '@id': `${BRAND.url}#local-business`,
     name: BRAND.name,
     url: BRAND.url,
-    telephone: BRAND.phoneHref.replace('tel:', ''),
     email: BRAND.email,
     image: `${BRAND.url}/images/logo.png`,
     openingHours: 'Mo-Su 00:00-23:59',
@@ -122,7 +119,6 @@ export function getServiceSchema({ name, description, path, serviceType }: Servi
     availableChannel: {
       '@type': 'ServiceChannel',
       serviceUrl: `${BRAND.url}${path}`,
-      servicePhone: BRAND.phoneHref.replace('tel:', ''),
     },
     audience: {
       '@type': 'PeopleAudience',

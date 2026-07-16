@@ -2,23 +2,23 @@ import type { CSSProperties } from 'react';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { BRAND } from '@/lib/constants';
 import { FAQS } from '@/lib/faqs';
-import { CARE_PACKAGE_NAMES, CARE_PACKAGES, type CarePackage } from '@/lib/packages';
+import { CARE_PACKAGE_NAMES } from '@/lib/packages';
 import { DELIVERABLES } from '@/lib/deliverables';
 import { WHO_WE_CARE_FOR } from '@/lib/whoWeCareFor';
-import { BLOG_POSTS } from '@/lib/blogs';
+import { BASIC_NURSING_CARE_BLOG_POSTS } from '@/lib/blogs';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import StructuredDataScript from '@/components/seo/StructuredDataScript';
 import FAQAccordion from '@/components/sections/FAQAccordion';
+import BasicCarePackageSelector from '@/components/sections/BasicCarePackageSelector';
 import GatedDownloadResources from '@/components/sections/GatedDownloadResources';
 import CTAForm from '@/components/ui/CTAForm';
 import SiteIcon from '@/components/ui/SiteIcon';
 import { getServiceSchema, getWebPageSchema } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Basic Nursing Care at Home - Narpavi Homecare',
-  description: 'Expert basic nursing care services at home. ADL support, vital monitoring, mobility aid and medication reminders with nurse supervision.',
+  title: 'Professional Basic Nursing Care Service at Home in Chennai - Narpavi Homecare',
+  description: 'Comprehensive Basic Nursing Care at Home from Narpavi Homecare for adults under 50 years of age who need non clinical support without invasive nursing procedures.',
   keywords: ['basic nursing care at home', 'home nursing care chennai', 'caregiver at home chennai', 'post surgery care'],
   alternates: { canonical: '/basic-nursing-care' },
 };
@@ -27,19 +27,16 @@ const TRUST_POINTS = [
   { title: 'Verified & Background-Checked Caregivers', detail: 'ID proof and health screening before deployment.', icon: 'Verified caregiver' },
   { title: 'Doctor & Nurse-Led Overseeing', detail: 'Care plans reviewed and supervised by experienced clinicians.', icon: 'Doctor nurse care' },
   { title: 'Hospital Grade Hygiene Protocols', detail: 'WHO hand hygiene, infection control practices and PPE when needed.', icon: 'Infection hygiene' },
-  { title: '24x7 Emergency Escalation', detail: 'On-call nurses and doctors to guide immediate action if health status changes.', icon: 'Emergency escalation' },
+  { title: '24×7 Emergency Escalation', detail: 'On-call nurses & doctors to guide immediate action if health status changes.', icon: 'Emergency escalation' },
   { title: 'Transparent Reporting', detail: 'Daily care logs and instant incident reports for families including NRIs.', icon: 'Digital family report' },
-  { title: 'Personalised Care Plan', detail: 'Care is matched to recovery needs, mobility level and the family routine.', icon: 'Personalized care plan' },
 ];
 
-function packageStyle(pkg: CarePackage) {
-  return { '--package-color': pkg.color, '--package-gradient': pkg.gradient } as CSSProperties;
-}
+const BASIC_CARE_WHO_WE_CARE_FOR = WHO_WE_CARE_FOR.filter((person) => person.title !== 'NRI Families Arranging Care');
 
 export default function BasicNursingCarePage() {
   const schemas = [
-    getWebPageSchema({ title: 'Basic Nursing Care at Home', description: 'Basic Nursing Care at home with ADL support, recovery supervision, hygiene support, vital monitoring, and family updates.', path: '/basic-nursing-care' }),
-    getServiceSchema({ name: 'Basic Nursing Care at Home', description: 'Structured, nurse-supervised basic nursing care for post-surgery recovery, chronic illness support, hygiene, mobility, and monitoring at home.', path: '/basic-nursing-care', serviceType: 'Basic nursing care service' }),
+    getWebPageSchema({ title: 'Professional Basic Nursing Care Service at Home in Chennai', description: 'Comprehensive Basic Nursing Care at Home from Narpavi Homecare for adults under 50 years of age who need non clinical support without invasive nursing procedures.', path: '/basic-nursing-care' }),
+    getServiceSchema({ name: 'Professional Basic Nursing Care Service at Home in Chennai', description: 'Basic Nursing Care from Narpavi Homecare is a structured, safety-focused non clinical support system for adults under 50 years of age.', path: '/basic-nursing-care', serviceType: 'Basic nursing care service' }),
   ];
 
   return (
@@ -51,86 +48,96 @@ export default function BasicNursingCarePage() {
         <section className="baby-hero" id="basic-care-form">
           <div className="container baby-hero__grid">
             <div className="baby-hero__content">
-              <div className="hero__badge"><SiteIcon name="Basic Nursing Care" size={16} /> Professional Home Support</div>
-              <h1>Professional <span>Basic Nursing Care</span> at Home</h1>
-              <p>Structured, safety-focused non-clinical support for adults recovering from illness, living with chronic conditions, or needing reliable assistance with everyday life at home.</p>
-              <div className="baby-hero__proof">
-                <span><SiteIcon name="Check" size={16} /> Nurse-supervised</span>
-                <span><SiteIcon name="Check" size={16} /> Verified caregivers</span>
-                <span><SiteIcon name="Check" size={16} /> Daily family updates</span>
-              </div>
+              <h1>Professional <span>Basic Nursing Care Service</span> at Home in Chennai</h1>
               <div className="baby-hero__actions">
-                <a href="#basic-care-packages" className="btn btn--outline btn--lg">Explore care packages <SiteIcon name="Arrow" size={18} /></a>
+                {/* <a href="#basic-care-form" className="btn btn--outline btn--lg">Book Basic Nursing Care <SiteIcon name="Arrow" size={18} /></a> */}
+                <a href="#basic-care-packages" className="btn btn--outline btn--lg">View Packages <SiteIcon name="Arrow" size={18} /></a>
               </div>
             </div>
-            <div className="baby-hero__visual"><Image src="/images/pik-1.jpeg" alt="Basic Nursing Care support at home" fill sizes="(max-width: 992px) 100vw, 42vw" priority /></div>
-            <CTAForm title="Book Your Basic Nursing Care Assessment" packageOptions={CARE_PACKAGE_NAMES} />
+            <div className="baby-hero__visual"><Image src="/images/pik 7.png" alt="Basic Nursing Care caregiver assisting a patient at home" fill sizes="(max-width: 992px) 100vw, 42vw" priority /></div>
+            <CTAForm title="Book Basic Nursing Care" packageOptions={CARE_PACKAGE_NAMES} />
           </div>
         </section>
 
         <section className="section">
           <div className="container baby-summary">
-            <div className="baby-image-panel"><Image src="/images/pik-2.jpg" alt="Narpavi Basic Nursing Care support" fill sizes="(max-width: 992px) 100vw, 38vw" /></div>
+            <div className="baby-image-panel"><Image src="/images/pik-1.jpeg" alt="Narpavi Basic Nursing Care support" fill sizes="(max-width: 992px) 100vw, 38vw" /></div>
             <div>
-              <span className="section-kicker">Care that supports independence</span>
-              <h2>More than help with daily chores</h2>
-              <p>Basic Nursing Care from Narpavi Homecare is a structured, safety-focused non-clinical support system for adults who are recovering, living with chronic illness, or need reliable home assistance without invasive nursing procedures.</p>
-              <p>Every plan is built to preserve independence, reduce avoidable readmissions and keep families informed in real time.</p>
-              <Link href="#basic-care-form" className="btn btn--primary btn--lg">Book a Care Assessment <SiteIcon name="Arrow" size={18} /></Link>
+              <h2>Comprehensive Basic Nursing Care at Home</h2>
+              <p>Basic Nursing Care from Narpavi Homecare is more than just help with daily chores, it&apos;s a structured, safety-focused non clinical support system for adults under 50 years of age, who are recovering, living with chronic illness, or need reliable home assistance without any invasive nursing procedures.</p>
+              <p>Every plan is built to preserve independence, reduce readmissions and keep families informed in real time.</p>
+              <Link href="#basic-care-form" className="btn btn--primary btn--lg">Book Basic Nursing Care <SiteIcon name="Arrow" size={18} /></Link>
             </div>
           </div>
         </section>
 
-        <section className="section section--alt basic-care-v2__trust">
+        <section className="section basic-care-v2__who basic-care-v2__who-model">
           <div className="container">
-            <div className="section__header">
-              <span className="section-kicker">Safety first</span>
-              <h2>Your loved one&apos;s safety is our priority</h2>
-              <p>Inviting a caregiver into your home requires trust. Our care approach is built around screening, hygiene, clear communication and support when circumstances change.</p>
+            <div className="basic-care-v2__who-model-title"><h2>Who Needs Basic Nursing Care at Home</h2></div>
+            <div className="basic-care-v2__who-model-intro">
+              <div className="basic-care-v2__who-model-copy">
+                <p>
+                  Basic Nursing Care from <strong>Narpavi Homecare</strong> is more than just help with daily chores, it&apos;s a <strong>structured, safety-focused non clinical support system</strong> for adults under 50 years of age, who are recovering, living with chronic illness, or need reliable home assistance without any invasive nursing procedures. Every plan is built to <strong>preserve independence, reduce readmissions and keep families in India / NRI families informed in real time.</strong>
+                </p>
+              </div>
+              <div className="basic-care-v2__who-model-image">
+                <Image src="/images/basic-nursing-care-hero-v2.png" alt="Basic Nursing Care support for recovery and mobility at home" fill sizes="(max-width: 768px) 100vw, 240px" />
+              </div>
+            </div>
+            <div className="basic-care-v2__who-model-grid">
+              {BASIC_CARE_WHO_WE_CARE_FOR.map((person) => (
+                <article className="basic-care-v2__who-model-card" key={person.title}>
+                  <span className="basic-care-v2__who-model-icon"><SiteIcon name={person.title} size={21} /></span>
+                  <h3>{person.title}</h3>
+                </article>
+              ))}
+            </div>
+            <div className="basic-care-v2__who-model-action">
+              <Link href="#basic-care-form" className="btn btn--primary btn--lg">Book Basic Nursing Care</Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="section section--alt basic-care-v2__deliverables basic-care-v2__deliverables-model">
+          <div className="container">
+            <div className="basic-care-v2__deliverables-model-shell">
+              <div className="basic-care-v2__deliverables-model-title"><h2>Comprehensive Basic Nursing Care Deliverables</h2></div>
+              <div className="basic-care-v2__deliverables-model-grid">
+                {DELIVERABLES.map((item) => (
+                  <article className="basic-care-v2__deliverables-model-card" key={item.title}>
+                    <span className="basic-care-v2__deliverables-model-icon"><SiteIcon name={item.title} size={22} /></span>
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                  </article>
+                ))}
+              </div>
+              <p className="basic-care-v2__deliverables-model-note">Peace of mind comes from knowing your loved one is cared for by trained professionals who follow proven healthcare safety standards &mdash; while keeping you informed every day.</p>
+              <div className="basic-care-v2__deliverables-model-action">
+                <Link href="#basic-care-form" className="btn btn--primary btn--lg">Book Basic Nursing Care</Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section section--alt baby-trust-section basic-care-v2__trust">
+          <div className="container">
+            <div className="section__header basic-care-v2__trust-header">
+              <h2>Your Loved One&apos;s Safety Is Our Priority</h2>
+              <p>
+                At Narpavi Homecare, We understand that inviting a caregiver into your home requires complete trust,<br />
+                so we follow strict protocols to keep adults safe during recovery or long-term support.
+              </p>
             </div>
             <div className="baby-trust-orbit">
               <div className="baby-trust-visual">
                 <span className="baby-trust-visual__ring" aria-hidden="true" />
-                <div className="baby-trust-visual__image"><Image src="/images/pik-3.jpg" alt="Safe and compassionate basic nursing care" fill sizes="(max-width: 640px) 82vw, (max-width: 992px) 420px, 350px" /></div>
+                <div className="baby-trust-visual__image"><Image src="/images/pik-2.jpg" alt="Safe and compassionate basic nursing care" fill sizes="(max-width: 640px) 82vw, (max-width: 992px) 420px, 350px" /></div>
                 <div className="baby-trust-visual__badge"><SiteIcon name="Safety shield" size={19} /><span>Safety-led care at home</span></div>
               </div>
               {TRUST_POINTS.map((item, index) => (
                 <article className={`baby-trust-card baby-trust-card--${index + 1}`} key={item.title} style={{ '--baby-trust-order': index } as CSSProperties}>
                   <div className="baby-trust-card__icon"><SiteIcon name={item.icon} size={22} /></div>
-                  <div><span className="baby-trust-card__eyebrow">Trust {String(index + 1).padStart(2, '0')}</span><h3>{item.title}</h3><p>{item.detail}</p></div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="section basic-care-v2__who">
-          <div className="container">
-            <div className="section__header"><span className="section-kicker">Who we care for</span><h2>Support for recovery, routine & mobility needs</h2><p>Our caregivers help adults and families navigate everyday care needs with dignity and a dependable routine.</p></div>
-            <div className="basic-care-v2__who-grid">
-              {WHO_WE_CARE_FOR.map((person, index) => (
-                <article className="basic-care-v2__who-card" key={person.title} style={{ '--care-card-order': index } as CSSProperties}>
-                  <div className="basic-care-v2__who-top">
-                    <span className="basic-care-v2__who-icon"><SiteIcon name={person.title} size={24} /></span>
-                    <span className="basic-care-v2__who-number">{String(index + 1).padStart(2, '0')}</span>
-                  </div>
-                  <span className="basic-care-v2__who-label">Care need</span>
-                  <h3>{person.title}</h3>
-                  <p>{person.description}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="section section--alt basic-care-v2__deliverables">
-          <div className="container baby-deliverables">
-            <div className="section__header baby-deliverables__header"><span className="section-kicker">Comprehensive support</span><h2>Basic Nursing Care deliverables</h2><p>From personal care and mobility support to vital checks and family communication, every visit follows a simple, visible care routine.</p></div>
-            <div className="basic-care-v2__deliverables-grid">
-              {DELIVERABLES.map((item, index) => (
-                <article className="basic-care-v2__deliverable" key={item.title} style={{ '--deliverable-order': index } as CSSProperties}>
-                  <div className="basic-care-v2__deliverable-top"><span className="basic-care-v2__deliverable-icon"><SiteIcon name={item.title} size={23} /></span><span className="basic-care-v2__deliverable-number">{String(index + 1).padStart(2, '0')}</span></div>
-                  <div><span className="basic-care-v2__deliverable-label">Care essential</span><h3>{item.title}</h3><p>{item.description}</p></div>
+                  <div><h3>{item.title}</h3><p>{item.detail}</p></div>
                 </article>
               ))}
             </div>
@@ -139,25 +146,18 @@ export default function BasicNursingCarePage() {
 
         <section className="section" id="basic-care-packages">
           <div className="container">
-            <div className="section__header"><span className="section-kicker">Care packages</span><h2>Packages designed for every recovery & mobility need</h2><p>Choose the plan that best fits your loved one&apos;s health stage, mobility level and everyday support requirement.</p></div>
-            <div className="elder-packages-layout">
-              <aside className="elder-sidebar" aria-label="Basic Nursing Care package navigation">
-                <h3>Packages</h3>
-                {CARE_PACKAGES.map((pkg) => <a href={`#package-${pkg.id}`} className="elder-sidebar__link" key={pkg.id} style={packageStyle(pkg)}><span><SiteIcon name={pkg.icon} size={19} /></span><strong>{pkg.name}</strong><small>{pkg.tagline}</small></a>)}
-              </aside>
-              <div className="elder-package-list">
-                {CARE_PACKAGES.map((pkg) => (
-                  <article className="elder-package-card" id={`package-${pkg.id}`} key={pkg.id} style={packageStyle(pkg)}>
-                    <div className="elder-package-card__header"><div><div className="elder-package-card__icon"><SiteIcon name={pkg.icon} size={24} /></div><h3>{pkg.name}</h3><p>{pkg.tagline}</p></div><Link href={pkg.href} className="btn btn--white btn--sm">View Details <SiteIcon name="Arrow" size={16} /></Link></div>
-                    <div className="elder-package-card__body"><div className="elder-package-card__media"><Image src={pkg.image} alt={`${pkg.name} Basic Nursing Care package`} fill sizes="(max-width: 992px) 100vw, 28vw" /></div><div><h4>Best for</h4><div className="elder-tag-list">{pkg.bestFor.map((item) => <span key={item}>{item}</span>)}</div><div className="elder-highlight-list">{pkg.highlights.map((item) => <div className="elder-highlight-point" key={item.title}><SiteIcon name="Check" size={18} /><div><strong>{item.title}</strong><p>{item.description}</p></div></div>)}</div><p className="elder-package-card__cue"><strong>Care-plan note:</strong> {pkg.costCue}</p><div className="elder-package-card__actions"><Link href={pkg.href} className="btn btn--outline btn--sm">Explore Package</Link><Link href={`${pkg.href}#basic-package-form`} className="btn btn--primary btn--sm">Book Now</Link></div></div></div>
-                  </article>
-                ))}
-              </div>
+            <div className="section__header basic-care-v2__packages-header">
+              <h2>Packages Designed for Every Recovery & Mobility Need</h2>
+              <p>
+                We offer four Basic Nursing Care plans to match each person&apos;s mobility level and support requirement.<br />
+                Choose the care plan that best fits your loved one&apos;s health stage and independence level or ask our team to help you select the right option.
+              </p>
             </div>
+            <BasicCarePackageSelector />
           </div>
         </section>
 
-        <section className="section section--alt" id="basic-care-faq"><div className="container"><div className="section__header"><span className="section-kicker">FAQs</span><h2>Frequently asked questions</h2><p>Everything families need to know about arranging Basic Nursing Care at home.</p></div><FAQAccordion faqs={FAQS} /></div></section>
+        <section className="section section--alt" id="basic-care-faq"><div className="container"><div className="section__header"><h2>FAQs</h2></div><FAQAccordion faqs={FAQS} /></div></section>
 
         <section className="section basic-care-v2__blogs" id="basic-care-blogs">
           <div className="container">
@@ -165,21 +165,22 @@ export default function BasicNursingCarePage() {
               heading="Blogs & Download Free Basic Nursing Care Guide"
               intro={(
                 <>
-                  <p>We believe informed families make better care decisions. Our guide and expert articles help you compare care levels, understand safety standards, and prepare for dependable support at home.</p>
-                  <p>It&apos;s a <strong>must-have resource</strong> for families considering Basic Nursing Care.</p>
+                  <p>We believe informed families make better care decisions. That&apos;s why Narpavi Homecare provides guides, expert tips and practical advice for anyone considering Basic Patient Care at home.</p>
+                  <p>Read, download, and share these resources to feel confident about arranging safe, comfortable home care.</p>
                 </>
               )}
               image="/images/pik-11.png"
               imageAlt="Basic Nursing Care planning guide"
               modalDescription="Fill these details to download the Basic Nursing Care guide."
               downloadFallbackName="basic-nursing-care-guide.docx"
+              downloadButtonLabel="Download Guide"
               downloads={[
                 {
-                  title: 'How to Choose the Right Basic Nursing Care Plan',
+                  title: 'Download Free Basic Nursing Care Guide',
                   fileUrl: '/downloads/basic-nursing-care/how-to-choose-basic-nursing-care-plan.docx',
                 },
               ]}
-              resources={BLOG_POSTS.map((post) => ({
+              resources={BASIC_NURSING_CARE_BLOG_POSTS.map((post) => ({
                 title: post.title,
                 excerpt: post.excerpt,
                 image: post.image,
@@ -189,7 +190,7 @@ export default function BasicNursingCarePage() {
           </div>
         </section>
 
-        <section className="cta-strip baby-final-cta"><div className="container baby-final-cta__grid"><div><h2>Ready to start safe, reliable Basic Nursing Care at home?</h2><p>Tell us about the recovery, mobility or routine support your family needs. We will help you select an appropriate package and plan the next steps.</p><div className="cta-strip__badges"><span className="cta-strip__badge"><SiteIcon name="Check" size={16} /> Fast onboarding</span><span className="cta-strip__badge"><SiteIcon name="Check" size={16} /> Verified caregivers</span><span className="cta-strip__badge"><SiteIcon name="Check" size={16} /> Family updates</span></div></div><CTAForm title="Book Basic Nursing Care Consultation" packageOptions={CARE_PACKAGE_NAMES} /></div></section>
+        <section className="cta-strip baby-final-cta"><div className="container baby-final-cta__grid"><div><h2>Ready to Start Safe, Reliable Basic Nursing Care at Home?</h2><p>Your recovery or daily care doesn&apos;t need to be complicated. Narpavi Homecare makes it easy to begin safe, personalized Basic Nursing Care in Chennai — with trained caregivers, nurse supervision, and real-time updates.</p><p>Book a free expert assessment for Fast onboarding | Verified caregivers | 24×7 emergency support | Transparent pricing</p><div className="cta-strip__badges"><span className="cta-strip__badge"><SiteIcon name="Check" size={16} /> Fast onboarding</span><span className="cta-strip__badge"><SiteIcon name="Check" size={16} /> Verified caregivers</span><span className="cta-strip__badge"><SiteIcon name="Check" size={16} /> 24×7 emergency support</span><span className="cta-strip__badge"><SiteIcon name="Check" size={16} /> Transparent pricing</span></div></div><CTAForm title="Book a free expert assessment" packageOptions={CARE_PACKAGE_NAMES} /></div></section>
       </main>
     </>
   );

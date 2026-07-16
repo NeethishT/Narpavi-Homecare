@@ -12,10 +12,10 @@ import {
   ELDER_CARE_RESOURCES,
   ELDER_CARE_SAFETY_POINTS,
   ELDER_CARE_WHO_NEEDS,
-  type ElderCarePackage,
 } from '@/lib/elderCareData';
 import { getFaqSchema, getItemListSchema, getServiceSchema, getWebPageSchema } from '@/lib/seo';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
+import ElderCarePackageSelector from '@/components/sections/ElderCarePackageSelector';
 import FAQAccordion from '@/components/sections/FAQAccordion';
 import GatedDownloadResources from '@/components/sections/GatedDownloadResources';
 import StructuredDataScript from '@/components/seo/StructuredDataScript';
@@ -28,13 +28,6 @@ export const metadata: Metadata = {
   keywords: ['elder care services chennai', 'senior care at home chennai', 'home care for elderly parents', 'dementia care at home chennai', 'NRI parent care chennai'],
   alternates: { canonical: 'https://www.narpavihomecare.com/elder-care' },
 };
-
-function packageStyle(pkg: ElderCarePackage) {
-  return {
-    '--package-color': pkg.color,
-    '--package-gradient': pkg.gradient,
-  } as CSSProperties;
-}
 
 const ELDER_CARE_PACKAGE_NAMES = ELDER_CARE_PACKAGES.map((pkg) => pkg.name);
 
@@ -63,11 +56,11 @@ export default function ElderCarePage() {
       <section className="elder-main-hero" id="elder-care-hero">
         <div className="container elder-main-hero__grid">
           <div className="elder-main-hero__content">
-            <div className="hero__badge">
+            {/* <div className="hero__badge">
               <SiteIcon name="Elder Care" size={16} /> Trusted Elder Care
-            </div>
+            </div> */}
             <h1 className="hero__title">
-              Professional <span>Elder Care Services</span> at Home
+              Compassionate <span>Elder Care Services</span> at Home
             </h1>
             <p className="hero__subtitle">
               Safe, dignified, and personalized support that helps seniors remain comfortable, connected, and cared for in familiar surroundings.
@@ -87,33 +80,36 @@ export default function ElderCarePage() {
               priority
             />
           </div>
-          <CTAForm title="Book Elder Care Assessment" packageOptions={ELDER_CARE_PACKAGE_NAMES} />
+          <CTAForm title="Book Elder Care" packageOptions={ELDER_CARE_PACKAGE_NAMES} />
         </div>
       </section>
 
       <section className="section" id="elder-summary">
         <div className="container elder-summary-grid">
-          <div className="elder-image-panel">
-            <Image
-              src="/images/elder-care/pik-3.png"
-              alt="Elder care from Narpavi Homecare"
-              fill
-              sizes="(max-width: 992px) 100vw, 42vw"
-              priority
-            />
+          <div className="elder-summary-media">
+            <div className="elder-image-panel">
+              <Image
+                src="/images/elder-care/pik-3.png"
+                alt="Elder care from Narpavi Homecare"
+                fill
+                sizes="(max-width: 992px) 100vw, 42vw"
+                priority
+              />
+            </div>
+            <Link href="#elder-care-booking" className="btn btn--primary btn--lg elder-summary-media__cta">
+              Book Your Elder Care Package<SiteIcon name="Arrow" size={18} />
+            </Link>
           </div>
           <div>
-            <span className="section-kicker">Executive summary</span>
-            <h2>Elder Care from Narpavi Homecare</h2>
+            {/* <span className="section-kicker">Executive summary</span> */}
+            <h2>Safe, Dignified, and Personalized Care for your loved ones</h2>
             <p>
-              Narpavi Homecare provides structured elder care at home for families who want safety, dignity, and dependable daily support without moving their loved one away from familiar surroundings.
+              At Narpavi Homecare, we bring professional Elder Care services to the comfort of your home in Chennai, helping seniors live safely, independently, and with dignity. Whether your loved one is active and needs occasional support, recovering after hospitalization, or requires advanced nursing and palliative care, our team is here with compassion and clinical expertise.
             </p>
             <p>
-              Our care model combines verified caregivers, nurse-led oversight, hygiene protocols, daily reporting, and clear emergency escalation for Chennai families and NRIs caring for parents from a distance.
+              With clear documentation, regular family updates, and emergency-ready protocols, we ensure complete peace of mind for families in Chennai and abroad.Narpavi Homecare stands for safe, trusted, and holistic Elder Care — because every parent and grandparent deserves comfort and dignity at home.
+
             </p>
-            <Link href="#elder-care-booking" className="btn btn--primary btn--lg">
-              Book Your Elder Care Assessment <SiteIcon name="Arrow" size={18} />
-            </Link>
           </div>
         </div>
       </section>
@@ -165,8 +161,8 @@ export default function ElderCarePage() {
         <div className="container elder-orbit-shell">
           <div className="section__header elder-orbit-header">
             <span className="section-kicker">Who needs elder care</span>
-            <h2>Support for Every Senior Care Situation</h2>
-            <p>Care plans adapt to the senior&apos;s independence, recovery needs, health routines, cognition, mobility, and family support.</p>
+            <h2>We Care Senior in all their walk of Life </h2>
+            <p>Every Senior’s needs are Unique & different — that’s why our care plans are personalized for health, mobility, and lifestyle. At Narpavi Homecare, we support Seniors </p>
           </div>
 
           <div className="elder-who-orbit">
@@ -194,9 +190,7 @@ export default function ElderCarePage() {
               >
                 <div className="elder-orbit-card__icon"><SiteIcon name={item.icon} size={22} /></div>
                 <div>
-                  <span className="elder-orbit-card__eyebrow">Support {String(index + 1).padStart(2, '0')}</span>
                   <h3>{item.title}</h3>
-                  <p>{item.description}</p>
                 </div>
               </article>
             ))}
@@ -206,75 +200,24 @@ export default function ElderCarePage() {
       <section className="section" id="elder-packages">
         <div className="container">
           <div className="section__header">
-            <span className="section-kicker">Elder care packages</span>
-            <h2>Choose the Right Level of Support</h2>
-            <p>Four senior-specific packages help families match daily support to independence, recovery, cognitive needs, or full bedside care.</p>
+            {/* <span className="section-kicker">Elder care packages</span> */}
+            <h2>Elder Care Packages</h2>
+            <p className="elder-packages-intro">
+              <span>Every senior’s needs are unique — that’s why we’ve designed flexible, medically guided care packages to match different stages of aging and health.</span>
+              <span>Select a care package that fits your loved one’s lifestyle, mobility, and care requirements.</span>
+            </p>
           </div>
 
-          <div className="elder-packages-layout">
-            <aside className="elder-sidebar" aria-label="Elder care package navigation">
-              <h3>Packages</h3>
-              {ELDER_CARE_PACKAGES.map((pkg) => (
-                <a href={`#package-${pkg.id}`} className="elder-sidebar__link" key={pkg.id} style={packageStyle(pkg)}>
-                  <span><SiteIcon name={pkg.icon} size={19} /></span>
-                  <strong>{pkg.name}</strong>
-                  <small>{pkg.tagline}</small>
-                </a>
-              ))}
-            </aside>
-
-            <div className="elder-package-list">
-              {ELDER_CARE_PACKAGES.map((pkg) => (
-                <article className="elder-package-card" id={`package-${pkg.id}`} key={pkg.id} style={packageStyle(pkg)}>
-                  <div className="elder-package-card__header">
-                    <div>
-                      <div className="elder-package-card__icon"><SiteIcon name={pkg.icon} size={24} /></div>
-                      <h3>{pkg.name}</h3>
-                      <p>{pkg.tagline}</p>
-                    </div>
-                    <Link href={pkg.href} className="btn btn--white btn--sm">
-                      View Full Details <SiteIcon name="Arrow" size={16} />
-                    </Link>
-                  </div>
-                  <div className="elder-package-card__body">
-                    <div className="elder-package-card__media">
-                      <Image src={pkg.image} alt={`${pkg.name} elder care package`} fill sizes="(max-width: 992px) 100vw, 28vw" />
-                    </div>
-                    <div>
-                      <h4>Best For</h4>
-                      <div className="elder-tag-list">
-                        {pkg.bestFor.map((item) => <span key={item}>{item}</span>)}
-                      </div>
-                      <div className="elder-highlight-list">
-                        {pkg.highlights.map((item) => (
-                          <div className="elder-highlight-point" key={item.title}>
-                            <SiteIcon name="Check" size={18} />
-                            <div>
-                              <strong>{item.title}</strong>
-                              <p>{item.description}</p>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                      <div className="elder-package-card__actions">
-                        <Link href={pkg.href} className="btn btn--outline btn--sm">Explore Package</Link>
-                        <Link href={`${pkg.href}#elder-package-form`} className="btn btn--primary btn--sm">Book Now</Link>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
+          <ElderCarePackageSelector />
         </div>
       </section>
 
       <section className="section section--alt elder-deliverables-section" id="elder-deliverables">
         <div className="container elder-orbit-shell">
           <div className="section__header elder-orbit-header">
-            <span className="section-kicker">What is included</span>
+            {/* <span className="section-kicker">What is included</span> */}
             <h2>Comprehensive Elder Care Deliverables</h2>
-            <p>Families receive practical support, visible reporting, and calm routines that protect dignity at home.</p>
+            {/* <p>Families receive practical support, visible reporting, and calm routines that protect dignity at home.</p> */}
           </div>
 
           <div className="elder-deliverables-orbit">
@@ -302,9 +245,14 @@ export default function ElderCarePage() {
               >
                 <div className="elder-orbit-card__icon"><SiteIcon name={item.icon} size={22} /></div>
                 <div>
-                  <span className="elder-orbit-card__eyebrow">Care {String(index + 1).padStart(2, '0')}</span>
                   <h3>{item.title}</h3>
-                  <p>{item.description}</p>
+                  {item.points ? (
+                    <ul className="elder-orbit-card__points">
+                      {item.points.map((point) => <li key={point}>{point}</li>)}
+                    </ul>
+                  ) : (
+                    <p>{item.description}</p>
+                  )}
                 </div>
               </article>
             ))}
@@ -415,7 +363,7 @@ export default function ElderCarePage() {
               <span className="cta-strip__badge"><SiteIcon name="Check" size={16} /> NRI family updates</span>
             </div>
           </div>
-          <CTAForm title="Book Elder Care Assessment" packageOptions={ELDER_CARE_PACKAGE_NAMES} />
+          <CTAForm title="Book Elder Care" packageOptions={ELDER_CARE_PACKAGE_NAMES} />
         </div>
       </section>
     </>

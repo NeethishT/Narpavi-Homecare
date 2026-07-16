@@ -50,7 +50,7 @@ const ABOUT_VALUES = [
   {
     title: 'Innovation',
     description: 'We embrace new technologies and approaches to deliver safer, more efficient home care, enhance patient experiences, and support caregivers.',
-    icon: 'Real-time smartphone',
+    icon: 'Innovation idea',
   },
   {
     title: 'Teamwork',
@@ -61,39 +61,6 @@ const ABOUT_VALUES = [
     title: 'Caregiver Empowerment',
     description: 'We support and uplift caregivers through fair compensation, skill development, and opportunities to grow.',
     icon: 'Caregiver user',
-  },
-];
-
-const MISSION_VISION_DIFFERENCES = [
-  {
-    mission: 'Refers to the means of achieving the goal',
-    missionIcon: 'Mission goal',
-    vision: 'Denotes the overarching goal that the company wants to achieve in the future',
-    visionIcon: 'Vision future goal',
-  },
-  {
-    mission: 'Is focused on the how',
-    missionIcon: 'Innovation idea',
-    vision: 'Is the description of the why',
-    visionIcon: 'Question purpose',
-  },
-  {
-    mission: 'Is to inform the employees',
-    missionIcon: 'Employee report',
-    vision: 'Is to motivate the employees',
-    visionIcon: 'Motivate success',
-  },
-  {
-    mission: 'Is usually bigger than the vision',
-    missionIcon: 'Expand more',
-    vision: 'Is usually smaller',
-    visionIcon: 'Collapse focus',
-  },
-  {
-    mission: 'Is to be used as management tool',
-    missionIcon: 'Caregiver management',
-    vision: 'Not to be used for the daily operation',
-    visionIcon: 'Daily operation report',
   },
 ];
 
@@ -276,64 +243,54 @@ export default function AboutPage() {
           <div className="container">
             <div className="section__header about-v2-section-header">
               <span className="section-kicker">Our purpose</span>
-              <h2>Our Vision and Mission</h2>
-              <p>The purpose behind our home healthcare and wellness solutions for individuals, families, and caregivers.</p>
+              <h2>Our Mission, Vision &amp; Core Values</h2>
+              <p>The purpose, future direction, and values behind our home healthcare and wellness solutions.</p>
             </div>
             <div className="about-v2-purpose__grid">
-              <article className="about-v2-purpose__card about-v2-purpose__card--vision">
-                <div className="about-v2-purpose__top">
-                  <div className="about-v2-purpose__icon"><SiteIcon name="Vision better outcome" size={32} /></div>
-                  <span>01 / Our Vision</span>
-                </div>
-                <h3>Become a global leader in affordable home healthcare and wellness solutions.</h3>
-                <p>
-                  To become a global leader in providing the best affordable home healthcare and wellness solutions to every individual in society.
-                </p>
-                <div className="about-v2-purpose__accent" aria-hidden="true" />
-              </article>
               <article className="about-v2-purpose__card about-v2-purpose__card--mission">
                 <div className="about-v2-purpose__top">
                   <div className="about-v2-purpose__icon"><SiteIcon name="Mission care" size={32} /></div>
-                  <span>02 / Our Mission</span>
+                  <span>01 / Our Mission</span>
                 </div>
-                <h3>Deliver high-quality healthcare at home for every section of society.</h3>
+                <h3>Deliver compassionate, high-quality home healthcare with clinical standards.</h3>
                 <p>
-                  To deliver high-quality healthcare at home through a wide range of services, clinical excellence, advanced process and technology, and continuous innovation. We are committed to affordable, personalized services with compassion that help patients heal at home while uplifting our dedicated caregivers.
+                  We bring nursing, caregiving, equipment coordination, clear processes and family communication together so patients can heal safely at home. Our mission is to make care accessible, compassionate and accountable while supporting caregivers with dignity and growth.
+                </p>
+                <div className="about-v2-purpose__accent" aria-hidden="true" />
+              </article>
+              <article className="about-v2-purpose__card about-v2-purpose__card--vision">
+                <div className="about-v2-purpose__top">
+                  <div className="about-v2-purpose__icon"><SiteIcon name="Vision better outcome" size={32} /></div>
+                  <span>02 / Our Vision</span>
+                </div>
+                <h3>Become a trusted leader in affordable home healthcare and wellness.</h3>
+                <p>
+                  We aim to make reliable home healthcare and wellness support available to every family that needs it. Our vision is to grow as a trusted leader known for affordability, clinical discipline, innovation and human care across communities.
                 </p>
                 <div className="about-v2-purpose__accent" aria-hidden="true" />
               </article>
             </div>
 
-            <div className="about-v2-mission-vision" aria-label="Difference between mission and vision statement">
-              <div className="about-v2-mission-vision__intro">
-                <span className="section-kicker">Mission vs Vision</span>
-                <h3>Difference between Mission &amp; Vision Statement</h3>
+            <div className="about-v2-values__panel">
+              <div className="about-v2-values__intro">
+                <span className="section-kicker">Core values</span>
+                <h3>Values You Can Feel in Everyday Care</h3>
+                <p>These core values shape every care plan, family conversation, caregiving decision, and service relationship.</p>
               </div>
-              <div className="about-v2-mission-vision__board">
-                <div className="about-v2-mission-vision__head about-v2-mission-vision__head--mission">
-                  <div><SiteIcon name="Mission target" size={42} /></div>
-                  <strong>Mission</strong>
-                </div>
-                <div className="about-v2-mission-vision__vs">vs</div>
-                <div className="about-v2-mission-vision__head about-v2-mission-vision__head--vision">
-                  <div><SiteIcon name="Vision eye" size={42} /></div>
-                  <strong>Vision</strong>
-                </div>
-
-                {MISSION_VISION_DIFFERENCES.map((item, index) => (
-                  <div className="about-v2-mission-vision__row" key={item.mission}>
-                    <div className="about-v2-mission-vision__cell about-v2-mission-vision__cell--mission">
-                      <SiteIcon name={item.missionIcon} size={31} />
-                      <p>{item.mission}</p>
+              <div className="about-v2-values__grid">
+                {ABOUT_VALUES.map((value, index) => (
+                  <article
+                    className={`about-v2-value about-v2-value--${index + 1}`}
+                    key={value.title}
+                    style={{ '--about-order': index } as CSSProperties}
+                  >
+                    <div className="about-v2-value__top">
+                      <div className="about-v2-value__icon"><SiteIcon name={value.icon} size={27} /></div>
+                      <span>{String(index + 1).padStart(2, '0')}</span>
                     </div>
-                    <div className="about-v2-mission-vision__marker">
-                      <span>{index + 1}</span>
-                    </div>
-                    <div className="about-v2-mission-vision__cell about-v2-mission-vision__cell--vision">
-                      <SiteIcon name={item.visionIcon} size={31} />
-                      <p>{item.vision}</p>
-                    </div>
-                  </div>
+                    <h3>{value.title}</h3>
+                    <p>{value.description}</p>
+                  </article>
                 ))}
               </div>
             </div>
@@ -363,32 +320,6 @@ export default function AboutPage() {
                   <p>{service.description}</p>
                   <div className="about-v2-service__link">Explore care <SiteIcon name="Arrow" size={17} /></div>
                 </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="section about-v2-values">
-          <div className="container">
-            <div className="section__header about-v2-section-header">
-              <span className="section-kicker">Core values</span>
-              <h2>Values You Can Feel in Everyday Care</h2>
-              <p>These core values shape every care plan, family conversation, caregiving decision, and service relationship.</p>
-            </div>
-            <div className="about-v2-values__grid">
-              {ABOUT_VALUES.map((value, index) => (
-                <article
-                  className={`about-v2-value about-v2-value--${index + 1}`}
-                  key={value.title}
-                  style={{ '--about-order': index } as CSSProperties}
-                >
-                  <div className="about-v2-value__top">
-                    <div className="about-v2-value__icon"><SiteIcon name={value.icon} size={27} /></div>
-                    <span>{String(index + 1).padStart(2, '0')}</span>
-                  </div>
-                  <h3>{value.title}</h3>
-                  <p>{value.description}</p>
-                </article>
               ))}
             </div>
           </div>

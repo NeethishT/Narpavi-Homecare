@@ -116,7 +116,7 @@ export const BABY_CARE_PACKAGES: BabyCarePackage[] = [
   {
     id: 'nanny-angel-care',
     name: 'Nanny Angel Care',
-    tagline: 'Peaceful nights, productive days',
+    tagline: 'Peaceful nights, Productive days',
     summary: 'Gentle newborn and night routine support for families who already have some help but need reliable extra care.',
     image: '/images/baby-care/pik-7.png',
     color: '#0CB3B3',
@@ -355,7 +355,7 @@ export const BABY_CARE_FAQS: FAQ[] = [
   {
     id: 10,
     question: 'How do I book Narpavi Baby Care services?',
-    answer: 'Call our helpline or message us through WhatsApp or the website. We will discuss your needs, recommend the right package, and arrange care at your preferred time.',
+    answer: 'Send an enquiry through the website. We will discuss your needs, recommend the right package, and arrange care at your preferred time.',
   },
 ];
 
@@ -382,25 +382,25 @@ export const BABY_CARE_RESOURCES: BabyCareResource[] = [
   {
     title: 'How to Choose the Right Baby Caregiver',
     excerpt: 'Key checks for training, background verification, hygiene standards, and support backup.',
-    image: '/images/baby-care/pik-12.jpeg',
-    href: '/baby-care#baby-care-blogs',
+    image: '/images/baby-care/blog-baby-caregiver-illustration.png',
+    href: '/blog/how-to-choose-right-baby-caregiver',
   },
   {
     title: 'Night Care for Newborns: Why Parents Need Rest Too',
     excerpt: 'How overnight support protects newborn routines while helping parents recover from exhaustion.',
-    image: '/images/baby-care/pik-13.jpeg',
-    href: '/baby-care#baby-care-blogs',
+    image: '/images/baby-care/blog-night-care-illustration.png',
+    href: '/blog/night-care-for-newborns',
   },
   {
     title: 'Safe Hygiene & Infection Control for Newborns at Home',
     excerpt: 'Simple practices for hand hygiene, feeding safety, cord care, and visitor management.',
-    image: '/images/baby-care/pik-14.jpeg',
-    href: '/baby-care#baby-care-blogs',
+    image: '/images/baby-care/blog-hygiene-control-illustration.png',
+    href: '/blog/safe-hygiene-infection-control-newborns',
   },
   {
     title: 'Twin Baby Care at Home: Real Tips for Double the Joy',
     excerpt: 'Practical feeding, sleep, and support tips for families caring for twins at home.',
-    image: '/images/baby-care/pik-15.jpeg',
-    href: '/baby-care#baby-care-blogs',
+    image: '/images/baby-care/blog-twin-baby-care-illustration.png',
+    href: '/blog/twin-baby-care-at-home',
   },
 ];

@@ -222,3 +222,30 @@ Creating turbopack project {
  GET / 200 in 2.6s (next.js: 17ms, application-code: 2.6s)
  GET / 200 in 2.0s (next.js: 16ms, application-code: 2.0s)
 ✓ Compiled in 76ms
+ GET / 200 in 8.9s (next.js: 4.2s, application-code: 4.7s)
+ GET / 200 in 1593ms (next.js: 35ms, application-code: 1558ms)
+ GET / 200 in 529ms (next.js: 259ms, application-code: 270ms)
+ GET / 200 in 894ms (next.js: 68ms, application-code: 826ms)
+ GET / 200 in 1273ms (next.js: 163ms, application-code: 1110ms)
+✓ Compiled in 3.9s
+ GET / 200 in 9.4s (next.js: 3.3s, application-code: 6.2s)
+ GET / 200 in 2.4s (next.js: 33ms, application-code: 2.4s)
+✓ Compiled in 3s
+ GET / 200 in 4.3s (next.js: 2.3s, application-code: 1991ms)
+✓ Compiled in 981ms
+ GET / 200 in 4.6s (next.js: 1269ms, application-code: 3.3s)
+ GET / 200 in 2.4s (next.js: 115ms, application-code: 2.3s)
+ GET / 200 in 1649ms (next.js: 104ms, application-code: 1545ms)
+✓ Compiled in 3s
+✓ Compiled in 1709ms
+ GET / 200 in 9.5s (next.js: 4.2s, application-code: 5.3s)
+ GET / 200 in 1907ms (next.js: 61ms, application-code: 1846ms)
+ GET / 200 in 999ms (next.js: 73ms, application-code: 925ms)
+✓ Compiled in 8.2s
+ GET / 200 in 3.8s (next.js: 1083ms, application-code: 2.7s)
+ GET / 200 in 1277ms (next.js: 61ms, application-code: 1216ms)
+✓ Compiled in 863ms
+ GET / 200 in 3.1s (next.js: 916ms, application-code: 2.2s)
+ GET / 200 in 1596ms (next.js: 266ms, application-code: 1330ms)
+ GET / 200 in 837ms (next.js: 113ms, application-code: 723ms)
+✓ Compiled in 195ms

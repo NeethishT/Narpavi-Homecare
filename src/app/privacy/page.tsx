@@ -506,7 +506,7 @@ const privacyPolicyBlocks: readonly PolicyBlock[] = [
         "text":  "Grievance Officer Details:"
     },
     {
-        "text":  "Name: D.Sivaguru\nEmail: care@nhlcare.com\nPhone: 9600002303\nAddress:Innova8Millenia, 2nd Floor, East Wing, RNZ, Millenia Tech Park, Campus 1A, OMR, Perunkudi, Chennai 600096"
+        "text":  "Name: D.Sivaguru\nEmail: care@nhlcare.com\nAddress:Innova8Millenia, 2nd Floor, East Wing, RNZ, Millenia Tech Park, Campus 1A, OMR, Perunkudi, Chennai 600096"
     },
     {
         "text":  "We will acknowledge your concern within 48 hours and aim to resolve it within 7 working days, in accordance with the applicable laws of India."
@@ -1290,7 +1290,7 @@ const privacyPolicyBlocks: readonly PolicyBlock[] = [
         "level":  0
     },
     {
-        "text":  "Narpavi Homehealth \u0026 Life Care Pvt Ltd\nEmail: care@nhlcare.com\nPhone: 9600002303\nAddress: Innova8Millenia, 2nd Floor, East Wing, RNZ, Millenia Tech Park, Campus 1A, OMR, Perunkudi, Chennai 600096",
+        "text":  "Narpavi Homehealth \u0026 Life Care Pvt Ltd\nEmail: care@nhlcare.com\nAddress: Innova8Millenia, 2nd Floor, East Wing, RNZ, Millenia Tech Park, Campus 1A, OMR, Perunkudi, Chennai 600096",
         "listStyle":  "disc",
         "level":  0
     },

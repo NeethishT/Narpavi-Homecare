@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { BRAND } from '@/lib/constants';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import CTAForm from '@/components/ui/CTAForm';
 import SiteIcon from '@/components/ui/SiteIcon';
@@ -28,8 +27,8 @@ export default function PatientAssistantCarePage() {
                 Reliable non-clinical support for activities of daily living (ADLs), ensuring safety, comfort, and companionship.
               </p>
               <div className="hero__cta-group">
-                <a href={BRAND.phoneHref} className="btn btn--secondary btn--lg"><SiteIcon name="Phone" size={18} /> Call {BRAND.phone}</a>
-                <Link href="/contact" className="btn btn--primary btn--lg">Book Assessment</Link>
+                <Link href="/contact" className="btn btn--secondary btn--lg">Book Assessment</Link>
+                <Link href="/home-nursing-care" className="btn btn--primary btn--lg">Explore Services</Link>
               </div>
             </div>
             <CTAForm title="Book Assistant Assessment" />

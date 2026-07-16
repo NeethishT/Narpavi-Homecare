@@ -28,6 +28,8 @@ interface GatedDownloadResourcesProps {
   imageAlt?: string;
   modalDescription?: string;
   downloadFallbackName?: string;
+  downloadButtonLabel?: string;
+  blogCardVariant?: 'default' | 'imageOverlay';
 }
 
 export default function GatedDownloadResources({
@@ -46,8 +48,11 @@ export default function GatedDownloadResources({
   imageAlt = 'Elder care educative guide',
   modalDescription = 'Fill these details to download the elder care guide.',
   downloadFallbackName = 'care-guide.docx',
+  downloadButtonLabel = 'Download Now',
+  blogCardVariant = 'imageOverlay',
 }: GatedDownloadResourcesProps) {
   const [activeDownload, setActiveDownload] = useState<DownloadResource | null>(null);
+  const isImageOverlay = blogCardVariant === 'imageOverlay';
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -81,21 +86,22 @@ export default function GatedDownloadResources({
             <div className="elder-download-row" key={item.fileUrl}>
               <div className="elder-download-row__title">{item.title}</div>
               <button type="button" className="btn btn--outline" onClick={() => setActiveDownload(item)}>
-                Download Now <Download size={16} />
+                {downloadButtonLabel} <Download size={16} />
               </button>
             </div>
           ))}
         </div>
 
-        <div className="elder-blog-tile-grid">
+        <div className={`elder-blog-tile-grid${isImageOverlay ? ' elder-blog-tile-grid--image-overlay' : ''}`}>
           {resources.map((post) => (
-            <Link key={post.title} href={post.href} className="elder-blog-tile">
+            <Link key={post.title} href={post.href} className={`elder-blog-tile${isImageOverlay ? ' elder-blog-tile--image-overlay' : ''}`}>
               <div className="elder-blog-tile__image">
-                <Image src={post.image} alt={post.title} fill sizes="(max-width: 768px) 100vw, 260px" />
+                <Image src={post.image} alt={post.title} fill sizes="(max-width: 908px) 100vw, 270px" />
               </div>
               <h4>{post.title}</h4>
-              <p>{post.excerpt}</p>
-              <span>Read blog <SiteIcon name="Arrow" size={15} /></span>
+              {!isImageOverlay && (
+                <span>Read blog <SiteIcon name="Arrow" size={15} /></span>
+              )}
             </Link>
           ))}
         </div>

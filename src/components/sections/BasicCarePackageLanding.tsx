@@ -2,7 +2,6 @@ import type { CSSProperties } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { BRAND } from '@/lib/constants';
 import {
   CARE_PACKAGE_NAMES,
   getCarePackage,
@@ -64,12 +63,12 @@ export default function BasicCarePackageLanding({ packageId }: BasicCarePackageL
             <h1>{pkg.name}</h1>
             <p>{pkg.tagline}. {pkg.summary}</p>
             <div className="elder-package-hero__actions">
-              <a href={BRAND.phoneHref} className="btn btn--white btn--lg">
-                <SiteIcon name="Phone" size={18} /> Call {BRAND.phone}
-              </a>
-              <a href="#basic-package-form" className="btn btn--outline btn--lg">
+              <a href="#basic-package-form" className="btn btn--white btn--lg">
                 Book This Package <SiteIcon name="Arrow" size={18} />
               </a>
+              <Link href="/contact" className="btn btn--outline btn--lg">
+                Request Assessment
+              </Link>
             </div>
             <div className="elder-package-hero__facts">
               {pkg.facts.map((fact) => (
@@ -198,9 +197,9 @@ export default function BasicCarePackageLanding({ packageId }: BasicCarePackageL
           <p>Share the patient&apos;s condition, location, and preferred shift. Our team will confirm the right care plan and next steps.</p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="#basic-package-form" className="btn btn--white btn--lg">Book This Package</a>
-            <a href={BRAND.phoneHref} className="btn btn--outline btn--lg" style={{ color: 'white', borderColor: 'white' }}>
-              <SiteIcon name="Phone" size={18} /> {BRAND.phoneFormatted}
-            </a>
+            <Link href="/contact" className="btn btn--outline btn--lg" style={{ color: 'white', borderColor: 'white' }}>
+              Request Assessment
+            </Link>
           </div>
         </div>
       </section>

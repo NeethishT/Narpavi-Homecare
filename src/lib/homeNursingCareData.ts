@@ -65,7 +65,8 @@ export const HNC_SERVICES: { label: string; href: string; image: string; alt: st
 /* ────────────────────────────────────────────
    SECTION 5 — 4 SMART STEPS
    ──────────────────────────────────────────── */
-export const HNC_STEPS_HEADING = 'Choose the Most Suitable Care Package in 4 Smart Steps';
+export const HNC_STEPS_HEADING = 'Smart Steps to Choose the Most Suitable Care Package';
+export const HNC_STEPS_NOTE = 'Still, if you are not able to choose the right care type and care package';
 export const HNC_STEPS: { step: string; title: string; description: string }[] = [
   { step: '01', title: 'Click on to suitable care type required', description: 'Browse through our six nursing service categories and select the one that best matches your care needs.' },
   { step: '02', title: 'Identify matching profile from "Who We Care For" section', description: 'Find the patient profile that closely matches your loved one\u2019s condition and care stage.' },
@@ -83,15 +84,15 @@ export const HNC_TRUST_FOOTER =
   'Trust is not claimed, it is built through every visit, every nurse and every patient outcome';
 
 export const HNC_TRUST_PILLARS: { title: string; image: string; icon: string }[] = [
-  { title: 'Verified & Trained Clinical Team', image: '/images/home-nursing-care/Pik 101.png', icon: 'Verified team' },
-  { title: 'Clinically Governed Care Model', image: '/images/home-nursing-care/Pik 102.png', icon: 'Clinical governance' },
-  { title: 'Customized Care Plan & Defined Deliverables', image: '/images/home-nursing-care/Pik 103.png', icon: 'Care plan' },
-  { title: 'Compassionate, Family Centric Service', image: '/images/home-nursing-care/Pik 104.png', icon: 'Family' },
-  { title: 'Transparent Processes & Ethical Practices', image: '/images/home-nursing-care/Pik 105.png', icon: 'Transparency' },
-  { title: 'Family Communication & NRI Friendly', image: '/images/home-nursing-care/Pik 106.png', icon: 'NRI support' },
-  { title: 'Structured Care Delivery & Defined Outcomes', image: '/images/home-nursing-care/Pik 107.png', icon: 'Structured delivery' },
-  { title: 'Hospital-Grade Quality & Safety Standards', image: '/images/home-nursing-care/Pik 108.png', icon: 'Hospital grade' },
-  { title: 'Affordable & Transparent Pricing', image: '/images/home-nursing-care/Pik 109.png', icon: 'Affordable pricing' },
+  { title: 'Verified & Trained Clinical Team', image: '/images/home-nursing-care/trust-pillars-generated/verified-clinical-team-v2.png', icon: 'Verified team' },
+  { title: 'Clinically Governed Care Model', image: '/images/home-nursing-care/trust-pillars-generated/clinical-governance-v2.png', icon: 'Clinical governance' },
+  { title: 'Customized Care Plan & Defined Deliverables', image: '/images/home-nursing-care/trust-pillars-generated/customized-care-plan-v2.png', icon: 'Care plan' },
+  { title: 'Compassionate, Family Centric Service', image: '/images/home-nursing-care/trust-pillars-generated/family-centric-service-v2.png', icon: 'Family' },
+  { title: 'Transparent Processes & Ethical Practices', image: '/images/home-nursing-care/trust-pillars-generated/ethical-transparent-process-v2.png', icon: 'Transparency' },
+  { title: 'Family Communication & NRI Friendly', image: '/images/home-nursing-care/trust-pillars-generated/nri-family-communication-v2.png', icon: 'NRI support' },
+  { title: 'Structured Care Delivery & Defined Outcomes', image: '/images/home-nursing-care/trust-pillars-generated/structured-care-outcomes-v2.png', icon: 'Structured delivery' },
+  { title: 'Hospital-Grade Quality & Safety Standards', image: '/images/home-nursing-care/trust-pillars-generated/hospital-quality-safety-v2.png', icon: 'Hospital grade' },
+  { title: 'Affordable & Transparent Pricing', image: '/images/home-nursing-care/trust-pillars-generated/affordable-transparent-pricing-v2.png', icon: 'Affordable pricing' },
 ];
 
 /* ────────────────────────────────────────────
@@ -197,11 +198,11 @@ export const HNC_TESTIMONIALS = [
 ];
 
 export const HNC_RESOURCES = [
-  { title: 'Newborn & Mother Care at Home \u2014 NICU-Level Safety and Support', image: '/images/home-nursing-care/Pik 24.png', href: '/home-nursing-care/baby-care' },
-  { title: 'Caring for Elderly Parents at Home \u2014 Mobility, Dementia & End-of-Life Support', image: '/images/home-nursing-care/Pik 23.png', href: '/elder-care' },
+  { title: 'Newborn & Mother Care at Home \u2014 NICU-Level Safety and Support', image: '/images/home-nursing-care/Pik 24.png', href: '/blog/newborn-mother-care-at-home' },
+  { title: 'Caring for Elderly Parents at Home \u2014 Mobility, Dementia & End-of-Life Support', image: '/images/home-nursing-care/Pik 23.png', href: '/blog/elderly-parents-home-nursing-guide' },
   { title: 'Post-Operative Recovery at Home \u2014 A Complete Nursing Care Roadmap', image: '/images/home-nursing-care/Pik 22.png', href: '/blog/post-surgery-recovery-at-home' },
-  { title: 'How to Safely Set Up ICU-Level Care at Home in Chennai', image: '/images/home-nursing-care/Pik 21.png', href: '/home-nursing-care/icu-at-home' },
-  { title: 'Choosing the Right Level of Nursing Care at Home \u2014 Basic, Advanced, Specialty or ICU?', image: '/images/home-nursing-care/Pik 20.png', href: '/resources/how-to-choose-nursing-care-plan' },
+  { title: 'How to Safely Set Up ICU-Level Care at Home in Chennai', image: '/images/home-nursing-care/Pik 21.png', href: '/blog/icu-care-at-home-chennai-setup-guide' },
+  { title: 'Choosing the Right Level of Nursing Care at Home \u2014 Basic, Advanced, Specialty or ICU?', image: '/images/home-nursing-care/Pik 20.png', href: '/blog/choose-right-home-nursing-care-level' },
 ];
 
 /* ────────────────────────────────────────────

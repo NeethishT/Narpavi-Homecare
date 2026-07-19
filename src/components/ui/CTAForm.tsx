@@ -244,6 +244,7 @@ const COUNTRY_CODES = [
 
 interface CTAFormProps {
   title?: string;
+  submitLabel?: string;
   packageName?: string;
   packageOptions?: string[];
   enquiryFor?: string;
@@ -328,6 +329,7 @@ function getMonthDays(date: Date) {
 
 export default function CTAForm({
   title = 'Book Your Care Assessment',
+  submitLabel = 'Book Now',
   packageName,
   packageOptions,
   enquiryFor,
@@ -562,7 +564,7 @@ export default function CTAForm({
         packageName && <input type="hidden" name="packageName" value={packageName} />
       )}
       <button type="submit" className="btn btn--primary" id={`form-submit-${formId}`} disabled={isSubmitting}>
-        {isSubmitting ? 'Submitting...' : 'Book Now'} <ArrowRight size={17} />
+        {isSubmitting ? 'Submitting...' : submitLabel} <ArrowRight size={17} />
       </button>
       {submittedEnquiry && (
         <p className="cta-form__status" role="status" aria-live="polite">

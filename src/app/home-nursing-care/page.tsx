@@ -25,6 +25,7 @@ import {
   HNC_CATALOGUE_FOOTER,
   HNC_SERVICES,
   HNC_STEPS_HEADING,
+  HNC_STEPS_NOTE,
   HNC_STEPS,
   HNC_TRUST_HEADING,
   HNC_TRUST_INTRO,
@@ -136,6 +137,10 @@ const HNC_CAROUSEL_BANNERS = [
   },
 ];
 
+const HNC_BENEFIT_LEFT_ORDER = [0, 2, 4, 1, 3];
+const HNC_BENEFIT_RIGHT_ORDER = [5, 6];
+
+
 export const metadata: Metadata = {
   title: 'Nursing Care at Home in Chennai — Narpavi Homecare',
   description: 'Professional home nursing in Chennai — Basic, Advanced, Specialty & ICU-at-Home care. Trusted by families for post-surgery, elderly, baby, and industrial health support.',
@@ -216,221 +221,9 @@ export default function HomeNursingCareHub() {
         </div>
       </section>
 
+
       {/* ═══════════════════════════════════════════
           SECTION 2: WHAT IS HOME NURSING CARE (SUMMARY LAYOUT)
-          ═══════════════════════════════════════════ */}
-      <section className="section">
-        <div className="container baby-summary">
-          <div className="baby-image-panel">
-            <Image src={HNC_DEFINITION_IMAGE} alt="What is home nursing care" fill style={{ objectFit: 'cover' }} sizes="(max-width: 992px) 100vw, 38vw" />
-          </div>
-          <div>
-            <h2>{HNC_DEFINITION_HEADING}</h2>
-            {HNC_DEFINITION_PARAGRAPHS.map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
-            <Link href="#hnc-cta" className="btn btn--primary btn--lg">Book Home Nursing Care <SiteIcon name="Arrow" size={18} /></Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          SECTION 3: BENEFITS (DELIVERABLES MODEL LAYOUT)
-          ═══════════════════════════════════════════ */}
-      <section className="section section--alt basic-care-v2__deliverables basic-care-v2__deliverables-model" id="hnc-benefits">
-        <div className="container">
-          <div className="basic-care-v2__deliverables-model-shell">
-            <div className="basic-care-v2__deliverables-model-title">
-              <h2>{HNC_BENEFITS_HEADING}</h2>
-            </div>
-            
-            <div className="basic-care-v2__who-model-intro">
-              <div className="basic-care-v2__who-model-copy" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <p style={{ textAlign: 'center', margin: 0 }}>
-                  Healing at home under the care of professional nurses provides critical advantages for patients and families. Here are the key benefits of home-based nursing care.
-                </p>
-              </div>
-              <div className="basic-care-v2__who-model-image">
-                <Image src={HNC_BENEFITS_IMAGE} alt="How home nursing care benefits families" fill sizes="(max-width: 768px) 100vw, 240px" style={{ objectFit: 'cover' }} />
-              </div>
-            </div>
-
-            <div className="basic-care-v2__deliverables-model-grid" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))' }}>
-              {HNC_BENEFITS.map((item, idx) => (
-                <article className="basic-care-v2__deliverables-model-card" key={idx} style={{ display: 'flex', flexDirection: 'column', minHeight: '160px' }}>
-                  <span className="basic-care-v2__deliverables-model-icon">
-                    <SiteIcon name={item.icon || item.title} size={22} />
-                  </span>
-                  <h3 style={{ fontSize: '1.1rem', fontWeight: 600, margin: '0.5rem 0 0.25rem 0' }}>{item.title}</h3>
-                  <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: '1.5' }}>{item.description}</p>
-                </article>
-              ))}
-            </div>
-            
-            <div className="basic-care-v2__deliverables-model-action" style={{ marginTop: '2.5rem' }}>
-              <Link href="#hnc-cta" className="btn btn--primary btn--lg">Book Home Nursing Care</Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          SECTION 4: SERVICE CATALOGUE
-          ═══════════════════════════════════════════ */}
-      <section className="section" id="hnc-catalogue">
-        <div className="container">
-          <div className="section__header">
-            <h2>{HNC_CATALOGUE_HEADING}</h2>
-            <p>{HNC_CATALOGUE_INTRO}</p>
-          </div>
-          <div className="hnc-v2__catalogue-grid">
-            {HNC_SERVICES.map((s, i) => (
-              <Link key={i} href={s.href} className="hnc-v2__catalogue-card" style={{ textDecoration: 'none' }}>
-                <div className="hnc-v2__catalogue-card-img">
-                  <Image src={s.image} alt={s.alt} fill style={{ objectFit: 'cover' }} sizes="(max-width: 640px) 100vw, (max-width: 992px) 50vw, 33vw" />
-                </div>
-                <div className="hnc-v2__catalogue-overlay">
-                  <h3>{s.label}</h3>
-                  <span className="btn">More Details <SiteIcon name="Arrow" size={14} /></span>
-                </div>
-              </Link>
-            ))}
-          </div>
-          <p style={{ textAlign: 'center', color: 'var(--text-secondary)', fontSize: '0.95rem', marginTop: '2rem', lineHeight: 1.7 }}>
-            {HNC_CATALOGUE_FOOTER}
-          </p>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          SECTION 5: 4 SMART STEPS
-          ═══════════════════════════════════════════ */}
-      <section className="section section--alt" id="hnc-steps">
-        <div className="container">
-          <div className="section__header">
-            <h2>{HNC_STEPS_HEADING}</h2>
-          </div>
-          <div className="hnc-v2__steps-grid">
-            {HNC_STEPS.map((s, i) => (
-              <div key={i} className="hnc-v2__step-card">
-                <div className="hnc-v2__step-num">{s.step}</div>
-                <h4>{s.title}</h4>
-                <p>{s.description}</p>
-              </div>
-            ))}
-          </div>
-          <p style={{ textAlign: 'center', marginTop: '2rem' }}>
-            <Link href="/contact" className="btn btn--secondary btn--lg">Book for a Free Expert Consultation</Link>
-          </p>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          SECTION 6: WHY CHOOSE US — TRUST PILLARS
-          ═══════════════════════════════════════════ */}
-      <section className="section" id="hnc-trust">
-        <div className="container">
-          <div className="section__header">
-            <h2>{HNC_TRUST_HEADING}</h2>
-            <p>{HNC_TRUST_INTRO}</p>
-          </div>
-          <div className="basic-care-v2__deliverables-model-grid" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))' }}>
-            {HNC_TRUST_PILLARS.map((t, i) => (
-              <article className="basic-care-v2__deliverables-model-card" key={i} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', minHeight: '120px' }}>
-                <span className="basic-care-v2__deliverables-model-icon">
-                  <SiteIcon name={t.icon || t.title} size={22} />
-                </span>
-                <h3 style={{ fontSize: '1.05rem', fontWeight: 600, margin: '0.5rem 0 0 0' }}>{t.title}</h3>
-              </article>
-            ))}
-          </div>
-          <p style={{ textAlign: 'center', color: 'var(--text-secondary)', fontSize: '1rem', marginTop: '2rem', fontStyle: 'italic', lineHeight: 1.7 }}>
-            {HNC_TRUST_FOOTER}
-          </p>
-          <p style={{ textAlign: 'center', marginTop: '1.5rem' }}>
-            <Link href="/contact" className="btn btn--secondary btn--lg">Book Now for a Free Consultation</Link>
-          </p>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          SECTION 7: WHO WE CARE FOR (WHO MODEL LAYOUT)
-          ═══════════════════════════════════════════ */}
-      <section className="section section--alt basic-care-v2__who basic-care-v2__who-model" id="hnc-audience">
-        <div className="container">
-          <div className="basic-care-v2__who-model-title">
-            <h2>{HNC_AUDIENCE_HEADING}</h2>
-          </div>
-          <div className="basic-care-v2__who-model-intro">
-            <div className="basic-care-v2__who-model-copy">
-              <p>{HNC_AUDIENCE_INTRO}</p>
-            </div>
-            <div className="basic-care-v2__who-model-image">
-              <Image src="/images/home-nursing-care/Pik 13.png" alt="Who we care for at home" fill sizes="(max-width: 768px) 100vw, 240px" style={{ objectFit: 'cover' }} />
-            </div>
-          </div>
-          <div className="basic-care-v2__who-model-grid">
-            {HNC_AUDIENCES.map((person) => (
-              <article className="basic-care-v2__who-model-card" key={person.title} style={{ minHeight: '140px', padding: '1.25rem 1rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                <span className="basic-care-v2__who-model-icon" style={{ marginBottom: '0.5rem' }}><SiteIcon name={person.title} size={21} /></span>
-                <h3 style={{ fontSize: '0.95rem', fontWeight: 'bold', lineHeight: '1.4', margin: '0' }}>{person.title}</h3>
-              </article>
-            ))}
-          </div>
-          <p style={{ textAlign: 'center', color: 'var(--text-secondary)', fontSize: '0.95rem', marginTop: '2rem', lineHeight: 1.7 }}>
-            {HNC_AUDIENCE_FOOTER}
-          </p>
-          <div className="basic-care-v2__who-model-action" style={{ marginTop: '1.5rem' }}>
-            <Link href="/contact" className="btn btn--primary btn--lg">Book Now for a Free Consultation</Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          SECTION 8: DELIVERABLES CATEGORIES (DELIVERABLES MODEL LAYOUT)
-          ═══════════════════════════════════════════ */}
-      <section className="section basic-care-v2__deliverables basic-care-v2__deliverables-model" id="hnc-deliverables">
-        <div className="container">
-          <div className="basic-care-v2__deliverables-model-shell">
-            <div className="basic-care-v2__deliverables-model-title">
-              <h2>{HNC_DELIVERABLES_HEADING}</h2>
-            </div>
-            
-            <div className="basic-care-v2__who-model-intro">
-              <div className="basic-care-v2__who-model-copy" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <p style={{ textAlign: 'center', margin: 0 }}>
-                  {HNC_DELIVERABLES_INTRO}
-                </p>
-              </div>
-              <div className="basic-care-v2__who-model-image">
-                <Image src={HNC_DELIVERABLES_IMAGE} alt="Nursing care deliverables" fill sizes="(max-width: 768px) 100vw, 240px" style={{ objectFit: 'cover' }} />
-              </div>
-            </div>
-
-            <div className="basic-care-v2__deliverables-model-grid" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))' }}>
-              {HNC_DELIVERABLES.map((item, idx) => (
-                <article className="basic-care-v2__deliverables-model-card" key={idx} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', minHeight: '120px' }}>
-                  <span className="basic-care-v2__deliverables-model-icon">
-                    <SiteIcon name={item.icon || item.title} size={22} />
-                  </span>
-                  <h3 style={{ fontSize: '1.05rem', fontWeight: 600, margin: '0.5rem 0 0 0' }}>{item.title}</h3>
-                </article>
-              ))}
-            </div>
-
-            <p className="basic-care-v2__deliverables-model-note" style={{ marginTop: '2.5rem', textAlign: 'center' }}>
-              {HNC_DELIVERABLES_FOOTER}
-            </p>
-            
-            <div className="basic-care-v2__deliverables-model-action" style={{ marginTop: '2rem' }}>
-              <Link href="/contact" className="btn btn--primary btn--lg">Book Home Nursing Care</Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          SECTION 9: COMPREHENSIVE NURSING
           ═══════════════════════════════════════════ */}
       <section className="section section--alt" id="hnc-comprehensive">
         <div className="container">
@@ -460,6 +253,215 @@ export default function HomeNursingCareHub() {
         </div>
       </section>
 
+      <section className="section" id="hnc-catalogue">
+        <div className="container">
+          <div className="section__header">
+            <h2>{HNC_CATALOGUE_HEADING}</h2>
+            <p>{HNC_CATALOGUE_INTRO}</p>
+          </div>
+          <div className="hnc-v2__catalogue-grid">
+            {HNC_SERVICES.map((s, i) => (
+              <Link key={i} href={s.href} className="hnc-v2__catalogue-card" style={{ textDecoration: 'none' }}>
+                <div className="hnc-v2__catalogue-card-img">
+                  <Image src={s.image} alt={s.alt} fill style={{ objectFit: 'cover' }} sizes="(max-width: 640px) 100vw, (max-width: 992px) 50vw, 33vw" />
+                </div>
+                <div className="hnc-v2__catalogue-overlay">
+                  <h3>{s.label}</h3>
+                  <span className="btn">More Details <SiteIcon name="Arrow" size={14} /></span>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <p style={{ textAlign: 'center', color: 'var(--text-secondary)', fontSize: '0.95rem', marginTop: '2rem', lineHeight: 1.7 }}>
+            {HNC_CATALOGUE_FOOTER}
+          </p>
+        </div>
+      </section>
+
+      <section className="section" id="hnc-definition">
+        <div className="container">
+          <div className="hnc-v2__def">
+            <div className="hnc-v2__def-copy">
+              <h2>{HNC_DEFINITION_HEADING}</h2>
+              {HNC_DEFINITION_PARAGRAPHS.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
+            <div className="hnc-v2__def-visual">
+              <Image src={HNC_DEFINITION_IMAGE} alt="What is home nursing care" fill style={{ objectFit: 'cover' }} sizes="(max-width: 992px) 100vw, 38vw" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          SECTION 3: BENEFITS
+          ═══════════════════════════════════════════ */}
+      <section className="section section--alt" id="hnc-benefits">
+        <div className="container">
+          <div className="section__header">
+            <h2>{HNC_BENEFITS_HEADING}</h2>
+          </div>
+          <div className="hnc-v2__benefits-layout">
+            <div className="hnc-v2__benefits-column hnc-v2__benefits-column--primary">
+              {HNC_BENEFIT_LEFT_ORDER.map((itemIndex) => {
+                const item = HNC_BENEFITS[itemIndex];
+                return (
+                  <article className="hnc-v2__benefit-pair" key={item.title}>
+                    <div className="hnc-v2__benefit-label">
+                      <span className="hnc-v2__benefit-icon"><SiteIcon name={item.icon || item.title} size={22} /></span>
+                      <h3>{item.title}</h3>
+                    </div>
+                    <p>{item.description}</p>
+                  </article>
+                );
+              })}
+            </div>
+            <div className="hnc-v2__benefits-column hnc-v2__benefits-column--secondary">
+              <div className="hnc-v2__benefits-visual">
+                <Image src={HNC_BENEFITS_IMAGE} alt="How home nursing care benefits families" fill sizes="(max-width: 768px) 100vw, 40vw" style={{ objectFit: 'cover' }} />
+              </div>
+              {HNC_BENEFIT_RIGHT_ORDER.map((itemIndex) => {
+                const item = HNC_BENEFITS[itemIndex];
+                return (
+                  <article className="hnc-v2__benefit-pair" key={item.title}>
+                    <div className="hnc-v2__benefit-label">
+                      <span className="hnc-v2__benefit-icon"><SiteIcon name={item.icon || item.title} size={22} /></span>
+                      <h3>{item.title}</h3>
+                    </div>
+                    <p>{item.description}</p>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          SECTION 4: SERVICE CATALOGUE
+          ═══════════════════════════════════════════ */}
+      {/* ═══════════════════════════════════════════
+          SECTION 5: 4 SMART STEPS
+          ═══════════════════════════════════════════ */}
+      <section className="section section--alt" id="hnc-steps">
+        <div className="container">
+          <div className="section__header">
+            <h2>{HNC_STEPS_HEADING}</h2>
+          </div>
+          <div className="hnc-v2__steps-grid">
+            {HNC_STEPS.map((s, i) => (
+              <div key={i} className="hnc-v2__step-card">
+                <div className="hnc-v2__step-num">{s.step}</div>
+                <h4>{s.title}</h4>
+                <p>{s.description}</p>
+              </div>
+            ))}
+          </div>
+          <div className="hnc-v2__steps-followup">
+            <p>{HNC_STEPS_NOTE}</p>
+            <div className="hnc-v2__steps-cta">
+              <Link href="/contact" className="btn btn--secondary btn--lg">Book for a Free Expert Consultation</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          SECTION 6: WHY CHOOSE US — TRUST PILLARS
+          ═══════════════════════════════════════════ */}
+      {/* ═══════════════════════════════════════════
+          SECTION 6: WHY CHOOSE US — TRUST PILLARS
+          ═══════════════════════════════════════════ */}
+      <section className="section" id="hnc-trust">
+        <div className="container">
+          <div className="section__header">
+            <h2>{HNC_TRUST_HEADING}</h2>
+            <p>{HNC_TRUST_INTRO}</p>
+          </div>
+          <div className="hnc-v2__trust-grid">
+            {HNC_TRUST_PILLARS.map((t, i) => (
+              <article className="hnc-v2__trust-card" key={i}>
+                <div className="hnc-v2__trust-card-img">
+                  <Image src={t.image} alt={t.title} fill style={{ objectFit: 'cover' }} />
+                </div>
+                <h3>{t.title}</h3>
+              </article>
+            ))}
+          </div>
+          <p className="hnc-v2__trust-footer">
+            {HNC_TRUST_FOOTER}
+          </p>
+          <p className="hnc-v2__trust-cta">
+            <Link href="/contact" className="btn btn--secondary btn--lg">Book Now for a Free Consultation</Link>
+          </p>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          SECTION 7: WHO WE CARE FOR
+          ═══════════════════════════════════════════ */}
+      <section className="section section--alt" id="hnc-audience">
+        <div className="container">
+          <div className="section__header">
+            <h2>{HNC_AUDIENCE_HEADING}</h2>
+            <p>{HNC_AUDIENCE_INTRO}</p>
+          </div>
+          <div className="hnc-v2__audience-board">
+            {[0, 1].map((columnIndex) => (
+              <div className="hnc-v2__audience-column" key={columnIndex}>
+                {HNC_AUDIENCES.filter((_, index) => index % 2 === columnIndex).map((person) => (
+                  <article className="hnc-v2__audience-card" key={person.title}>
+                    <div className="hnc-v2__audience-avatar">
+                      <Image src={person.image} alt={person.alt} fill style={{ objectFit: 'cover' }} />
+                    </div>
+                    <h3>{person.title}</h3>
+                  </article>
+                ))}
+              </div>
+            ))}
+          </div>
+          <p className="hnc-v2__audience-footer">
+            {HNC_AUDIENCE_FOOTER}
+          </p>
+          <div className="hnc-v2__audience-cta">
+            <Link href="/contact" className="btn btn--primary btn--lg">Book Now for a Free Consultation</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          SECTION 8: DELIVERABLES CATEGORIES
+          ═══════════════════════════════════════════ */}
+      <section className="section" id="hnc-deliverables">
+        <div className="container">
+          <div className="section__header">
+            <h2>{HNC_DELIVERABLES_HEADING}</h2>
+            <p>{HNC_DELIVERABLES_INTRO}</p>
+          </div>
+          <div className="hnc-v2__deliverables-layout">
+            {HNC_DELIVERABLES.map((item, idx) => (
+              <article className={`hnc-v2__deliverable-tag hnc-v2__deliverable-tag--${idx + 1}`} key={idx}>
+                  <span className="hnc-v2__deliverable-tag-icon" style={{ width: '40px', height: '40px', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <SiteIcon name={item.icon || item.title} size={20} />
+                  </span>
+                  <h3 style={{ fontSize: '1rem', fontWeight: 700, margin: 0 }}>{item.title}</h3>
+              </article>
+            ))}
+
+            <div className="hnc-v2__deliverables-visual" style={{ position: 'relative', height: '360px', width: '100%' }}>
+              <Image src={HNC_DELIVERABLES_IMAGE} alt="Nursing care deliverables" fill style={{ objectFit: 'cover' }} />
+            </div>
+          </div>
+          <p style={{ textAlign: 'center', color: 'var(--hnc-muted)', fontStyle: 'italic', margin: '2rem 0 0 0' }}>
+            {HNC_DELIVERABLES_FOOTER}
+          </p>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          SECTION 9: COMPREHENSIVE NURSING
+          ═══════════════════════════════════════════ */}
       {/* ═══════════════════════════════════════════
           SECTION 10: ENROLLMENT PROCESS
           ═══════════════════════════════════════════ */}
@@ -473,6 +475,7 @@ export default function HomeNursingCareHub() {
             <div className="hnc-v2__process-row hnc-v2__process-row--forward">
               {HNC_ENROLLMENT_STEPS.slice(0, 4).map((step, index) => (
                 <div className={`hnc-v2__process-item hnc-v2__process-item--${index < 3 ? 'blue' : 'yellow'}`} key={step.title}>
+                  <span className="hnc-v2__process-number">{String(index + 1).padStart(2, '0')}</span>
                   <h4>{step.title}</h4>
                   {index < 3 && <span className="hnc-v2__process-arrow hnc-v2__process-arrow--right" aria-hidden="true" />}
                 </div>
@@ -484,6 +487,7 @@ export default function HomeNursingCareHub() {
             <div className="hnc-v2__process-row hnc-v2__process-row--reverse">
               {HNC_ENROLLMENT_STEPS.slice(4, 8).reverse().map((step, index) => (
                 <div className="hnc-v2__process-item hnc-v2__process-item--yellow" key={step.title}>
+                  <span className="hnc-v2__process-number">{String(8 - index).padStart(2, '0')}</span>
                   <h4>{step.title}</h4>
                   {index < 3 && <span className="hnc-v2__process-arrow hnc-v2__process-arrow--left" aria-hidden="true" />}
                 </div>
@@ -495,6 +499,7 @@ export default function HomeNursingCareHub() {
             <div className="hnc-v2__process-row hnc-v2__process-row--final">
               {HNC_ENROLLMENT_STEPS.slice(8).map((step, index) => (
                 <div className="hnc-v2__process-item hnc-v2__process-item--green" key={step.title}>
+                  <span className="hnc-v2__process-number">{String(index + 9).padStart(2, '0')}</span>
                   <h4>{step.title}</h4>
                   {index === 0 && <span className="hnc-v2__process-arrow hnc-v2__process-arrow--right" aria-hidden="true" />}
                 </div>
@@ -536,7 +541,7 @@ export default function HomeNursingCareHub() {
       <section className="section hnc-v2__testimonials" id="hnc-testimonials">
         <div className="container">
           <div className="section__header">
-            <h2>Testimonials - Families &amp; Partners Who Trust Narpavi Homecare</h2>
+            <h2>Testimonials 11 - Families &amp; Partners Who Trust Narpavi Homecare</h2>
             <p>{HNC_TESTIMONIAL_INTRO}</p>
           </div>
           <div className="hnc-v2__testimonial-grid">
@@ -565,10 +570,63 @@ export default function HomeNursingCareHub() {
                 ))}
               </ul>
             </div>
-            <CTAForm title="Book Your Free Nursing Assessment" />
+            <CTAForm title="Book Your Free Nursing Assessment" submitLabel="Book Now for Free Consultation" />
           </div>
         </div>
       </section>
+
+      {/* ═══════════════════════════════════════════
+          SHIFT TIMINGS SECTION
+          ═══════════════════════════════════════════ */}
+      {false && <section className="section" id="hnc-shifts" style={{ background: '#ffffff' }}>
+        <div className="container">
+          <div className="section__header" style={{ marginBottom: '2.5rem' }}>
+            <h2>Flexible Care Shift Timings</h2>
+            <p>We provide home nursing care on flexible shift schedules tailored to the medical needs and comfort of patients and families.</p>
+          </div>
+          <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
+            <article className="hnc-v2__benefit-card" style={{ padding: '1.75rem', display: 'flex', flexDirection: 'column', gap: '0.75rem', minHeight: '180px' }}>
+              <span className="hnc-v2__benefit-icon" style={{ width: '48px', height: '48px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <SiteIcon name="Day shift" size={24} />
+              </span>
+              <h3 style={{ fontSize: '1.15rem', fontWeight: 700, margin: 0, color: 'var(--hnc-ink)' }}>12-Hour Day Shift</h3>
+              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: '1.5' }}>
+                Usually from 8:00 AM to 8:00 PM. Ideal for daytime rehabilitation, post-surgery recovery, routine medication support, and activity assistance.
+              </p>
+            </article>
+
+            <article className="hnc-v2__benefit-card" style={{ padding: '1.75rem', display: 'flex', flexDirection: 'column', gap: '0.75rem', minHeight: '180px' }}>
+              <span className="hnc-v2__benefit-icon" style={{ width: '48px', height: '48px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <SiteIcon name="Night shift" size={24} />
+              </span>
+              <h3 style={{ fontSize: '1.15rem', fontWeight: 700, margin: 0, color: 'var(--hnc-ink)' }}>12-Hour Night Shift</h3>
+              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: '1.5' }}>
+                Usually from 8:00 PM to 8:00 AM. Best for baby care at night, ICU monitoring, respiratory support, and ensuring patient safety while the family rests.
+              </p>
+            </article>
+
+            <article className="hnc-v2__benefit-card" style={{ padding: '1.75rem', display: 'flex', flexDirection: 'column', gap: '0.75rem', minHeight: '180px' }}>
+              <span className="hnc-v2__benefit-icon" style={{ width: '48px', height: '48px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <SiteIcon name="Schedule" size={24} />
+              </span>
+              <h3 style={{ fontSize: '1.15rem', fontWeight: 700, margin: 0, color: 'var(--hnc-ink)' }}>24-Hour Continuous Care</h3>
+              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: '1.5' }}>
+                Round-the-clock coverage managed by two rotating 12-hour shifts. Essential for critical ICU-at-home, terminal care, or highly dependent bedridden patients.
+              </p>
+            </article>
+
+            <article className="hnc-v2__benefit-card" style={{ padding: '1.75rem', display: 'flex', flexDirection: 'column', gap: '0.75rem', minHeight: '180px' }}>
+              <span className="hnc-v2__benefit-icon" style={{ width: '48px', height: '48px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <SiteIcon name="Clinical" size={24} />
+              </span>
+              <h3 style={{ fontSize: '1.15rem', fontWeight: 700, margin: 0, color: 'var(--hnc-ink)' }}>Timed Procedure Visits</h3>
+              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: '1.5' }}>
+                1 to 2-hour clinical visits for specific medical procedures such as wound dressings, IV infusions, injections, catheter changes, or Ryle&apos;s tube insertion.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>}
 
       {/* ═══════════════════════════════════════════
           SECTION 13: FAQs
@@ -602,22 +660,86 @@ export default function HomeNursingCareHub() {
         </div>
       </section>
 
-      <section className="cta-strip baby-final-cta">
-        <div className="container baby-final-cta__grid">
-          <div>
-            <h2>Ready to Start Safe, Reliable Home Nursing Care?</h2>
-            <p>Your recovery or daily care doesn&apos;t need to be complicated. Narpavi Homecare makes it easy to begin safe, personalized Home Nursing Care in Chennai — with trained caregivers, nurse supervision, and real-time updates.</p>
-            <p>Book a free expert assessment for Fast onboarding | Verified caregivers | 24×7 emergency support | Transparent pricing</p>
-            <div className="cta-strip__badges">
-              <span className="cta-strip__badge"><SiteIcon name="Check" size={16} /> Fast onboarding</span>
-              <span className="cta-strip__badge"><SiteIcon name="Check" size={16} /> Verified caregivers</span>
-              <span className="cta-strip__badge"><SiteIcon name="Check" size={16} /> 24×7 emergency support</span>
-              <span className="cta-strip__badge"><SiteIcon name="Check" size={16} /> Transparent pricing</span>
-            </div>
+      {/* ═══════════════════════════════════════════
+          SERVICE AREA COVERAGE SECTION
+          ═══════════════════════════════════════════ */}
+      {false && <section className="section section--alt" id="hnc-service-areas">
+        <div className="container">
+          <div className="section__header" style={{ marginBottom: '3rem' }}>
+            <h2>Service Area Coverage in Chennai</h2>
+            <p>Narpavi Homecare provides reliable home nursing and healthcare services across Greater Chennai. We serve families and clinical needs in the following primary regions:</p>
           </div>
-          <CTAForm title="Book Your Free Assessment" />
+          <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem' }}>
+            <article className="hnc-v2__trust-card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem', minHeight: '160px' }}>
+              <span className="hnc-v2__benefit-icon" style={{ alignSelf: 'flex-start', width: '40px', height: '40px', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <SiteIcon name="Location" size={20} />
+              </span>
+              <h3 style={{ fontSize: '1.1rem', fontWeight: 700, margin: 0, color: 'var(--hnc-ink)' }}>Central Chennai</h3>
+              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: '1.5' }}>
+                Adyar, T. Nagar, Mylapore, Nungambakkam, Alwarpet, Royapettah, Kilpauk, and surrounding areas.
+                <br />
+                <span style={{ fontSize: '0.82rem', color: 'var(--hnc-teal)', fontWeight: 'bold' }}>Pincodes: 600020, 600017, 600004, 600034, 600018, 600014, 600010</span>
+              </p>
+            </article>
+
+            <article className="hnc-v2__trust-card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem', minHeight: '160px' }}>
+              <span className="hnc-v2__benefit-icon" style={{ alignSelf: 'flex-start', width: '40px', height: '40px', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <SiteIcon name="Location" size={20} />
+              </span>
+              <h3 style={{ fontSize: '1.1rem', fontWeight: 700, margin: 0, color: 'var(--hnc-ink)' }}>South Chennai</h3>
+              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: '1.5' }}>
+                Velachery, Tambaram, Thiruvanmiyur, Sholinganallur, ECR, OMR, Perungudi, Medavakkam.
+                <br />
+                <span style={{ fontSize: '0.82rem', color: 'var(--hnc-teal)', fontWeight: 'bold' }}>Pincodes: 600042, 600045, 600041, 600119, 600096, 600100</span>
+              </p>
+            </article>
+
+            <article className="hnc-v2__trust-card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem', minHeight: '160px' }}>
+              <span className="hnc-v2__benefit-icon" style={{ alignSelf: 'flex-start', width: '40px', height: '40px', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <SiteIcon name="Location" size={20} />
+              </span>
+              <h3 style={{ fontSize: '1.1rem', fontWeight: 700, margin: 0, color: 'var(--hnc-ink)' }}>West Chennai</h3>
+              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: '1.5' }}>
+                Porur, Guindy, Vadapalani, Koyambedu, KK Nagar, Ramapuram, Valasaravakkam.
+                <br />
+                <span style={{ fontSize: '0.82rem', color: 'var(--hnc-teal)', fontWeight: 'bold' }}>Pincodes: 600116, 600032, 600026, 600107, 600078, 600089, 600087</span>
+              </p>
+            </article>
+
+            <article className="hnc-v2__trust-card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem', minHeight: '160px' }}>
+              <span className="hnc-v2__benefit-icon" style={{ alignSelf: 'flex-start', width: '40px', height: '40px', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <SiteIcon name="Location" size={20} />
+              </span>
+              <h3 style={{ fontSize: '1.1rem', fontWeight: 700, margin: 0, color: 'var(--hnc-ink)' }}>North Chennai</h3>
+              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: '1.5' }}>
+                Anna Nagar, Perambur, Sowcarpet, Royapuram, Madhavaram, Tondiarpet.
+                <br />
+                <span style={{ fontSize: '0.82rem', color: 'var(--hnc-teal)', fontWeight: 'bold' }}>Pincodes: 600040, 600011, 600079, 600013, 600060, 600081</span>
+              </p>
+            </article>
+          </div>
         </div>
-      </section>
+      </section>}
+
+      {false && <section className="section" id="hnc-final-cta">
+        <div className="container">
+          <div className="hnc-v2__cta-split" style={{ background: 'linear-gradient(110deg, #073c4a, #008e92 58%, #4763b8)' }}>
+            <div className="hnc-v2__cta-scenarios">
+              <h2 style={{ color: '#ffffff', marginBottom: '1.5rem', fontSize: 'clamp(2rem, 3.5vw, 2.5rem)', fontWeight: 900 }}>Ready to Start Safe, Reliable Home Nursing Care?</h2>
+              <p style={{ color: '#e0f7f6', fontSize: '1.05rem', lineHeight: '1.7', marginBottom: '1.5rem' }}>
+                Your recovery or daily care doesn&apos;t need to be complicated. Narpavi Homecare makes it easy to begin safe, personalized Home Nursing Care in Chennai — with trained caregivers, nurse supervision, and real-time updates.
+              </p>
+              <ul className="hnc-v2__cta-list" style={{ listStyle: 'none', padding: 0, display: 'grid', gap: '0.75rem', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
+                <li style={{ background: 'rgba(255, 255, 255, 0.1)', border: 'none', color: '#fff', padding: '0.75rem 1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}><SiteIcon name="Check" size={16} /> <span style={{ fontWeight: 600 }}>Fast onboarding</span></li>
+                <li style={{ background: 'rgba(255, 255, 255, 0.1)', border: 'none', color: '#fff', padding: '0.75rem 1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}><SiteIcon name="Check" size={16} /> <span style={{ fontWeight: 600 }}>Verified caregivers</span></li>
+                <li style={{ background: 'rgba(255, 255, 255, 0.1)', border: 'none', color: '#fff', padding: '0.75rem 1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}><SiteIcon name="Check" size={16} /> <span style={{ fontWeight: 600 }}>24×7 emergency support</span></li>
+                <li style={{ background: 'rgba(255, 255, 255, 0.1)', border: 'none', color: '#fff', padding: '0.75rem 1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}><SiteIcon name="Check" size={16} /> <span style={{ fontWeight: 600 }}>Transparent pricing</span></li>
+              </ul>
+            </div>
+            <CTAForm title="Book Your Free Assessment" />
+          </div>
+        </div>
+      </section>}
       </main>
     </>
   );

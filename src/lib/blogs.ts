@@ -1,6 +1,7 @@
 import { BABY_CARE_BLOG_POSTS } from '@/lib/babyCareBlogs';
 import { ADVANCE_NURSING_BLOG_POSTS } from '@/lib/advanceNursingCareBlogs';
 import { SPECIALTY_NURSING_BLOG_ARTICLES } from '@/lib/specialtyNursingCareBlogs';
+import { HOME_NURSING_BLOG_ARTICLES } from '@/lib/homeNursingCareBlogs';
 
 export interface BlogPost {
   slug: string;
@@ -13,6 +14,16 @@ export interface BlogPost {
 }
 
 export const SPECIALTY_NURSING_BLOG_POSTS: BlogPost[] = SPECIALTY_NURSING_BLOG_ARTICLES.map(article => ({
+  slug: article.slug,
+  title: article.title,
+  excerpt: article.excerpt,
+  image: article.image,
+  readTime: article.readTime,
+  date: article.date,
+  keywords: article.keywords,
+}));
+
+export const HOME_NURSING_BLOG_POSTS: BlogPost[] = HOME_NURSING_BLOG_ARTICLES.map(article => ({
   slug: article.slug,
   title: article.title,
   excerpt: article.excerpt,
@@ -66,4 +77,5 @@ export const BLOG_POSTS: BlogPost[] = [
   ...ADVANCE_NURSING_BLOG_POSTS,
   ...BABY_CARE_BLOG_POSTS,
   ...SPECIALTY_NURSING_BLOG_POSTS,
+  ...HOME_NURSING_BLOG_POSTS,
 ];

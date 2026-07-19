@@ -8,6 +8,7 @@ import SiteIcon from '@/components/ui/SiteIcon';
 import { BABY_CARE_BLOG_ARTICLES, getBabyCareBlogArticle } from '@/lib/babyCareBlogs';
 import { ADVANCE_NURSING_BLOG_ARTICLES, getAdvanceNursingBlogArticle } from '@/lib/advanceNursingCareBlogs';
 import { SPECIALTY_NURSING_BLOG_ARTICLES, getSpecialtyNursingBlogArticle } from '@/lib/specialtyNursingCareBlogs';
+import { HOME_NURSING_BLOG_ARTICLES, getHomeNursingBlogArticle } from '@/lib/homeNursingCareBlogs';
 
 type BlogSlugPageProps = {
   params: Promise<{ slug: string }>;
@@ -17,10 +18,11 @@ const BLOG_ARTICLES = [
   ...BABY_CARE_BLOG_ARTICLES,
   ...ADVANCE_NURSING_BLOG_ARTICLES,
   ...SPECIALTY_NURSING_BLOG_ARTICLES,
+  ...HOME_NURSING_BLOG_ARTICLES,
 ];
 
 function getBlogArticle(slug: string) {
-  return getBabyCareBlogArticle(slug) ?? getAdvanceNursingBlogArticle(slug) ?? getSpecialtyNursingBlogArticle(slug);
+  return getBabyCareBlogArticle(slug) ?? getAdvanceNursingBlogArticle(slug) ?? getSpecialtyNursingBlogArticle(slug) ?? getHomeNursingBlogArticle(slug);
 }
 
 export function generateStaticParams() {
@@ -51,8 +53,12 @@ export default async function BlogDetailPage({ params }: BlogSlugPageProps) {
     notFound();
   }
 
-  const serviceHref = ('serviceHref' in article ? (article as any).serviceHref : '/baby-care') as string;
-  const serviceLabel = ('serviceLabel' in article ? (article as any).serviceLabel : 'View Baby Care') as string;
+  const serviceHref = 'serviceHref' in article && typeof article.serviceHref === 'string'
+    ? article.serviceHref
+    : '/home-nursing-care';
+  const serviceLabel = 'serviceLabel' in article && typeof article.serviceLabel === 'string'
+    ? article.serviceLabel
+    : 'View Home Nursing Care';
 
   return (
     <>
